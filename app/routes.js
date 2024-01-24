@@ -8,14 +8,72 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 // Add your routes here
 
-module.exports = router
+// GENERIC NEXT PAGE ELEMENT
+router.post('*', function (req, res, next) {
+    console.log(req.body);
+    if (req.body['next-page']) {
+      res.redirect(req.body['next-page']);
+    } else {
+      next();
+    }
+  });
+  
+    // TEST ROUTE RELATIONSHIP INELIGBLE JOURNEY
 
-require('./routes/v1.js')(router);
+    router.post('/relationship-answer1', function(request, response) {
 
-require('./routes/v3.js')(router);
+      var relationship = request.session.data['relationship1']
+      if (relationship == "Child"){
+          response.redirect("/a/over-18")
+      } else {
+          response.redirect("/a/about-the-deceased")
+      }
+  })
+  
+  // TEST ROUTE RELATIONSHIP
 
-require('./routes/v4.js')(router);
+  router.post('/relationship-answer', function(request, response) {
 
-require('./routes/v5.js')(router);
+    var relationship = request.session.data['relationship']
+    if (relationship == "Parent"){
+        response.redirect("/eligibility/over-18")
+    } else {
+        response.redirect("/eligibility/about-the-deceased")
+    }
+})
 
-require('./routes/v6.js')(router);
+  // TEST ROUTE BENFITS YOU
+
+  router.post('/benefits-you-answer', function(request, response) {
+
+    var benefits = request.session.data['benefits']
+    if (benefits == "No"){
+        response.redirect("/eligibility/partner")
+    } else {
+        response.redirect("/eligibility/date-of-funeral")
+    }
+})
+
+  // TEST ROUTE BENFITS PARTNER
+
+  router.post('/benefits-partner-answer', function(request, response) {
+
+    var benefits = request.session.data['benefitspartner']
+    if (benefits == "No"){
+        response.redirect("/eligibility/kick-out-no-qb")
+    } else {
+        response.redirect("/eligibility/about-your-partner")
+    }
+})
+
+  // TEST ROUTE BENFITS IFM
+
+  router.post('/benefits-ifm-answer', function(request, response) {
+
+    var benefits = request.session.data['benefitsifm']
+    if (benefits == "No"){
+        response.redirect("/responsibility/exemption-list-ifm")
+    } else {
+        response.redirect("/responsibility/add-relative")
+    }
+})
