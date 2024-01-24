@@ -1,0 +1,211 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds-from-desktop">
+              <h1 class="govuk-heading-l">Check your answers before sending your application</h1>
+              <h2 class="govuk-heading-m">Personal details</h2>
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Caller
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Responsible for paying
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Name
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Connor Livermore
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Date of birth
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    8 June 1972
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    National Insurance number
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    JM282828B
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> customer reference</span></a>
+                  </dd>
+                </div>
+              </dl>
+              
+              <h2 class="govuk-heading-m">Eligibility</h2>
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Country
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    England
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> previous application number</span></a>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Relationship to the person who died
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Child of the person who died
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence type</span></a>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Qualifying benefit
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Income Support <br> Income-based Jobseeker's Allowance <br> Housing Benefit
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence period</span></a>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Date of funeral
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    31st of January 2024
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence period</span></a>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Funeral in UK
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Yes
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence period</span></a>
+                  </dd>
+                </div>
+              </dl>
+
+              <h2 class="govuk-heading-m">About the person that has died</h2>
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Name
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Tom Livermore
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> previous application number</span></a>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Date of birth
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    7th of August 1952
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence type</span></a>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                  National Insurance number
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    JM808080A
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> home address</span></a>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Date of death
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    11th of January 2024
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence period</span></a>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Main home in UK
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Yes
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence period</span></a>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Surviving partner
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    No
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence period</span></a>
+                  </dd>
+                </div>
+              </dl>
+              <h2 class="govuk-heading-m">[This page would display all answers provided]</h2>
+            </div>
+      </div>
+
+      <p class="govuk-body govuk-!-margin-bottom-4"></p>
+
+      <form action="/index" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

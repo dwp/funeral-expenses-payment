@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/funeral/how-did-you-travel" method="post">
+
+      <h1 class="govuk-heading-l">
+        Travel expenses
+      </h1>
+      <p class="govuk-body">
+        You can claim travel expenses for one journey, either to attend or arrange the funeral.
+      </p>
+      <p class="govuk-body">
+        If you travelled by public transport or taxi you may need to provide receipts.
+      </p>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              Do you want to claim travel expenses for a journey?
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="interviewNeeds" name="interviewNeeds" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="interviewNeeds">
+                  To arrange the funeral
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="interviewNeeds-2" name="interviewNeeds" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="interviewNeeds-2">
+                  To go to the funeral
+                </label>
+              </div>
+              <div class="govuk-radios__divider">or</div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="whereDoYouLive-6" name="whereDoYouLive" type="radio" value="abroad">
+                  <label class="govuk-label govuk-radios__label" for="whereDoYouLive-6">
+                    No
+                  </label>
+                </div>
+            </div>
+          </fieldset>
+          </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
