@@ -1,0 +1,95 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Are you on benefits – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/v2/eligibility/main-home-uk" method="post">
+
+        <h1 class="govuk-heading-l govuk-!-margin-bottom-2">
+          Are you getting, or waiting to hear about, any of these benefits?
+        </h1>
+
+          {{ govukCheckboxes({
+            name: "benefits",
+            values: data[""],
+            fieldset: {
+              legend: {
+                text: "",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              text: "Select all that apply."
+            },
+            items: [
+              {
+                value: "universal Credit",
+                text: "Universal Credit"
+              },
+              {
+                value: "income support",
+                text: "Income Support"
+              },
+              {
+                value: "income-based jobseeker's",
+                text: "Income-based Jobseeker's Allowance"
+              },
+              {
+                value: "income-ralted employment and Support Allowance",
+                text: "Income-related Employment and Support Allowance"
+              },
+              {
+                value: "pension credit",
+                text: "Pension Credit"
+              },
+              {
+                value: "working tax credit",
+                text: "Working Tax Credit including disability or severe disability element"
+              },
+              {
+                value: "child tax credit",
+                text: "Child Tax Credit"
+              },
+              {
+                value: "housing benefit",
+                text: "Housing Benefit"
+              },
+              {
+                value: "support for morgage",
+                text: "Support for Mortgage Interest"
+              },
+              {
+                divider: "or"
+              },
+              {
+                value: "No",
+                text: "No",
+                behaviour: "exclusive"
+              }
+            ]
+          }) }}
+          
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+          
+          </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start claim – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        We’re now going to ask about any money belonging to the person who died
+      </h1>
+
+      <form class="form" action="/v2/a-money/responsibility-financial-affairs" method="post">
+
+        <p class="govuk-body">We’ll ask:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>who is taking responsibility for their financial affairs</li>
+          <li>what money they had</li>
+          <li>if they had any life insurance policies, pensions or funeral plans</li>
+        </ul>
+
+        <p>
+          We ask these questions to see if there is money to pay for any of the funeral.
+        </p>
+
+        <div class="govuk-!-padding-bottom-4"></div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
