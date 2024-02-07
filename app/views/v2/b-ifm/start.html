@@ -1,0 +1,78 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Responsibility – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        We're now going to ask you about any surviving parents or children of the person who died
+      </h1>
+
+      <form class="form" action="/v2/b-ifm/about-a-parent" method="post">
+
+        <p class="govuk-body">For each relative we’ll ask:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>their name</li>
+          <li>if they get any benefits</li>
+          <li>about their relationship to the person who died</li>
+        </ul>
+        <p class="govuk-body">This is to check there is nobody else who can pay for the funeral.</p>
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{{ govukCheckboxes({
+  name: "countries",
+  fieldset: {
+    legend: {
+      text: "Do they have any:",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "Select all that apply."
+  },
+  items: [
+    {
+      value: "france",
+      text: "Surviving parents"
+    },
+    {
+      value: "portugal",
+      text: "Surviving children"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "none",
+      text: "None of these",
+      behaviour: "exclusive"
+    }
+  ]
+}) }}
+
+        <div class="govuk-!-padding-bottom-2"></div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
