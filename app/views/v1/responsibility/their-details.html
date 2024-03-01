@@ -1,0 +1,122 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Relative's details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Relative's details
+      </h1>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="full-name">
+          Full name
+        </label>
+        <input class="govuk-input" id="full-name" name="fullName" type="text" spellcheck="false" autocomplete="name">
+      </div>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+          <legend class="govuk-fieldset__legend">
+            Date of birth
+          </legend>
+          <div class="govuk-date-input" id="passport-issued">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+        name: "relationshiptothepersonwhodied",
+        fieldset: {
+          legend: {
+            text: "What was their relationship to the person who died?"
+          }
+        },
+        items: [
+          {
+            value: "parent",
+            text: "Parent of person who died"
+          },
+          {
+            value: "child",
+            text: "Child of the person who died"
+          }
+        ]
+      }) }}
+        
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend">
+            On the date of death, had their relationship with the person who has died broken down?
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="where1" name="whereDoYouLive" type="radio" value="bob">
+              <label class="govuk-label govuk-radios__label" for="live-2">
+                Yes
+              </label>
+              <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+                We will contact you if we need more information.
+              </div>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="where2" name="whereDoYouLive" type="radio" value="neil">
+              <label class="govuk-label govuk-radios__label" for="live-2">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+        
+
+      <form class="form" action="/v1/responsibility/benefits-ifm" method="post">
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

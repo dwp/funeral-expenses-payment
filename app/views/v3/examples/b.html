@@ -1,0 +1,94 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        How much you could get
+      </h1>
+
+      <h2 class="govuk-heading-m">Example B</h2>
+
+      <p>The person who died was over 18 and lived in Rotherham and wanted to be buried in a family plot in Sheffield.
+      </p>
+
+      <p>The person who's responsible for the funeral lives in Cambridge and needed to travel to Sheffield for the funeral. They would be able to get a total payment of £2182.</p>
+
+      <form class="form" action="/path/of/next/page" method="post">
+
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+           <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Payment</th>
+            <th scope="col" class="govuk-table__header">Amount</th>
+           </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+           <tr class="govuk-table__row">
+            <td><strong>Cremation costs</strong><br>
+            <br>
+            This is the fee charged by the local council for cremation in Glasgow City.</td>
+            <td>£685</td>
+           </tr>
+           <tr>
+            <td><strong>Funeral costs</strong><br>
+            <br>
+            This is a fixed amount of £1,178.75 as the person who died did not have a funeral plan or funeral insurance.</td>
+            <td>£1,178.75</td>
+           </tr>
+           <tr>
+            <td><strong>Travel costs</strong><br>
+            <br>
+            The person responsible for the funeral lived in Aberdeenshire and needed to travel from Aberdeenshire to Glasgow for the funeral.</td>
+            <td>£58</td>
+           </tr>
+           <tr>
+            <td><strong>Transport costs</strong><br>
+            <br>
+            There were no costs to move the person who died over 49.7 miles to the funeral location.</td>
+            <td>£0</td>
+           </tr>
+           <tr>
+            <td><strong>Document costs</strong><br>
+            <br>
+            The person responsible for the funeral did not need to pay for any documents like a copy of the death certificate.</td>
+            <td>£0</td>
+           </tr>
+           <tr>
+            <td><strong>Other costs</strong><br>
+            <br>
+            This is the amount paid for removing a pacemaker.</td>
+            <td>£24</td>
+           </tr>
+           <tr>
+            <td><strong>Deductions</strong><br>
+            <br>
+            The person who died had £250 in private bank accounts, which is accessible to you.</td>
+            <td>-£250</td>
+           </tr>
+           <tr>
+            <td><strong>Total</strong></td>
+            <td><strong>£1,695.75</strong></td>
+           </tr>
+          </tbody>
+         </table>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
