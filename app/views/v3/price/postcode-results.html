@@ -1,0 +1,51 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Search results – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/path/of/next/page" method="post">
+
+      <h1 class="govuk-heading-l">
+        Newcastle Upon Tyne City Council
+      </h1>
+
+      <div class="govuk-inset-text">
+       <p>The amount you may get for a:</p> 
+        <ul class="govuk-list govuk-list--bullet">
+          <li>burial is £1079</li>
+          <li>burial and plot is £2218</li>
+          <li>cremation is £920</li>
+        </ul>
+      </div>
+
+      <p>This was based on the postcode <b>NE1 EH1</b> and the cost is the 1st of April 2023.</p>
+
+      <p>[We may want to include that if the funeral has taken place before April then the amount you'll get will be based on the previous years prices.]</p>
+
+      <p>You can search another postcode to look at the prices in a different local council.</p>
+
+      <p class="govuk-body govuk-!-margin-bottom-6"><a href="#" class="govuk-link">Search again</a></p>
+
+        {{ govukButton({
+          text: "Finish"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,522 @@
+{% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+
+{% block pageTitle %}
+  Start page with step by step template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="text/javascript">
+    var $element = document.querySelector('#step-by-step-navigation')
+    var stepByStepNavigation = new GOVUK.Modules.AppStepNav($element).init()
+  </script>
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="app-step-nav-header">
+    <span class="app-step-nav-header__part-of">Part of</span>
+    <a class="app-step-nav-header__title" href="#">
+      What to do when someone dies: step by step
+    </a>
+  </div>
+{% endblock %}
+
+{% block content %}
+
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Get help with funeral costs (Funeral Expenses Payment)</h1>
+        <div>
+          <a class="gem-c-skip-link govuk-skip-link" href="#guide-contents">Skip to contents of guide</a>
+           <aside class="part-navigation-container" role="complementary">
+              <nav class="govuk-list" aria-label="Pages in this guide" role="navigation" data-module="gem-track-click" data-gem-track-click-module-started="true">
+                 <p class+="govuk-body">Contents</p>
+                 <ol class="govuk-list govuk-list--number">
+                  <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                    <a class="gem-c-contents-list__link govuk-link" data-track-category="contentsClicked" data-track-action="content_item 2" data-track-label="/bereavement-support-payment/what-youll-get" data-track-options="{&quot;dimension29&quot;:&quot;What you'll get&quot;}" href="govuk-eligibility.html">How it works</a>
+          
+                  </li>
+                     <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                       <a class="gem-c-contents-list__link govuk-link" data-track-category="contentsClicked" data-track-action="content_item 2" data-track-label="/bereavement-support-payment/what-youll-get" data-track-options="{&quot;dimension29&quot;:&quot;What you'll get&quot;}" href="govuk-whatyoullget.html">Eligibility</a>
+             
+                     </li>
+                     <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed gem-c-contents-list__list-item--active" aria-current="true">
+                      What you'll get
+             
+                     </li>
+                     <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                       <a class="gem-c-contents-list__link govuk-link" data-track-category="contentsClicked" data-track-action="content_item 3" data-track-label="/bereavement-support-payment/how-to-claim" data-track-options="{&quot;dimension29&quot;:&quot;How to claim&quot;}" href="govuk-howtoclaim.html">How to claim</a>
+             
+                     </li>
+                 </ol>
+                </nav>
+           </aside>
+          </div>
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+        <h1 class="govuk-heading-l govuk-!-padding-top-4">What you'll get</h1>
+        <p class="govuk-body">Your Funeral Expenses Payment will not usually cover all of the costs of a funeral. The average Funeral Expenses Payment is around £1800 compared to the average cost of a Funeral in England and Wales of £3900. 
+        </p>
+        <p class="govuk-body">Funeral Expenses Payment can help pay for some of the costs of the following:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>burial fees for a particular plot</li>
+          <li>cremation fees, including the cost of the doctor’s certificate</li>
+          <li>travel to arrange or go to the funeral</li>
+          <li>the cost of moving the body within the UK, if it’s being moved more than 50 miles</li>
+          <li>death certificates or other documents</li>
+        </ul>
+        
+        <h2 class="govuk-heading-m govuk-!-padding-top-4">What you'll get help with</h2>
+        
+        <h3 class="govuk-heading-s">Burial or Cremation cost</h3>
+        <p class="govuk-body">The payment will usually cover the cost of burial or cremation in the local area where the person who died lived. If this cost is paid for by a funeral plan, you will not get this payment.</p>
+        <p class="govuk-body">We can only work out exactly how much you'll get when we know where the person lived. This is because different locations have different burial and cremation costs.</p>
+        
+        <h3 class="govuk-heading-s">Funeral costs</h3>
+        <p class="govuk-body">You can get up to £1,000 for any other funeral expenses, such as funeral director’s fees, flowers or the coffin. If you’re using a funeral director, you can ask them how much these expenses will be.</p>
+        <p class="govuk-body">If the person who died had a pre-paid funeral plan, you can only get up to £120 to help pay for items not covered by their plan.</p>
+     
+        <h3 class="govuk-heading-s">Your travel costs</h3>
+        <p class="govuk-body">You can get help towards travel costs for one return journey to either the:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>place where you're arranging the funeral</li>
+          <li>funeral location</li>
+        </ul>
+        <p class="govuk-body">This includes travel by bus, train and car. You can sometimes get help towards travel by taxi, boat and plane. It does not include travel in a funeral car.</p>
+     
+        <h2 class="govuk-heading-m govuk-!-padding-top-4">Other costs you may get help with</h2>
+
+        <h3 class="govuk-heading-s">Transport costs to move the person who died</h3>
+        <p class="govuk-body">If you need to move the person who died more than 50 miles, you can get help towards the cost of this.</p>
+        <p class="govuk-body">You'll have to pay for the first 50 miles of any journey. We can only help pay for the travel over 50 miles, as long as the travel is within the UK. Make sure the funeral director puts the full travel distance onto your bill. This includes the distance of any return journeys.</p>
+        <p class="govuk-body">To work out how much you’ll get we will contact your funeral director or use your funeral bill.</p>
+
+        <h2 class="govuk-heading-s">Document costs</h2>
+        <p class="govuk-body">You can also get help with paying for:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>death certificates to release money belonging to the person who died so that it can be used towards the cost of the funeral</li>
+          <li>medical certificates needed to bury or cremate someone</li>
+        </ul>
+
+        <h2 class="govuk-heading-s">Medical costs</h2>
+        <p class="govuk-body">You can get help with the cost of certain medical procedures needed before the funeral can go ahead. For example, if a pacemaker needs to be removed before the person who died can be cremated.</p>
+
+        <h2 class="govuk-heading-m govuk-!-padding-top-4">What else affects how much you can get</h2>
+        <p class="govuk-body">If there is money available from the person who died, it may reduce your Funeral Expenses Payment.</p>
+        <p class="govuk-body">This includes:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>money the person who died had in bank accounts</li>
+          <li>funeral plans</li>
+          <li>lump-sum payments from pensions or life insurance</li>
+        </ul>
+
+        <h2 class="govuk-heading-m govuk-!-padding-top-4">How you'll be paid your Funeral Expenses Payment</h2>
+
+        <p class="govuk-body">Funeral Expenses Payment is paid into your bank, building society or credit union account if you’ve already paid for the funeral.</p>
+        <p class="govuk-body">The money will be paid directly to the organiser of the funeral (for example, the funeral director) if you have not paid yet.</p>
+
+        <h2 class="govuk-heading-m govuk-!-padding-top-4">If money becomes available from the estate of the person who died</h2>
+        <p class="govuk-body">If money becomes available from the estate of the person who died, we will deduct your Funeral Expenses Payment from it. We will recover this money from the estate directly. We will not ask you to pay it back.</p>
+        <p class="govuk-body">The estate includes any money or property they had but not a house or personal things left to a widow, widower or surviving civil partner.</p>
+
+        <p class="govuk-body govuk-!-margin-bottom-8"></p>
+
+        <nav class="govuk-pagination govuk-pagination--block" role="navigation" aria-label="results">
+          <div class="govuk-pagination__prev">
+            <a class="govuk-link govuk-pagination__link" href="govuk-eligibility.html" rel="prev">
+              <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+              </svg>
+              <span class="govuk-pagination__link-title">Previous</span><span class="govuk-visually-hidden">:</span>
+              <span class="govuk-pagination__link-label">Eligibility</span></a>
+          </div>
+          <div class="govuk-pagination__next">
+            <a class="govuk-link govuk-pagination__link" href="govuk-howtoclaim.html" rel="next"> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+              </svg> <span class="govuk-pagination__link-title">Next</span><span class="govuk-visually-hidden">:</span>
+              <span class="govuk-pagination__link-label">How to claim</span></a>
+          </div>
+        </nav>
+
+      </div>
+      
+      <div class="govuk-grid-column-one-third govuk-!-padding-top-4">
+        <div class="app-step-nav-related app-step-nav-related--singular">
+          <h2 class="app-step-nav-related__heading">
+            <span class="app-step-nav-related__pretitle">Part of</span>
+            <a href="#">
+              What to do when somone dies: step by step
+            </a>
+          </h2>
+        </div>
+    
+        <div data-module="appstepnav"id="step-by-step-navigation" class="app-step-nav govuk-!-display-none-print js-hidden" data-show-text="Show" data-hide-text="Hide" data-show-all-text="Show all steps" data-hide-all-text="Hide all steps">
+          <ol class="app-step-nav__steps">
+            <li class="app-step-nav__step js-step" id="driving-lessons-and-practice">
+              <div class="app-step-nav__header js-toggle-panel" data-position="1">
+                <h3 class="app-step-nav__title">
+                  <span class="app-step-nav__circle app-step-nav__circle--number">
+                    <span class="app-step-nav__circle-inner">
+                      <span class="app-step-nav__circle-background">
+                        <span class="govuk-visually-hidden govuk-!-display-none-print">Step</span> 1<span class="govuk-visually-hidden govuk-!-display-none-print" aria-hidden="true">:</span>
+                      </span>
+                    </span>
+                  </span>
+    
+                  <span class="js-step-title">
+                    Register the death
+                  </span>
+                </h3>
+              </div>
+    
+              <div class="app-step-nav__panel js-panel" id="step-panel-driving-lessons-and-practice-3">
+    
+                <ol class="app-step-nav__list " data-length="4">
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="3.1" class="app-step-nav__link js-link" href="#">Arrange the funeral </a>
+                  </li>
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="3.2" class="app-step-nav__link js-link" href="#">Get help paying for the funeral </a>
+                  </li>
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="3.3" class="app-step-nav__link js-link" href="#">Get help pay for the child's funeral</a>
+                  </li>
+                </ol>
+    
+              </div>
+    
+            </li>
+            <li class="app-step-nav__step js-step" id="get-a-provisional-licence">
+              <div class="app-step-nav__header js-toggle-panel" data-position="2">
+                <h3 class="app-step-nav__title">
+                  <span class="app-step-nav__circle app-step-nav__circle--number">
+                    <span class="app-step-nav__circle-inner">
+                      <span class="app-step-nav__circle-background">
+                        <span class="govuk-visually-hidden govuk-!-display-none-print">Step</span> 2<span class="govuk-visually-hidden govuk-!-display-none-print" aria-hidden="true">:</span>
+                      </span>
+                    </span>
+                  </span>
+    
+                  <span class="js-step-title">
+                    Tell the government about the death
+                  </span>
+                </h3>
+              </div>
+    
+              <div class="app-step-nav__panel js-panel" id="step-panel-get-a-provisional-licence-2">
+                <ol class="app-step-nav__list " data-length="1">
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="2.1" class="app-step-nav__link js-link" href="#">Apply for your first provisional driving licence <span class="app-step-nav__context">£34 to £43</span></a>
+                  </li>
+                </ol>
+    
+              </div>
+    
+            </li>
+    
+            <li class="app-step-nav__step js-step app-step-nav__step--active" aria-current="step" id="check-you-re-allowed-to-drive">
+              <div class="app-step-nav__header js-toggle-panel" data-position="1">
+                <h3 class="app-step-nav__title">
+                  <span class="app-step-nav__circle app-step-nav__circle--number">
+                    <span class="app-step-nav__circle-inner">
+                      <span class="app-step-nav__circle-background">
+                        <span class="govuk-visually-hidden govuk-!-display-none-print">Step</span> 3<span class="govuk-visually-hidden govuk-!-display-none-print" aria-hidden="true">:</span>
+                      </span>
+                    </span>
+                  </span>
+    
+                  <span class="js-step-title">
+                    Arrange the funeral
+                  </span>
+                </h3>
+              </div>
+    
+              <div class="app-step-nav__panel js-panel" id="step-panel-driving-lessons-and-practice-3">
+    
+                <ol class="app-step-nav__list " data-length="4">
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="3.1" class="app-step-nav__link js-link" href="#">Arrange the funeral </a>
+                  </li>
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="3.2" class="app-step-nav__link js-link" href="#">Get help paying for the funeral </a>
+                  </li>
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="3.3" class="app-step-nav__link js-link" href="#">Get help pay for the child's funeral</a>
+                  </li>
+                </ol>
+    
+              </div>
+    
+            </li>
+    
+            <li class="app-step-nav__step js-step" id="book-and-manage-your-theory-test">
+              <div class="app-step-nav__header js-toggle-panel" data-position="5">
+                <h3 class="app-step-nav__title">
+                  <span class="app-step-nav__circle app-step-nav__circle--number">
+                    <span class="app-step-nav__circle-inner">
+                      <span class="app-step-nav__circle-background">
+                        <span class="govuk-visually-hidden govuk-!-display-none-print">Step</span> 4<span class="govuk-visually-hidden govuk-!-display-none-print" aria-hidden="true">:</span>
+                      </span>
+                    </span>
+                  </span>
+    
+                  <span class="js-step-title">
+                    Check if you can get bereavment benefits
+                  </span>
+                </h3>
+              </div>
+    
+              <div class="app-step-nav__panel js-panel" id="step-panel-book-and-manage-your-theory-test-5">
+                <p class="app-step-nav__paragraph">You need a provisional driving licence to book your theory test.</p>
+    
+                <ol class="app-step-nav__list " data-length="5">
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="5.1" class="app-step-nav__link js-link" href="#">Book your theory test <span class="app-step-nav__context">£23</span></a>
+                  </li>
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="5.2" class="app-step-nav__link js-link" href="#">What to take to your test </a>
+                  </li>
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="5.3" class="app-step-nav__link js-link" href="#">Change your theory test appointment </a>
+                  </li>
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="5.4" class="app-step-nav__link js-link" href="#">Check your theory test appointment details </a>
+                  </li>
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="5.5" class="app-step-nav__link js-link" href="#">Cancel your theory test </a>
+                  </li>
+                </ol>
+    
+              </div>
+    
+            </li>
+    
+            <li class="app-step-nav__step js-step" id="prepare-for-your-theory-test">
+              <div class="app-step-nav__header js-toggle-panel" data-position="4">
+                <h3 class="app-step-nav__title">
+                  <span class="app-step-nav__circle app-step-nav__circle--logic">
+                    <span class="app-step-nav__circle-inner">
+                      <span class="app-step-nav__circle-background">
+                        and
+                      </span>
+                    </span>
+                  </span>
+    
+                  <span class="js-step-title">
+                    Deal with your own benefits, pension and taxes
+                  </span>
+                </h3>
+              </div>
+    
+              <div class="app-step-nav__panel js-panel" id="step-panel-prepare-for-your-theory-test-4">
+                <ol class="app-step-nav__list " data-length="3">
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="4.1" class="app-step-nav__link js-link" href="#">Theory test revision and practice </a>
+                  </li>
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="4.2" class="app-step-nav__link js-link" href="#">Take a practice theory test </a>
+                  </li>
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a rel="external" data-position="4.3" class="app-step-nav__link js-link" href="#">Theory and hazard perception test app </a>
+                  </li>
+                </ol>
+              </div>
+    
+            </li>
+    
+            <li class="app-step-nav__step js-step" id="prepare-for-your-theory-test">
+              <div class="app-step-nav__header js-toggle-panel" data-position="4">
+                <h3 class="app-step-nav__title">
+                  <span class="app-step-nav__circle app-step-nav__circle--logic">
+                    <span class="app-step-nav__circle-inner">
+                      <span class="app-step-nav__circle-background">
+                        and
+                      </span>
+                    </span>
+                  </span>
+    
+                  <span class="js-step-title">
+                    Find bereavment support and services
+                  </span>
+                </h3>
+              </div>
+    
+              <div class="app-step-nav__panel js-panel" id="step-panel-prepare-for-your-theory-test-4">
+                <ol class="app-step-nav__list " data-length="3">
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="4.1" class="app-step-nav__link js-link" href="#">Theory test revision and practice </a>
+                  </li>
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="4.2" class="app-step-nav__link js-link" href="#">Take a practice theory test </a>
+                  </li>
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a rel="external" data-position="4.3" class="app-step-nav__link js-link" href="#">Theory and hazard perception test app </a>
+                  </li>
+                </ol>
+              </div>
+    
+            </li>
+    
+            <li class="app-step-nav__step js-step" id="prepare-for-your-theory-test">
+              <div class="app-step-nav__header js-toggle-panel" data-position="4">
+                <h3 class="app-step-nav__title">
+                  <span class="app-step-nav__circle app-step-nav__circle--logic">
+                    <span class="app-step-nav__circle-inner">
+                      <span class="app-step-nav__circle-background">
+                        and
+                      </span>
+                    </span>
+                  </span>
+    
+                  <span class="js-step-title">
+                    Check if you need to apply to stay in the UK
+                  </span>
+                </h3>
+              </div>
+    
+              <div class="app-step-nav__panel js-panel" id="step-panel-prepare-for-your-theory-test-4">
+                <ol class="app-step-nav__list " data-length="3">
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="4.1" class="app-step-nav__link js-link" href="#">Theory test revision and practice </a>
+                  </li>
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="4.2" class="app-step-nav__link js-link" href="#">Take a practice theory test </a>
+                  </li>
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a rel="external" data-position="4.3" class="app-step-nav__link js-link" href="#">Theory and hazard perception test app </a>
+                  </li>
+                </ol>
+              </div>
+    
+            </li>
+    
+    
+            <li class="app-step-nav__step js-step" id="book-and-manage-your-theory-test">
+              <div class="app-step-nav__header js-toggle-panel" data-position="5">
+                <h3 class="app-step-nav__title">
+                  <span class="app-step-nav__circle app-step-nav__circle--number">
+                    <span class="app-step-nav__circle-inner">
+                      <span class="app-step-nav__circle-background">
+                        <span class="govuk-visually-hidden govuk-!-display-none-print">Step</span> 5<span class="govuk-visually-hidden govuk-!-display-none-print" aria-hidden="true">:</span>
+                      </span>
+                    </span>
+                  </span>
+    
+                  <span class="js-step-title">
+                    Value the estate and check if you need to pay Inheritance Tax
+                  </span>
+                </h3>
+              </div>
+    
+              <div class="app-step-nav__panel js-panel" id="step-panel-book-and-manage-your-theory-test-5">
+                <p class="app-step-nav__paragraph">You need a provisional driving licence to book your theory test.</p>
+    
+                <ol class="app-step-nav__list " data-length="5">
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="5.1" class="app-step-nav__link js-link" href="#">Book your theory test <span class="app-step-nav__context">£23</span></a>
+                  </li>
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="5.2" class="app-step-nav__link js-link" href="#">What to take to your test </a>
+                  </li>
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="5.3" class="app-step-nav__link js-link" href="#">Change your theory test appointment </a>
+                  </li>
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="5.4" class="app-step-nav__link js-link" href="#">Check your theory test appointment details </a>
+                  </li>
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="5.5" class="app-step-nav__link js-link" href="#">Cancel your theory test </a>
+                  </li>
+                </ol>
+    
+              </div>
+    
+            </li>
+            <li class="app-step-nav__step js-step" id="book-and-manage-your-driving-test">
+              <div class="app-step-nav__header js-toggle-panel" data-position="6">
+                <h3 class="app-step-nav__title">
+                  <span class="app-step-nav__circle app-step-nav__circle--number">
+                    <span class="app-step-nav__circle-inner">
+                      <span class="app-step-nav__circle-background">
+                        <span class="govuk-visually-hidden govuk-!-display-none-print">Step</span> 6<span class="govuk-visually-hidden govuk-!-display-none-print" aria-hidden="true">:</span>
+                      </span>
+                    </span>
+                  </span>
+    
+                  <span class="js-step-title">
+                    Apply for probate
+                  </span>
+                </h3>
+              </div>
+    
+              <div class="app-step-nav__panel js-panel" id="step-panel-book-and-manage-your-driving-test-6">
+                <p class="app-step-nav__paragraph">You must pass your theory test before you can book your driving test.</p>
+    
+                <ol class="app-step-nav__list " data-length="5">
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="6.1" class="app-step-nav__link js-link" href="#">Book your driving test <span class="app-step-nav__context">£62 to £75</span></a>
+                  </li>
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="6.2" class="app-step-nav__link js-link" href="#">What to take to your test </a>
+                  </li>
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="6.3" class="app-step-nav__link js-link" href="#">Change your driving test appointment </a>
+                  </li>
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="6.4" class="app-step-nav__link js-link" href="#">Check your driving test appointment details </a>
+                  </li>
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="6.5" class="app-step-nav__link js-link" href="#">Cancel your driving test </a>
+                  </li>
+                </ol>
+    
+              </div>
+    
+            </li>
+            <li class="app-step-nav__step js-step" id="when-you-pass">
+              <div class="app-step-nav__header js-toggle-panel" data-position="7">
+                <h3 class="app-step-nav__title">
+                  <span class="app-step-nav__circle app-step-nav__circle--number">
+                    <span class="app-step-nav__circle-inner">
+                      <span class="app-step-nav__circle-background">
+                        <span class="govuk-visually-hidden govuk-!-display-none-print">Step</span> 7<span class="govuk-visually-hidden govuk-!-display-none-print" aria-hidden="true">:</span>
+                      </span>
+                    </span>
+                  </span>
+    
+                  <span class="js-step-title">
+                    Deal with estate
+                  </span>
+                </h3>
+              </div>
+    
+              <div class="app-step-nav__panel js-panel" id="step-panel-when-you-pass-7">
+                <p class="app-step-nav__paragraph">You can start driving as soon as you pass your driving test.</p>
+    
+                <p class="app-step-nav__paragraph">You must have an insurance policy that allows you to drive without supervision.</p>
+    
+                <ol class="app-step-nav__list " data-length="1">
+                  <li class="app-step-nav__list-item js-list-item ">
+                    <a data-position="7.1" class="app-step-nav__link js-link" href="#">Find out about Pass Plus training courses </a>
+                  </li>
+                </ol>
+    
+              </div>
+    
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
