@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Relationship – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/how-old-answer" method="post">
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+        name: "howold",
+        values: data ["howold"],
+        fieldset: {
+          legend: {
+            text: "How old was the person who died?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "18",
+            text: "18 years and older"
+          },
+          {
+            value: "16to17",
+            text: "16 to 17 years old"
+          },
+          {
+            value: "0to15",
+            text: "0 to 15 years old",
+            hint: {
+              text: "This includes neonatal death."
+            }
+          },
+          {
+            value: "stillborn",
+            text: "Stillborn",
+            hint: {
+              text: "A stillbirth is when a baby dies after 24 completed weeks of pregnancy. You'll have received a stillbirth certificate if your baby was stillborn."
+            }
+          }
+        ]
+      }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
