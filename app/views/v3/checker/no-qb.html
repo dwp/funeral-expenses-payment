@@ -1,0 +1,51 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  You cannot get a Funeral Expenses Payment – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/index" method="post">
+
+        <h1 class="govuk-heading-l">You cannot get a Funeral Expenses Payment</h1>
+
+        <p>You (or your partner) must be getting, or waiting to hear about, a qualifying benefit to be eligible for a Funeral Expenses Payment.</p>
+
+        <h2 class="govuk-heading-m">If the funeral is for a child under 18</h2>
+        <p>There is support available if the funeral is for a child under 18 or a baby stillborn after the 24th week of pregnancy. The support available depends on  the location of the funeral.</p>
+
+        <h3 class="govuk-heading-s">England</h3>
+        <p><a href="https://www.gov.uk/child-funeral-costs" class="govuk-link">The Children’s Funeral Fund for England</a> can help to pay for some of the costs of a funeral.</p>
+
+        <h3 class="govuk-heading-s">Wales</h3>
+        <p>Families in Wales that have registered the death will be entitled to receive £500 as a contribution towards the funeral and other related costs. The Registrar will arrange this payment for you.</p>
+
+        <h3 class="govuk-heading-s">Northern Ireland</h3>
+        <P><a href="https://www.nidirect.gov.uk/articles/child-funeral-fund" class="govuk-link">The Child Funeral Fund</a> provides a one-off lump sum payment of £3,056 to cover the expense of a funeral.</P>
+
+        <h2 class="govuk-heading-m">Other support with funeral costs</h2>
+        <P>MoneyHelper has <a href="https://www.moneyhelper.org.uk/en/family-and-care/death-and-bereavement/help-paying-for-a-funeral?source=mas#" class="govuk-link">information about funeral costs and how to reduce them.</a></P>
+
+        <p class="govuk-body govuk-!-margin-bottom-6"></p>
+
+        {{ govukButton({
+          text: "Finish"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
