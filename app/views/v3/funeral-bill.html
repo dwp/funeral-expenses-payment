@@ -1,0 +1,92 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+  Funeral bill – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container"></div>
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <p class="govuk-body govuk-!-margin-bottom-8"></p>
+        <br><br><br><br><br>
+        <p class="govuk-body">Dear Customer,</p>
+        <p class="govuk-body">To the arrangements of the cremation of your loved one in the agreed crematorium following the service in the crematorium hall.</p>
+        <h3 class="govuk-heading-s">Professional Services</h3>
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+           <tr class="govuk-table__row">
+            <th></th>
+            <th></th>
+           </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+           <tr class="govuk-table__row">
+            <td>Funeral director professional fees</td>
+            <td>£1,050</td>
+           </tr>
+           <tr class="govuk-table__row">
+            <td>Logwood coffin</td>
+            <td>£350</td>
+           </tr>
+           <tr class="govuk-table__row">
+            <td>Transportation, care and preparation of loved one</td>
+            <td>£150</td>
+           </tr>
+           <tr class="govuk-table__row">
+            <td>Provision of hearse</td>
+           <td>£250</td>
+           </tr>
+           <tr class="govuk-table__row">
+            <td><strong>Total cost</strong></td>
+            <td><strong>£1,800</strong></td>
+           </tr>
+          </tbody>
+         </table>
+
+         <h3 class="govuk-heading-s">Disbursements</h3>
+         <table class="govuk-table">
+          <thead class="govuk-table__head">
+           <tr class="govuk-table__row">
+            <th></th>
+            <th></th>
+           </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+           <tr class="govuk-table__row">
+            <td>Cremation fees</td>
+            <td>£850</td>
+           </tr>
+           <tr class="govuk-table__row">
+            <td>Urn and scattering tube</td>
+            <td>£350</td>
+           </tr>
+           <tr class="govuk-table__row">
+            <td>Doctor's fee for cremation certificate</td>
+            <td>£150</td>
+           </tr>
+           <tr class="govuk-table__row">
+            <td><strong>Total cost</strong></td>
+            <td><strong>£1,032</strong></td>
+           </tr>
+          </tbody>
+         </table>
+
+         <p>The total balance of the bill is <strong>£2,832</strong>.</p>
+
+         <p class="govuk-body govuk-!-margin-bottom-8"></p>
+
+         <p>Kindest regards,</p>
+         <p>Funeral Director</p>
+
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <p class="govuk-body">Funeral Director<br>321 Street <br>West Village<br>ABC 456</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
