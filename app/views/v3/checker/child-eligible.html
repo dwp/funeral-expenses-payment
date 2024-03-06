@@ -47,6 +47,15 @@
         </ul>
         {% endif %}
 
+        {% if (data['survivingifm'] == "yes") %}
+        <p class="govuk-body">If you make a claim, you will need to tell us about:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>the person who died</li>
+          <li>if they had any money on the day they died</li>
+          <li>if they had any other surviving parents or children</li>
+        </ul>
+        {% endif %}
+
         {% if (data['survivingifm'] == "no") %}
         <p class="govuk-body">If you make a claim, you will need to tell us about:</p>
         <ul class="govuk-list govuk-list--bullet">
