@@ -31,13 +31,13 @@
         </ul>
       </div>
 
-      <p>This was based on the postcode <b>{{ data['emailaddress'] }}</b> and the cost is the 1st of April 2023.</p>
+      <p>This was based on the postcode <b>{{ data['postcode'] }}</b> and the cost is the 1st of April 2023.</p>
 
       <p>[We may want to include that if the funeral has taken place before April then the amount you'll get will be based on the previous years prices.]</p>
 
       <p>You can search another postcode to look at the prices in a different local council.</p>
 
-      <p class="govuk-body govuk-!-margin-bottom-6"><a href="#" class="govuk-link">Search again</a></p>
+      <p class="govuk-body govuk-!-margin-bottom-6"><a href="/v3/price/postcode-search" class="govuk-link">Search again</a></p>
 
         {{ govukButton({
           text: "Finish"
