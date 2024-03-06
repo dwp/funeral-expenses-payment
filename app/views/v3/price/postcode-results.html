@@ -19,29 +19,43 @@
       <form class="form" action="/path/of/next/page" method="post">
 
       <h1 class="govuk-heading-l">
-        Results for [name of] Council
+        [Council name] burial and cremation costs
       </h1>
 
+      <p>This is the local council for the postcode <b>{{ data['postcode'] }}</b></p>
+
       <div class="govuk-inset-text">
-       <p>The amount you may get for a:</p> 
+       <p>The amount you may get for a:</p>
         <ul class="govuk-list govuk-list--bullet">
-          <li>burial is £1079</li>
-          <li>burial and plot is £2218</li>
+          <li>burial is £1,079</li>
+          <li>burial and plot is £2,218</li>
           <li>cremation is £850</li>
         </ul>
       </div>
 
-      <p>This was based on the postcode <b>{{ data['postcode'] }}</b> and the cost is the 1st of April 2023.</p>
+      <p>This amount is for an adult funeral taking place after 6 April 2023. If the funeral was before 6 April 2023 the amount may be different.</p>
 
-      <p>[We may want to include that if the funeral has taken place before April then the amount you'll get will be based on the previous years prices.]</p>
+      <h3 class="govuk-heading-s">
+        If the person who died is under 18
+      </h2>
 
-      <p>You can search another postcode to look at the prices in a different local council.</p>
+      <p>Usually, it does not cost anything to bury or cremate a child under 18 or a baby stillborn after the 24th week of pregnancy. You can get more <a href="https://www.gov.uk/child-funeral-costs" class="govuk-link" target="_blank">support for child funeral costs (opens in new tab)</a>.</p>
+
+      <h2 class="govuk-heading-m">
+        Other costs you'll get help with
+      </h2>
+
+      <p>You’ll also get up to £1,000 for any other funeral expenses, such as funeral director’s fees, flowers or the coffin. There are other things that affect <a href="/v3/gov/what-youll-get" class="govuk-link" >how much you’ll get</a>.</p>
+
+      <h2 class="govuk-heading-m">
+         If you need to search another postcode
+      </h2>
 
       <p class="govuk-body govuk-!-margin-bottom-6"><a href="/v3/price/postcode-search" class="govuk-link">Search again</a></p>
 
-        {{ govukButton({
+        <!-- {{ govukButton({
           text: "Finish"
-        }) }}
+        }) }} -->
 
       </form>
 

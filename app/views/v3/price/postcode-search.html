@@ -19,25 +19,25 @@
       <form class="form" action="/v3/price/postcode-results" method="post">
 
       <h1 class="govuk-heading-l">
-        Search local council burial and cremation prices
+        Find the burial and cremation costs of a local council
       </h1>
 
         <p>
-          The amount you will get paid for a burial or cremation will depend on the council area the person lived in when they died.
+          Find out how much you may get for a burial or cremation. The amount is based on the local council where the person who died lived.
         </p>
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="postcode">
-              Enter postcode of person who died
+              Postcode of the person who died
           </label>
           <div id="postcode-hint" class="govuk-hint">
-              For example, AA3 1AB
+              For example, AA3 1AB.
           </div>
 
           <input class="govuk-input govuk-!-width-two-thirds" id="two-thirds" name="emailaddress" value="{{data['postcode']}}" type="text"></div>
 
         {{ govukButton({
-          text: "Search"
+          text: "Find local council"
         }) }}
 
       </form>
