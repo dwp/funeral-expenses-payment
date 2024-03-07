@@ -22,7 +22,7 @@
         [Council name] burial and cremation costs
       </h1>
 
-      <p>This is the local council for the postcode <b>{{ data['postcode'] }}</b></p>
+      <p>This is the local council for the postcode <b>{{ data['emailaddress'] }}</b>. <a href="/v3/price/postcode-search" class="govuk-link">Search again</a></p>
 
       <div class="govuk-inset-text">
        <p>The amount you may get for a:</p>
@@ -47,11 +47,6 @@
 
       <p>You’ll also get up to £1,000 for any other funeral expenses, such as funeral director’s fees, flowers or the coffin. There are other things that affect <a href="/v3/gov/what-youll-get" class="govuk-link" >how much you’ll get</a>.</p>
 
-      <h2 class="govuk-heading-m">
-         If you need to search another postcode
-      </h2>
-
-      <p class="govuk-body govuk-!-margin-bottom-6"><a href="/v3/price/postcode-search" class="govuk-link">Search again</a></p>
 
         <!-- {{ govukButton({
           text: "Finish"
