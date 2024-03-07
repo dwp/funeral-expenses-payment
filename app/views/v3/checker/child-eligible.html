@@ -47,7 +47,7 @@
         </ul>
         {% endif %}
 
-        {% if (data['survivingifm'] == "yes") %}
+        {% if (data['survivingifm'] == "yes" and data['theirrelationship'] == "child") %}
         <p class="govuk-body">If you make a claim, you will need to tell us about:</p>
         <ul class="govuk-list govuk-list--bullet">
           <li>the person who died</li>
@@ -66,7 +66,7 @@
 
         <h2 class="govuk-heading-m govuk-!-padding-top-2">How to claim</h2>
 
-        <p><a href="https://www.gov.uk/funeral-payments/how-to-claim" class="govuk-link">Get help with funeral costs by phone or post</a></p>
+        <p><a href="/v3/gov/make-a-claim" class="govuk-link">Get help with funeral costs by phone or post</a></p>
 
         {% if (data['howold'] == "16to17" or data['howold'] == "0to15") %}
 
