@@ -40,7 +40,7 @@ router.post('/their-relationship-answer', function(request, response) {
   } else if (relationship == "parent"){
         response.redirect("/v3/checker/how-old")
   } else {
-      response.redirect("/v3/checker/no-journey")
+      response.redirect("/v3/checker/how-old-cr")
   }
 })
 
