@@ -1,0 +1,105 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  You may be eligible Funeral Expenses Payment – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/index" method="post">
+
+        {% if (data['survivingpartnercr'] == "no" and data['survivingifmcr'] == "no") %}
+        <h1 class="govuk-heading-l">You may be eligible for a Funeral Expenses Payment</h1>
+        <p clas="govbody">To confirm if you're eligible you'll need to make a claim.</p>
+
+        <p class="govuk-body">If you make a claim, you will need to tell us about:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>the person who died</li>
+          <li>if they had any money on the day they died</li>
+        </ul>
+
+        <h2 class="govuk-heading-m govuk-!-padding-top-2">How to claim</h2>
+
+        <p><a href="/v3/gov/make-a-claim" class="govuk-link">Get help with funeral costs by phone or post</a></p>
+
+        {% endif %}
+
+        {% if (data['survivingpartnercr'] == "no" and data['survivingifmcr'] == "yes") %}
+        <h1 class="govuk-heading-l">You may not be eligible for a Funeral Expenses Payment</h1>
+        <p class="govbody">Usually the parent or a child of the person who died will need to a claim Funeral Expenses Payment.</p>
+
+        <h2 class="govuk-heading-m govuk-!-padding-top-2">If the parent or a child of the person who died cannot claim</h2>
+
+        <p class="govuk-body">You may be able to claim, you will need to tell us about:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>the person who died</li>
+          <li>if they had any money on the day they died</li>
+          <li>any surviving parents or children</li>
+        </ul>
+
+        <h2 class="govuk-heading-s govuk-!-padding-top-2">How to claim</h2>
+
+        <p><a href="/v3/gov/make-a-claim" class="govuk-link">Get help with funeral costs by phone or post</a></p>
+
+        <p class="govuk-body govuk-!-margin-bottom-6"></p>
+        {% endif %}
+
+        {% if (data['survivingpartnercr'] == "yes" and data['survivingifmcr'] == "no") %}
+        <h1 class="govuk-heading-l">You may not be eligible for a Funeral Expenses Payment</h1>
+        <p class="govbody">Usually the partner of the person who died will need to claim a Funeral Expenses Payment.</p>
+        <h2 class="govuk-heading-m govuk-!-padding-top-2">If the partner of the person who died cannot claim </h2>
+        <p class="govuk-body">You may be able to claim, you will need to tell us about:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>the person who died</li>
+          <li>if they had any money on the day they died</li>
+          <li>the partner of the person who died</li>
+        </ul>
+
+        <h2 class="govuk-heading-s govuk-!-padding-top-2">How to claim</h2>
+
+        <p><a href="/v3/gov/make-a-claim" class="govuk-link">Get help with funeral costs by phone or post</a></p>
+
+        <p class="govuk-body govuk-!-margin-bottom-6"></p>
+        {% endif %}
+
+        {% if (data['survivingpartnercr'] == "yes" and data['survivingifmcr'] == "yes") %}
+        <h1 class="govuk-heading-l">You may not be eligible for a Funeral Expenses Payment</h1>
+        <p class="govbody">Usually to claim a Funeral Expenses Payment you need to be either:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>the partner of the person who died</li>
+          <li>the parent of the person who died</li>
+          <li>a child of the person who died</li>
+        </ul>
+
+        <h2 class="govuk-heading-m govuk-!-padding-top-2">If the partner, parent or children of the person who died cannot claim</h2>
+        <p class="govuk-body">You may be able to claim, you will need to tell us about:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>the person who died</li>
+          <li>if they had any money on the day they died</li>
+          <li>any surviving parents or children</li>
+          <li>the partner of the person who died</li>
+        </ul>
+
+        <h2 class="govuk-heading-s govuk-!-padding-top-2">How to claim</h2>
+
+        <p><a href="/v3/gov/make-a-claim" class="govuk-link">Get help with funeral costs by phone or post</a></p>
+
+        <p class="govuk-body govuk-!-margin-bottom-6"></p>
+        {% endif %}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
