@@ -1,0 +1,50 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Not eligible – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/index" method="post">
+
+      <h1 class="govuk-heading-l">
+        You cannot get a Funeral Expenses Payment if the funeral was over 6 months ago
+      </h1>
+
+      <p>
+        The date of the funeral was <b>6 October 2023</b>.
+      </p>
+
+      <p>
+        You can only get a Funeral Expenses Payment if the funeral was held in the last 6 months.
+      </p>
+
+      <p>
+        [do we want an option to have a proof of application]
+      </p>
+
+      <p>
+        [do we want to sign post to other support available]
+      </p>
+
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        [button to end application]
+      </button>
+
+    </form>
+      
+    </div>
+  </div>
+
+{% endblock %}
