@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-You cannot get a Funeral Expenses Payment – {{ serviceName }} – GOV.UK Prototype Kit
+  You cannot get a Funeral Expenses Payment – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,22 +16,26 @@ You cannot get a Funeral Expenses Payment – {{ serviceName }} – GOV.UK Proto
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/index" method="post">
-
       <h1 class="govuk-heading-l">
-        You cannot get a Funeral Expenses Payment if the person who died did not usually live in the UK
+        Funeral Expenses Payment
       </h1>
 
-      <p>
-        You can only get a Funeral Expenses Payment if the person who died usually lived in the UK.
-      </p>
+      <div><td class="govuk-table__cell">
+         <strong class="govuk-tag govuk-tag--red">
+           Not eligible
+         </strong>
+       </td>
+      </div>
 
+      <p class="govuk-body govuk-!-margin-bottom-4"></p>
+
+      <p>
+        Explain to the caller that they cannot get a Funeral Expenses Payment if they’re not getting, or waiting to hear about, a qualifying benefit.
+      </p>
 
       <button type="submit" class="govuk-button" data-module="govuk-button">
         Delete answers and start again
       </button>
-
-    </form>
 
     </div>
   </div>
