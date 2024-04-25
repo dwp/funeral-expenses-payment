@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Money in accounts – {{ serviceName }} – GOV.UK Prototype Kit
+  Refund amount paid – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,7 +16,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/v4/money/death-certificates" method="post">
+      <form class="form" action="/v4/money/burial-club" method="post">
 
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
@@ -59,7 +59,7 @@
   name: "contact",
   fieldset: {
     legend: {
-      text: "Do you know the exact amount of any other money they had?",
+      text: "Do you know the exact amount of money being refunded?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }

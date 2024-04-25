@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Money in accounts – {{ serviceName }} – GOV.UK Prototype Kit
+  Amount in cash – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -15,6 +15,8 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/v4/money/plans-filter" method="post">
 
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
@@ -79,9 +81,6 @@
     }
   ]
 }) }}
-      
-
-      <form class="form" action="/v2/b-money/plans-filter" method="post">
 
         {{ govukButton({
           text: "Continue"

@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  War Pension Funeral Grant – {{ serviceName }} – GOV.UK Prototype Kit
+  Refund from funeral plan – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,23 +16,23 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/warpension-answer" method="post">
+      <form class="form" action="/funeralplanrefund-answer" method="post">
 
           {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
           {{ govukRadios({
-            name: "warpension",
-            values: data["warpension"],
+            name: "funeralplanrefund",
+            values: data["funeralplanrefund"],
             fieldset: {
               legend: {
-                text: "Are you claiming a War Pension Funeral Grant for the person who died?",
+                text: "Is the funeral plan provider giving a refund?",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
               }
             },
-            hint: {
-              text: "This is only relevant if their death was due to an injury or illness in service before 6 April 2005."
-            },
+          hint: {
+            text: "For example some give a refund if they're not paying for any of the funeral."
+          },
             items: [
               {
                 value: "yes",

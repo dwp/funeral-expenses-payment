@@ -16,32 +16,62 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <h1 class="govuk-fieldset__heading">
-              Can we get in contact with the funeral director if we need more information?
-            </h1>
-          </legend>
-          <div class="govuk-radios" data-module="govuk-radios">
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
-              <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
-                Yes
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="whereDoYouLive-4" name="whereDoYouLive" type="radio" value="northern-ireland">
-              <label class="govuk-label govuk-radios__label" for="whereDoYouLive-4">
-                No
-              </label>
-            </div>
-          </div>
-        </fieldset>
-      </div>
-      
+      <form class="form" action="/v4/funeral/bill-in-your-name" method="post">
 
-      <form class="form" action="/v1/funeral/bill-in-your-name" method="post">
+
+        {% if (data['director'] == "yes") %}
+        
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+          {{ govukRadios({
+            name: "contactdirector",
+            fieldset: {
+              legend: {
+                text: "Can we get in contact with the funeral director if we need more information?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+
+        {% endif %}
+
+        {% if (data['director'] == "no") %}
+        
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+          {{ govukRadios({
+            name: "contactdirector",
+            fieldset: {
+              legend: {
+                text: "Can we get in contact with them we need more information?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+
+        {% endif %}
 
         {{ govukButton({
           text: "Continue"

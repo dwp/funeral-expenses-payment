@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  War Pension Funeral Grant – {{ serviceName }} – GOV.UK Prototype Kit
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,22 +16,19 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/warpension-answer" method="post">
-
-          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+      <form class="form" action="/someoneelse-answer" method="post">
+     
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
           {{ govukRadios({
-            name: "warpension",
-            values: data["warpension"],
+            name: "someoneelse",
+            values: data["someoneelse"],
             fieldset: {
               legend: {
-                text: "Are you claiming a War Pension Funeral Grant for the person who died?",
+                text: "Are you using an organisation or someone from the community to arrange the funeral?",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
               }
-            },
-            hint: {
-              text: "This is only relevant if their death was due to an injury or illness in service before 6 April 2005."
             },
             items: [
               {
@@ -40,14 +37,7 @@
               },
               {
                 value: "no",
-                text: "No"
-              },
-              {
-                divider: "or"
-              },
-              {
-                value: "dontknow",
-                text: "Don't know"
+                text: "No, I'm arranging the funeral myself"
               }
             ]
           }) }}

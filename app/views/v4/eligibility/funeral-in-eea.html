@@ -16,6 +16,8 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      <form class="form" action="/funeraleea-answer" method="post">
+
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -35,13 +37,13 @@
           </details>
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
+              <input class="govuk-radios__input" id="funeraleea" name="funeraleea" type="radio" value="yes">
               <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
                 Yes
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="whereDoYouLive-4" name="whereDoYouLive" type="radio" value="northern-ireland">
+              <input class="govuk-radios__input" id="funeraleea" name="funeraleea" type="radio" value="no">
               <label class="govuk-label govuk-radios__label" for="whereDoYouLive-4">
                 No
               </label>
@@ -49,9 +51,6 @@
           </div>
         </fieldset>
       </div>
-
-
-      <form class="form" action="/path/of/next/page" method="post">
 
         {{ govukButton({
           text: "Continue"

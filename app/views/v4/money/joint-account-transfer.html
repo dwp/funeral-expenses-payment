@@ -16,39 +16,38 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-          <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                <h1 class="govuk-fieldset__heading">
-                Was any of the money in a joint account transferred to the other joint account holder?
-                </h1>
-              </legend>
-              <div class="govuk-radios" data-module="govuk-radios">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
-                  <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
-                    Yes
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
-                  <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
-                    No
-                  </label>
-                </div>
-                <div class="govuk-radios__divider">or</div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="whereDoYouLive-6" name="whereDoYouLive" type="radio" value="abroad">
-                  <label class="govuk-label govuk-radios__label" for="whereDoYouLive-6">
-                    Don’t know
-                  </label>
-                </div>
-              </div>
-            </fieldset>
-          </div>
+      <form class="form" action="/jointaccounttransfer-answer" method="post">
 
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-      <form class="form" action="" method="post">
+          {{ govukRadios({
+            name: "jointaccounttransfer",
+            values: data["jointaccounttransfer"],
+            fieldset: {
+              legend: {
+                text: "Was any of the money in a joint account transferred to the other person?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              },
+              {
+                divider: "or"
+              },
+              {
+                value: "dontknow",
+                text: "Don't know"
+              }
+            ]
+          }) }}
 
         {{ govukButton({
           text: "Continue"
