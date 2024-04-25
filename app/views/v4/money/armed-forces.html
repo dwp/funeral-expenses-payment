@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Used money from person who died – {{ serviceName }} – GOV.UK Prototype Kit
+  Armed forces – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,19 +16,22 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/usedmoney-answer" method="post">
-    
+      <form class="form" action="/armedforces-answer" method="post">
+
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
       {{ govukRadios({
-        name: "usedmoney",
-        values: data["usedmoney"],
+        name: "armedforces",
+        values: data["armedforces"],
         fieldset: {
           legend: {
-            text: "Have you already used money from the person who died to pay for any of the funeral?",
+            text: "Did the person who died serve in the armed forces before 2006?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
+        },
+        hint: {
+          text: "The armed forces includes the British Army, Royal Air Force and Royal Navy."
         },
         items: [
           {
@@ -38,6 +41,13 @@
           {
             value: "no",
             text: "No"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "dontknow",
+            text: "Don't know"
           }
         ]
       }) }}

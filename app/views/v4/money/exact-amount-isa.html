@@ -15,6 +15,7 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="/v4/money/in-cash" method="post">
 
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
@@ -57,7 +58,7 @@
   name: "contact",
   fieldset: {
     legend: {
-      text: "Do you know the exact amount they had in ISAs?",
+      text: "Do you know the exact amount of money they had in ISAs?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
@@ -81,7 +82,7 @@
 }) }}
 
 
-      <form class="form" action="/v4/money/money-in-joint-accounts" method="post">
+ 
 
         {{ govukButton({
           text: "Continue"
