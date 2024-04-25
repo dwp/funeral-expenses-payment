@@ -17,9 +17,6 @@
     <div class="govuk-grid-column-two-thirds">
 
       <form class="form" action="/v4/funeral/bill-in-your-name" method="post">
-
-
-        {% if (data['director'] == "yes") %}
         
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -27,10 +24,13 @@
             name: "contactdirector",
             fieldset: {
               legend: {
-                text: "Can we get in contact with the funeral director if we need more information?",
+                text: "Can we contact them if we need more information?",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
               }
+            },
+            hint: {
+              text: "We can process your application faster if we can contact them about the funeral details."
             },
             items: [
               {
@@ -43,35 +43,6 @@
               }
             ]
           }) }}
-
-        {% endif %}
-
-        {% if (data['director'] == "no") %}
-        
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
-
-          {{ govukRadios({
-            name: "contactdirector",
-            fieldset: {
-              legend: {
-                text: "Can we get in contact with them we need more information?",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--l"
-              }
-            },
-            items: [
-              {
-                value: "yes",
-                text: "Yes"
-              },
-              {
-                value: "no",
-                text: "No"
-              }
-            ]
-          }) }}
-
-        {% endif %}
 
         {{ govukButton({
           text: "Continue"
