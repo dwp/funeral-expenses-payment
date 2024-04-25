@@ -16,6 +16,8 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      <form class="form" action="/v4/funeral/used-money-from-deceased" method="post">
+
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -30,7 +32,7 @@
                 Yes
               </label>
               <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
-                We will contact you if we need more information.
+                We will contact you if we can help pay for these costs.
               </div>
             </div>
             <div class="govuk-radios__item">
@@ -42,9 +44,6 @@
           </div>
         </fieldset>
       </div>
-      
-
-      <form class="form" action="" method="post">
 
         {{ govukButton({
           text: "Continue"

@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Money in accounts – {{ serviceName }} – GOV.UK Prototype Kit
+  Amount transferred to joint account holder – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -15,6 +15,8 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/v4/money/isa" method="post">
 
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
@@ -57,7 +59,7 @@
   name: "contact",
   fieldset: {
     legend: {
-      text: "Do you know the exact amount that was transferred to the other joint account holder?",
+      text: "Do you know the exact amount of money that was transferred to the other person?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
@@ -79,9 +81,6 @@
     }
   ]
 }) }}
-
-
-      <form class="form" action="/v4/money/money-in-joint-accounts" method="post">
 
         {{ govukButton({
           text: "Continue"

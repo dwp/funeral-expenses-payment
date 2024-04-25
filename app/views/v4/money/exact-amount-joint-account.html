@@ -16,6 +16,8 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      <form class="form" action="/v4/money/partner-joint-account" method="post">
+
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
 
@@ -57,7 +59,7 @@
   name: "contact",
   fieldset: {
     legend: {
-      text: "Do you know the exact amount they had in joint accounts?",
+      text: "Do you know the exact amount of money they had in joint accounts?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
@@ -79,9 +81,6 @@
     }
   ]
 }) }}
-
-
-      <form class="form" action="/v4/money/money-in-joint-accounts" method="post">
 
         {{ govukButton({
           text: "Continue"

@@ -16,31 +16,9 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/partner-answer" method="post">
+      <form class="form" action="/v4/money/burial-club" method="post">
 
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
-
-{{ govukRadios({
-  name: "partner",
-  values: data["partner"],
-  fieldset: {
-    legend: {
-      text: "Are you the partner of the person who died?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-    }
-  },
-  items: [
-    {
-      value: "yes",
-      text: "Yes"
-    },
-    {
-      value: "no",
-      text: "No"
-    }
-  ]
-}) }}
+         <h1 class="govuk-heading-l">Placeholder page to explain £120 limit</h1>
 
         {{ govukButton({
           text: "Continue"

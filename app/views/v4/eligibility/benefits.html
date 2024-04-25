@@ -16,7 +16,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="" method="post">
+      <form class="form" action="/benefits-answer" method="post">
 
         <h1 class="govuk-heading-l govuk-!-margin-bottom-2">
           Are you getting, or waiting to hear about, any of these benefits?
@@ -24,7 +24,7 @@
 
           {{ govukCheckboxes({
             name: "benefits",
-            values: data[""],
+            values: data["benefits"],
             fieldset: {
               legend: {
                 text: "",
@@ -76,7 +76,7 @@
                 divider: "or"
               },
               {
-                value: "No",
+                value: "no",
                 text: "No",
                 behaviour: "exclusive"
               }

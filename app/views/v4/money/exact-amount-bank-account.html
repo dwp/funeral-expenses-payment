@@ -16,8 +16,11 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      <form class="form" action="/v4/money/joint-account" method="post">
+
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
+
+      {% from "govuk/components/input/macro.njk" import govukInput %}
 
 {% set emailHtml %}
 {{ govukInput({
@@ -79,9 +82,6 @@
     }
   ]
 }) }}
-
-
-      <form class="form" action="/v4/money/money-in-joint-accounts" method="post">
 
         {{ govukButton({
           text: "Continue"
