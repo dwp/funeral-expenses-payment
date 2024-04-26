@@ -53,8 +53,8 @@ router.post('/whereyoulive-answer', function(request, response) {
   var country = request.session.data['whereyoulive']
   if (country == "scotland"){
       response.redirect("/v4/eligibility/live-in-scotland")
-  } else if (country == "northern-ireland"){
-        response.redirect("/v4/eligibility/live-in-ni")
+//   } else if (country == "northern-ireland"){
+//         response.redirect("/v4/eligibility/live-in-ni")
   } else if (country == "abroad"){
         response.redirect("/v4/eligibility/live-outside-uk")
   } else {
