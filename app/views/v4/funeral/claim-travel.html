@@ -19,13 +19,13 @@
       <form class="form" action="/claimtravel-answer" method="post">
 
       <h1 class="govuk-heading-l">
-        Travel expenses
+        Travel costs
       </h1>
       <p class="govuk-body">
-        You can claim travel expenses for one journey, either to attend or arrange the funeral.
+        We can help pay for one journey, either to attend or arrange the funeral. We cannot help with the cost of travelling in a funeral car.
       </p>
       <p class="govuk-body">
-        If you travelled by public transport or taxi you may need to provide receipts.
+        If you used a taxi or public transport you may need to provide receipts.
       </p>
       
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -35,13 +35,13 @@
             values: data["claimtravel"],
             fieldset: {
               legend: {
-                text: "Do you want to claim travel expenses now?",
+                text: "Do you want to tell us about your travel costs now?",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--m"
               }
             },
             hint: {
-              text: "[placeholderhint]"
+              text: "You can tell us later if you have not travelled yet."
             },
             items: [
               {
