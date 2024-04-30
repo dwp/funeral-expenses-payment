@@ -115,7 +115,7 @@ router.post('/whereyoulive-answer', function(request, response) {
   router.post('/financial-affairs-answer', function(request, response) {
 
     var financialaffairs = request.session.data['financialaffairs']
-    if (financialaffairs == "claimant"){
+    if (financialaffairs == "you"){
         response.redirect("/v4/money/bank-accounts")
     } else {
         response.redirect("/v4/funeral/start")
