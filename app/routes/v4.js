@@ -141,6 +141,8 @@ router.post('/whereyoulive-answer', function(request, response) {
     var jointaccount = request.session.data['jointaccount']
     if (jointaccount == "yes"){
         response.redirect("/v4/money/exact-amount-joint-account")
+    } else if (jointaccount == "all"){
+        response.redirect("/v4/money/partner-joint-account")    
     } else {
         response.redirect("/v4/money/isa")
     }
