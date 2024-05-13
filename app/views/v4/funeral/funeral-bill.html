@@ -17,7 +17,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <form class="form" action="/funeralbill-answer" method="post">
-        
+
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
           {{ govukRadios({
@@ -31,7 +31,7 @@
               }
             },
             hint: {
-              text: "[Explain what a signed contract is]"
+              text: "A signed contract is an agreement between you and the funeral director."
             },
             items: [
               {
