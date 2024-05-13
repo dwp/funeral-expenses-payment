@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Bank accounts – {{ serviceName }} – GOV.UK Prototype Kit
+  Bill in your name – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,22 +16,19 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/bankaccounts-answer" method="post">
+      <form class="form" action="/billinyourname-answer" method="post">
 
-          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
           {{ govukRadios({
-            name: "bankaccounts",
-            values: data["bankaccounts"],
+            name: "billinyourname",
+            values: data["billinyourname"],
             fieldset: {
               legend: {
-                text: "Did the person who died have any bank accounts?",
+                text: "Will the funeral bill be in your name?",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
               }
-            },
-            hint: {
-              text: "This includes joint, building society, credit union and post office card accounts."
             },
             items: [
               {
@@ -47,12 +44,15 @@
               },
               {
                 value: "dontknow",
-                text: "Don't know"
-              }
-            ]
+                text: "Don't know",
+                hint: {
+                text: "We will need to contact you about this."
+             }
+           }
+          ]
           }) }}
 
-          {{ govukButton({
+        {{ govukButton({
           text: "Continue"
         }) }}
 
