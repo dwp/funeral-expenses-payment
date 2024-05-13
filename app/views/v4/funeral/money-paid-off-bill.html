@@ -16,16 +16,16 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/usedmoney-answer" method="post">
+      <form class="form" action="/moneyoffbill-answer" method="post">
     
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
       {{ govukRadios({
-        name: "usedmoney",
-        values: data["usedmoney"],
+        name: "moneyoffbill",
+        values: data["moneyoffbill"],
         fieldset: {
           legend: {
-            text: "Was any of the money used to pay the funeral bill from the person who died?",
+            text: "Has any of the funeral bill been paid?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
