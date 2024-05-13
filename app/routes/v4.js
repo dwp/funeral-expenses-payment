@@ -340,19 +340,43 @@ router.post('/whereyoulive-answer', function(request, response) {
     }
 })
 
+  // DO YOU HAVE A FUNERAL BILL OR SIGNED CONTRACT YET
+
+  router.post('/funeralbill-answer', function(request, response) {
+
+    var funeralbill = request.session.data['funeralbill']
+    if (funeralbill == "yes"){
+        response.redirect("/v4/funeral/bill-in-your-name")
+    } else {
+        response.redirect("/v4/funeral/will-bill-be-in-your-name")
+    }
+})
+
  // BILL IN YOUR NAME 
 
 router.post('/billinyourname-answer', function(request, response) {
 
     var billinyourname = request.session.data['billinyourname']
-    if (billinyourname == "yes"){
-        response.redirect("/v4/funeral/items-not-on-bill")
-    } else if (billinyourname == "no"){
-          response.redirect("/v4/funeral/arranged-on-your-behalf")
+    if (billinyourname == "no"){
+        response.redirect("/v4/funeral/arranged-on-your-behalf")
+    // } else if (billinyourname == "dontknow"){
+    //     response.redirect("/v4/funeral/items-not-on-bill")     
     } else {
-        response.redirect("/v4/funeral/used-money-from-deceased")
+        response.redirect("/v4/funeral/items-not-on-bill")
     }
   })
+
+     // PAID MONEY OFF BILL
+
+router.post('/moneyoffbill-answer', function(request, response) {
+
+    var moneyoffbill = request.session.data['moneyoffbill']
+    if (moneyoffbill == "yes"){
+        response.redirect("/v4/funeral/exact-amount-money-off-bill")
+    } else {
+        response.redirect("/v4/funeral/claim-travel")
+    }
+})
 
    // USED MONEY FROM DECEASED TO PAY FUNERAL
 
