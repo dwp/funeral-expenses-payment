@@ -17,37 +17,77 @@
     <div class="govuk-grid-column-two-thirds">
 
       <form class="form" action="/moneyoffbill-answer-v5" method="post">
-    
-      {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-      {{ govukRadios({
-        name: "moneyoffbill",
-        values: data["moneyoffbill"],
-        fieldset: {
-          legend: {
-            text: "Has any of the funeral bill been paid?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        items: [
-          {
-            value: "yes",
-            text: "Yes"
+        {% if (data['director'] == "yes") %}
+        
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "moneyoffbill",
+          values: data["moneyoffbill"],
+          fieldset: {
+            legend: {
+              text: "Has any money been paid to the funeral director?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
           },
-          {
-            value: "no",
-            text: "No"
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "dontknow",
+              text: "Don't know"
+            }
+          ]
+        }) }}
+
+        {% endif %}
+
+        {% if (data['director'] == "no") %}
+        
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "moneyoffbill",
+          values: data["moneyoffbill"],
+          fieldset: {
+            legend: {
+              text: "Has any money been paid to the organisation or person arranging the funeral?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
           },
-          {
-            divider: "or"
-          },
-          {
-            value: "dontknow",
-            text: "Don't know"
-          }
-        ]
-      }) }}
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "dontknow",
+              text: "Don't know"
+            }
+          ]
+        }) }}
+
+        {% endif %}
+
 
         {{ govukButton({
           text: "Continue"

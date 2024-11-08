@@ -17,37 +17,37 @@
     <div class="govuk-grid-column-two-thirds">
 
       <form class="form" action="/usedmoney-answer-v5" method="post">
-    
-      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-      {{ govukRadios({
-        name: "usedmoney",
-        values: data["usedmoney"],
-        fieldset: {
-          legend: {
-            text: "Was any of the money used to pay the funeral bill from the person who died?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        items: [
-          {
-            value: "yes",
-            text: "Yes"
+        {{ govukRadios({
+          name: "usedmoney",
+          values: data["usedmoney"],
+          fieldset: {
+            legend: {
+              text: "Was any of the money used to pay them from the person who died?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
           },
-          {
-            value: "no",
-            text: "No"
-          },
-          {
-            divider: "or"
-          },
-          {
-            value: "dontknow",
-            text: "Don't know"
-          }
-        ]
-      }) }}
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "dontknow",
+              text: "Don't know"
+            }
+          ]
+        }) }}
 
         {{ govukButton({
           text: "Continue"
