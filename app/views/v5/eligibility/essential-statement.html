@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Essential Statement – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/v5/eligibility/start" method="post">
+
+      <h1 class="govuk-heading-l">
+        Essential Statement
+      </h1>
+
+      <p>
+        If the person who died left money in their estate the Funeral Expenses Payment made from Social Fund will have to be paid back from this.
+      </p>
+      <p>
+        The law states that funeral expenses must be paid before anything else is paid from the estate.  
+      </p>
+      <p>A funeral payment includes necessary burial or cremation fees, certain other specified expenses such as travel costs and up to £1000 for additional funeral expenses, such as the funeral director's fees, the coffin or flowers.</p>
+      <p>if the person who died had a pre-paid funeral plan or insurance policy, you will only get help for items not already covered by the plan or policy.</p>
+
+        <div class="govuk-!-padding-bottom-4"></div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
