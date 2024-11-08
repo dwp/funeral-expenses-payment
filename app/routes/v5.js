@@ -323,7 +323,7 @@ router.post('/whereyoulive-answer-v5', function(request, response) {
 
     var director = request.session.data['director']
     if (director == "yes"){
-        response.redirect("/v5/funeral/director-name")
+        response.redirect("/v5/funeral/provider-name")
     } else {
         response.redirect("/v5/funeral/someone-else")
     }
@@ -335,7 +335,7 @@ router.post('/whereyoulive-answer-v5', function(request, response) {
 
     var someoneelse = request.session.data['someoneelse']
     if (someoneelse == "yes"){
-        response.redirect("/v5/funeral/provider-details")
+        response.redirect("/v5/funeral/provider-name")
     } else {
         response.redirect("/v5/funeral/used-money-from-deceased")
     }
