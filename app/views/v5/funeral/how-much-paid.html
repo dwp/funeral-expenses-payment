@@ -1,28 +1,28 @@
 {% extends "layouts/main.html" %}
-
+ 
 {% block pageTitle %}
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
-
+ 
 {% block beforeContent %}
   {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"
 }) }}
 {% endblock %}
-
+ 
 {% block content %}
-
+ 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
+ 
       <form class="form" action="/v5/funeral/check-answers-funeral" method="post">
-
+ 
       <h1 class="govuk-heading-l">
         How much did the journey cost?
       </h1>
-
-      {% if (data['transporttype'] == "train") %}
+ 
+      {% if ((data['transporttype'] | string).includes("train")) %}
       <div class="govuk-form-group">
         <label class="govuk-label" for="cost">
           Train
@@ -33,9 +33,9 @@
       </div>
     </div>
     {% endif %}
-
-      {% if (data['transporttype'] == "bus") %}
-      <div class="govuk-form-group">
+ 
+    {% if ((data['transporttype'] | string).includes("bus")) %}
+    <div class="govuk-form-group">
         <label class="govuk-label" for="cost">
           Bus
         </label>
@@ -45,9 +45,9 @@
       </div>
     </div>
     {% endif %}
-
-    {% if (data['transporttype'] == "taxi") %}
-      <div class="govuk-form-group">
+ 
+    {% if ((data['transporttype'] | string).includes("taxi")) %}
+    <div class="govuk-form-group">
         <label class="govuk-label" for="cost">
           Taxi
         </label>
@@ -57,8 +57,8 @@
       </div>
     </div>
     {% endif %}
-
-    {% if (data['transporttype'] == "other") %}
+ 
+    {% if ((data['transporttype'] | string).includes("other")) %}
     <div class="govuk-form-group">
       <label class="govuk-label" for="cost">
         Other
@@ -69,15 +69,15 @@
     </div>
   </div>
   {% endif %}
-
-
+ 
+ 
         {{ govukButton({
           text: "Continue"
         }) }}
-
+ 
       </form>
-
+ 
     </div>
   </div>
-
+ 
 {% endblock %}
