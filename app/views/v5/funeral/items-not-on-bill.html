@@ -18,6 +18,19 @@
 
       <form class="form" action="/v5/funeral/claim-travel" method="post">
 
+        <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+          <!-- <div class="govuk-notification-banner__header"> -->
+            <!-- <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              
+            </h2> -->
+            <div class="govuk-notification-banner__content">
+              <p class="govuk-body">
+                What items do you feel would not be included on a funeral bill?
+              </p>
+            </div>
+          <!-- </div> -->
+        </div>
+
       {% if (data['documents'] == "bill") %}
 
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
