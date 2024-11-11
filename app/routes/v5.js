@@ -52,12 +52,12 @@ router.post('/responsible-answer-v5', function(request, response) {
 router.post('/whereyoulive-answer-v5', function(request, response) {
 
   var country = request.session.data['whereyoulive']
-  if (country == "scotland"){
-      response.redirect("/v5/eligibility/live-in-scotland")
+  if (country == "abroad"){
+    response.redirect("/v5/eligibility/live-outside-uk")
 //   } else if (country == "northern-ireland"){
 //         response.redirect("/v5/eligibility/live-in-ni")
-  } else if (country == "abroad"){
-        response.redirect("/v5/eligibility/live-outside-uk")
+//   } else if (country == "scotland"){
+//         response.redirect("/v5/eligibility/live-in-scotland")
   } else {
       response.redirect("/v5/eligibility/benefits")
   }
