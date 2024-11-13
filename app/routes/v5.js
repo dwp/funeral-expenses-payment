@@ -337,7 +337,7 @@ router.post('/whereyoulive-answer-v5', function(request, response) {
     if (someoneelse == "yes"){
         response.redirect("/v5/funeral/provider-name")
     } else {
-        response.redirect("/v5/funeral/used-money-from-deceased")
+        response.redirect("/v5/funeral/claim-travel")
     }
 })
 
