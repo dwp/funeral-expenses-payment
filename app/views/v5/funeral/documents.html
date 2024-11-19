@@ -18,20 +18,6 @@ Did the funeral director give any of these documents – {{ serviceName }} – G
 
       <form class="form" action="/documents-answer-v5" method="post">
 
-        <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-          <!-- <div class="govuk-notification-banner__header"> -->
-            <!-- <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-              
-            </h2> -->
-            <div class="govuk-notification-banner__content">
-              <p class="govuk-body">
-                When do you feel you would get the following?
-                Estimate of the funeral cost, signed contract, funeral bill.
-              </p>
-            </div>
-          <!-- </div> -->
-        </div>
-
         {% if (data['director'] == "yes") %}
         
         {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
