@@ -95,7 +95,7 @@ router.post('/whereyoulive-answer-v5', function(request, response) {
     if (funeralinuk == "no"){
         response.redirect("/v5/eligibility/funeral-in-eea")
     } else {
-        response.redirect("/v5/details/about-the-claimant")
+        response.redirect("/v5/eligibility/check-answers-eligibility")
     }
 })
 
@@ -107,7 +107,7 @@ router.post('/whereyoulive-answer-v5', function(request, response) {
     if (funeraleea == "no"){
         response.redirect("/v5/eligibility/funeral-outside-uk")
     } else {
-        response.redirect("/v5/details/about-the-claimant")
+        response.redirect("/v5/eligibility/check-answers-eligibility")
     }
 })
 
