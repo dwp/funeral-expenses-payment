@@ -19,10 +19,10 @@ Did the funeral director give any of these documents – {{ serviceName }} – G
       <form class="form" action="/documents-answer-v5" method="post">
 
         {% if (data['director'] == "yes") %}
-        
+
         {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
-{{ govukCheckboxes({
+{{ govukRadios({
   name: "documents",
   values: data["documents"],
   fieldset: {
@@ -33,7 +33,7 @@ Did the funeral director give any of these documents – {{ serviceName }} – G
     }
   },
   hint: {
-    text: "Select all that apply"
+    text: "Select the most recent document from the funeral director."
   },
   items: [
     {
@@ -59,7 +59,7 @@ Did the funeral director give any of these documents – {{ serviceName }} – G
     },
     {
       value: "none",
-      text: "No",
+      text: "None of these",
       hint: {
         text: "This could be because they have not been contacted yet, or someone else is dealing with them."
       },
@@ -71,11 +71,11 @@ Did the funeral director give any of these documents – {{ serviceName }} – G
         {% endif %}
 
         {% if (data['director'] == "no") %}
-        
-        
+
+
         {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
-{{ govukCheckboxes({
+{{ govukRadios({
   name: "documents",
   values: data["documents"],
   fieldset: {
@@ -86,7 +86,7 @@ Did the funeral director give any of these documents – {{ serviceName }} – G
     }
   },
   hint: {
-    text: "Select all that apply"
+    text: "Select the most recent document from the organisation or person arranging the funeral."
   },
   items: [
     {
@@ -112,7 +112,7 @@ Did the funeral director give any of these documents – {{ serviceName }} – G
     },
     {
       value: "none",
-      text: "No",
+      text: "None of these",
       hint: {
         text: "This may be because you have not contacted them or someone else is dealing with them instead."
       },
