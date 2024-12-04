@@ -15,7 +15,7 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-    
+
       <form class="form" action="/plansfilter-answer-v5" method="post">
 
           {% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -33,7 +33,10 @@
             items: [
               {
                 value: "yes",
-                text: "Yes"
+                text: "Yes",
+                hint: {
+                  text: "We’ll ask about each of these to see what they had."
+                }
               },
               {
                 value: "no",
