@@ -119,7 +119,7 @@ router.post('/whereyoulive-answer-v5', function(request, response) {
     if (financialaffairs == "you"){
         response.redirect("/v5/money/bank-accounts")
     } else {
-        response.redirect("/v5/funeral/start")
+        response.redirect("/v5/money/responsible-for-finances-name")
     }
 })
 
@@ -203,7 +203,7 @@ router.post('/whereyoulive-answer-v5', function(request, response) {
 
     var plansfilter = request.session.data['plansfilter']
     if (plansfilter == "no"){
-        response.redirect("/v5/money/other-money")
+        response.redirect("/v5/money/burial-club")
     } else {
         response.redirect("/v5/money/workplace-pension")
     }
@@ -241,7 +241,7 @@ router.post('/whereyoulive-answer-v5', function(request, response) {
     if (funeralplan == "yes"){
         response.redirect("/v5/money/funeral-plan-cover-costs")
     } else {
-        response.redirect("/v5/money/burial-club")
+        response.redirect("/v5/money/armed-forces")
     }
 })
 
@@ -265,7 +265,7 @@ router.post('/whereyoulive-answer-v5', function(request, response) {
     if (funeralplanrefund == "yes"){
         response.redirect("/v5/money/exact-amount-funeral-refund")
     } else {
-        response.redirect("/v5/money/burial-club")
+        response.redirect("/v5/money/armed-forces")
     }
 })
 
@@ -277,7 +277,7 @@ router.post('/whereyoulive-answer-v5', function(request, response) {
     if (burialclub == "yes"){
         response.redirect("/v5/money/exact-amount-burial-club")
     } else {
-        response.redirect("/v5/money/armed-forces")
+        response.redirect("/v5/money/other-money")
     }
 })
 
@@ -289,7 +289,7 @@ router.post('/whereyoulive-answer-v5', function(request, response) {
     if (armedforces == "yes"){
         response.redirect("/v5/money/war-pension")
     } else {
-        response.redirect("/v5/money/other-money")
+        response.redirect("/v5/money/burial-club")
     }
 })
 
@@ -301,7 +301,7 @@ router.post('/whereyoulive-answer-v5', function(request, response) {
     if (warpension == "yes"){
         response.redirect("/v5/money/exact-amount-war-pension")
     } else {
-        response.redirect("/v5/money/other-money")
+        response.redirect("/v5/money/burial-club")
     }
 })
 
@@ -314,6 +314,18 @@ router.post('/whereyoulive-answer-v5', function(request, response) {
         response.redirect("/v5/money/exact-amount-other-money")
     } else {
         response.redirect("/v5/money/death-certificates")
+    }
+})
+
+  // PERMISSION TO COLLECT
+
+  router.post('/permission-to-collect-v5', function(request, response) {
+
+    var permission = request.session.data['permission']
+    if (permission == "yes"){
+        response.redirect("/v5/money/check-answers-money")
+    } else {
+        response.redirect("/v5/money/permission-to-collect-in-future")
     }
 })
 
