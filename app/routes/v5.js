@@ -349,6 +349,18 @@ router.post('/whereyoulive-answer-v5', function(request, response) {
     if (someoneelse == "yes"){
         response.redirect("/v5/funeral/provider-name")
     } else {
+        response.redirect("/v5/funeral/have-you-used-money-from-deceased")
+    }
+})
+
+   // HAVE YOU USED MONEY FROM DECEASED TO PAY FUNERAL (asked if arranging yourself)
+
+   router.post('/haveyouusedmoney-answer-v5', function(request, response) {
+
+    var haveyouusedmoney = request.session.data['haveyouusedmoney']
+    if (haveyouusedmoney == "yes"){
+        response.redirect("/v5/funeral/exact-amount-money-used")
+    } else {
         response.redirect("/v5/funeral/claim-travel")
     }
 })
@@ -459,7 +471,7 @@ router.post('/documents-answer-v5', function(request, response) {
 
     var nopermissionother = request.session.data['nopermissionother']
     if (nopermissionother == "yes"){
-        response.redirect("/v5/funeral/claim-travel")
+        response.redirect("/v5/funeral/claim-travel-in-future")
     } else {
         response.redirect("/index")
     }
@@ -473,7 +485,7 @@ router.post('/documents-answer-v5', function(request, response) {
     if (willbillbeinyourname == "no"){
         response.redirect("/v5/funeral/allowing-on-your-behalf")    
     } else {
-        response.redirect("/v5/funeral/claim-travel")
+        response.redirect("/v5/funeral/claim-travel-in-future")
     }
   })
 
@@ -483,11 +495,13 @@ router.post('/documents-answer-v5', function(request, response) {
 
     var allowingonyourbehalf = request.session.data['allowingonyourbehalf']
     if (allowingonyourbehalf == "yes"){
-        response.redirect("/v5/funeral/claim-travel")    
+        response.redirect("/v5/funeral/claim-travel-in-future")    
     } else {
         response.redirect("/v5/funeral/no-permission")
     }
   })
+
+// WHAT TYPE OF TRAVEL ROUTES
 
   router.post('/transporttype-answer-v5', function(request, response) {
 

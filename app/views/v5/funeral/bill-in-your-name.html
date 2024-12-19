@@ -18,7 +18,7 @@
 
       <form class="form" action="/billinyourname-answer-v5" method="post">
 
-        {% if (data['documents'] == "bill") %}
+        {% if (data['documents'] == "bill" or data['funeraltakenplace'] == "yes") %}
 
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -44,9 +44,7 @@
             ]
           }) }} 
 
-        {% endif %}
-
-        {% if (data['documents'] == "contract") %}
+          {% else %}
 
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
