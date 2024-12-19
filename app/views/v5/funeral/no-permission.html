@@ -16,43 +16,6 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      {% if (data['documents'] == "bill" or data['documents'] == "contract") %}
-
-      <form class="form" action="/permission-answer-v5" method="post">
-
-        <h1 class="govuk-heading-l">
-          You must be responsible for paying the funeral bill to get a Funeral Expenses Payment
-        </h1>
-        <p class="govuk-body">
-          If more than one person is trying to pay the bill we'll need to investigate and contact you later to find out who is responsible. 
-        </p>
-  
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
-  
-            {{ govukRadios({
-              name: "nopermission",
-              values: data["nopermission"],
-              fieldset: {
-                legend: {
-                  text: "Do you want to continue your application?",
-                  isPageHeading: true,
-                  classes: "govuk-fieldset__legend--m"
-                }
-              },
-              items: [
-                {
-                  value: "yes",
-                  text: "Yes"
-                },
-                {
-                  value: "no", 
-                  text: "No"
-                }
-              ]
-            }) }}
-
-        {% endif %}
-
         {% if (data['documents'] == "estimate" or data['documents'] == "none") %}
 
       <form class="form" action="/permission-other-answer-v5" method="post">
@@ -88,11 +51,46 @@
               ]
             }) }}
 
-        {% endif %}
+            {% else %}
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+        <form class="form" action="/permission-answer-v5" method="post">
+  
+          <h1 class="govuk-heading-l">
+            You must be responsible for paying the funeral bill to get a Funeral Expenses Payment
+          </h1>
+          <p class="govuk-body">
+            If more than one person is trying to pay the bill we'll need to investigate and contact you later to find out who is responsible. 
+          </p>
+    
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    
+              {{ govukRadios({
+                name: "nopermission",
+                values: data["nopermission"],
+                fieldset: {
+                  legend: {
+                    text: "Do you want to continue your application?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                items: [
+                  {
+                    value: "yes",
+                    text: "Yes"
+                  },
+                  {
+                    value: "no", 
+                    text: "No"
+                  }
+                ]
+              }) }}
+  
+          {% endif %}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}  
 
       </form>
 

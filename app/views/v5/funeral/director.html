@@ -17,6 +17,34 @@
     <div class="govuk-grid-column-two-thirds">
 
       <form class="form" action="/director-answer-v5" method="post">
+
+        {% if (data['funeraltakenplace'] == "yes") %}
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+          {{ govukRadios({
+            name: "director",
+            values: data["director"],
+            fieldset: {
+              legend: {
+                text: "Did you use a funeral director?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+
+        {% else %}
      
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -41,6 +69,8 @@
               }
             ]
           }) }}
+
+          {% endif %}
 
         {{ govukButton({
           text: "Continue"

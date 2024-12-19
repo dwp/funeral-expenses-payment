@@ -16,7 +16,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/claimtravel-answer-v5" method="post">
+      <form class="form" action="/v5/funeral/check-answers-funeral" method="post">
 
         <h1 class="govuk-heading-l">
           Travel costs
@@ -44,7 +44,10 @@
               items: [
                 {
                   value: "yes",
-                  text: "Yes"
+                  text: "Yes",
+                  hint: {
+                    text: "We will contact you about your travel costs after the funeral."
+                  }
                 },
                 {
                   value: "no",
