@@ -1,0 +1,82 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Address – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/v6/funeral/address-results" method="post">
+
+        {% if (data['director'] == "yes") %}
+        
+        <h1 class="govuk-heading-l">
+          Address of funeral director 
+        </h1>
+
+        {% endif %}
+
+        {% if (data['director'] == "no") %}
+        
+        <h1 class="govuk-heading-l">
+          Address of organisation or person arranging the funeral 
+        </h1>
+
+        {% endif %}
+
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+<div class="govuk-width-container">
+
+{{ govukInput({
+label: {
+  text: "Postcode"
+},
+classes: "govuk-!-width-two-thirds",
+hint: {
+  text: "For example, AA3 1AB."
+},
+id: "postcode",
+name: "postcode"
+}) }}
+
+{{ govukInput({
+label: {
+  text: "Building number or name"
+},
+classes: "govuk-!-width-two-thirds",
+hint: {
+  text: "For example, 15 or Prospect Cottage."
+},
+id: "searchString",
+name: "searchString"
+}) }}
+
+{{ govukButton({
+text: "Find address"
+}) }}
+
+<p class="govuk-body govuk-!-margin-bottom-0"><a href="/v5/funeral/address-manually" class="govuk-link">Enter address manually</a></p>
+</div>
+<br>
+<p class="govuk-body govuk-!-margin-bottom-0"><a href="/v5/funeral/contact-provider" class="govuk-link">Skip address</a></p>
+</div>
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

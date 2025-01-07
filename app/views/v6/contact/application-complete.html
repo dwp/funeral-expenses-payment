@@ -1,0 +1,72 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Claim submitted – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "Your claim for a Funeral Expenses Payment has been submitted",
+        html: ""
+      }) }}
+
+      <p>
+        It currently takes 3 to 4 weeks to process a claim.
+      </p>
+
+      <h2 class="govuk-heading-m">
+        What we need
+      </h2>
+
+      <p class="govuk-body">Before we can process your claim:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>we need a copy of the signed contract</li>
+        <li>we need a copy of any final statements from the accounts of the person who died</li>
+        <!-- <li>we will contact you about any life insurance policies</li> -->
+      </ul>
+      <!-- <p>
+        If you do not have a bill or signed contract, we will contact the funeral director for a copy after the funeral. If you can get a copy from your funeral director, or ask them to send it to us, we may be able to process your claim faster.
+      </p> -->
+      <h2 class="govuk-heading-m">
+        How to send it
+      </h2>
+      <p>
+        You can send us what we need by email or post.
+      </p>
+      <p>
+        You’ll need to include your full name, address and National Insurance number with anything you send, so we can match it to your claim.
+      </p>
+      <h3 class="govuk-heading-s">
+        Email
+      </h3>
+      <p>
+        funeral.bills@dwp.gov.uk
+      </p>
+      <h3 class="govuk-heading-s">
+        Post
+      </h3>
+      <p>
+        Freepost DWP, Funeral Payments
+      </p>
+      <h2 class="govuk-heading-m">
+        If you need to contact us
+      </h2>
+      <p>
+        If you have new information about the funeral, call 0800 151 2012 and choose option 3.
+      </p>
+
+      <p>
+        <a href="/index">
+          Back to start
+        </a>
+      </p>
+
+
+    </div>
+  </div>
+
+{% endblock %}

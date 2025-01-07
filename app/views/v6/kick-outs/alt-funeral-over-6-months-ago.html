@@ -1,0 +1,51 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  You cannot get a Funeral Expenses Payment – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/index" method="post">
+
+        <h1 class="govuk-heading-l">
+          You cannot get a Funeral Expenses Payment
+        </h1>
+
+        <div><td class="govuk-table__cell">
+           <strong class="govuk-tag govuk-tag--red">
+             Not eligible
+           </strong>
+         </td>
+        </div>
+
+        <p class="govuk-body govuk-!-margin-bottom-4"></p>
+
+      <p>
+        <b>6 October 2023</b> was over 6 months ago.
+      </p>
+
+      <p>
+        Explain to the caller that they cannot get a Funeral Expenses Payment if the funeral was over 6 months ago.
+      </p>
+
+      <p class="govuk-body">
+        <a href="/index" class="govuk-link govuk-link--no-visited-state">Clear data and start again</a>
+      </p>
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}
