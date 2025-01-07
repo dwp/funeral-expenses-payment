@@ -1,0 +1,51 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  You cannot get a Funeral Expenses Payment – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/index" method="post">
+
+      <h1 class="govuk-heading-l">
+        You can only get a Funeral Expenses Payment if the funeral was in the last 6 months
+      </h1>
+
+      <p>
+        If the funeral was on <b>6 October 2023</b> it has been over 6 months. This means you cannot get a Funeral Expenses Payment.
+      </p>
+
+      <p class="govuk-body">
+        <a href="/index" class="govuk-link govuk-link--no-visited-state">Clear data and start again</a>
+      </p>
+
+      <br>
+
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            If a formal decision is needed
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p>To get a formal decision you’ll need to complete a claim form and send it by post. You can get a claim form by going to GOV.UK and searching for ‘funeral costs’.</p>
+        </div>
+      </details>
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  You cannot get a Funeral Expenses Payment – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        You need to contact the Department for Communities Bereavement Service to apply
+      </h1>
+
+      <p>
+        The Department for Communities provides services for people who live in Northern Ireland.
+      </p>
+      <h2 class="govuk-heading-m">
+        Bereavement Service contact details
+      </h2>
+      <p>
+        Telephone: 0800 085 2463<br>
+        Textphone: 0808 100 2198<br>
+        Monday to Friday, 9am to 5pm
+      </p>
+      <br>
+
+      <p class="govuk-body">
+        <a href="/index" class="govuk-link govuk-link--no-visited-state">Clear data and start again</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

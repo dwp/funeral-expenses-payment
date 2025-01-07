@@ -1,0 +1,87 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <form action="/v6/contact/declaration" method="post" novalidate>
+
+        <h1 class="govuk-heading-l">Check your answers about bank and contact details</h1>
+
+              <h2 class="govuk-heading-m">Bank details</h2>
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Bank or building society account
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Mr Tom Gordon<br>80 80 62<br>13467353
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> previous application number</span></a>
+                  </dd>
+                </div>
+                </dl>
+
+                <h2 class="govuk-heading-m">Contact details</h2>
+                <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Telephone number
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    07563245689
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Address
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    1 Empire Street<br>Manchester<br>M1 6GJ
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Use any different contact formats
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    No
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence type</span></a>
+                  </dd>
+                </div>
+              </dl>
+
+              {{ govukButton({
+                text: "Continue"
+              }) }}
+
+            </div>
+
+
+
+
+
+      </form>
+
+    </div>
+
+{% endblock %}
