@@ -1,0 +1,79 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Are you the partner – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/16to19-answer" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Were they under 16 or in approved education or training?
+              </h1>
+            </legend>
+            <details class="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  What we mean by approved education or training
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <h2 class="govuk-heading-s">Approved education</h2>
+                <p class="govuk-body">Education must be full-time (more than an average of 12 hours a week of supervised study or course-related work experience). This can include:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>A levels or similar, for example International Baccalaureate</li>
+                  <li>T levels</li>
+                  <li>Scottish Highers</li>
+                  <li>NVQs and most vocational qualifications up to level 3</li>
+                  <li>home education - if it started either before your child turned 16 or after 16 if they have a statement of special educational needs</li>
+                  <li>study programmes in England</li>
+                  <li>a pre-apprenticeship</li>
+                </ul>
+                <h2 class="govuk-heading-s">Education that is not approved</h2>
+                <p class="govuk-body">Education that is not approved includes:</p>
+                <li>studying for a university degree or BTEC Higher National Certificate (an ‘advanced course’)</li>
+                <li>on an apprenticeship (unless it’s a Foundation Apprenticeship in Wales)</li>
+                <li>doing a course with an employer’s agreement – for example in order to get a job with that employer, or to get skills for a job they’re already in</li>
+              </div>
+            </details>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="under16" name="under16" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="under16">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="under16" name="under16" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="under16">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

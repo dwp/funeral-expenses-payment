@@ -1,0 +1,64 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Burial club – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/burialclub-answer-v6" method="post">
+
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+          {{ govukRadios({
+            name: "burialclub",
+            values: data["burialclub"],
+            fieldset: {
+              legend: {
+                text: "Were they part of a burial society or club?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+          },
+          hint: {
+            text: "This is a society, club or place of worship that helps pay for the funeral because someone pays it a membership fee."
+          },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              },
+              {
+                divider: "or"
+              },
+              {
+                value: "dontknow",
+                text: "Don't know"
+              }
+            ]
+          }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

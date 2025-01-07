@@ -1,0 +1,71 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Are you the partner – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/v6/eligibility/responsible-for-paying" method="post">
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{{ govukCheckboxes({
+  name: "ifm",
+  values: data["ifm"],
+  fieldset: {
+    legend: {
+      text: "Did the person who died have any of the following:",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Select all that apply."
+  },
+  items: [
+    {
+      value: "child",
+      text: "Other surviving adult children",
+      hint: {
+        text: "This is anyone aged 20 or over, or anyone aged 16 to 19 that is not in approved education or training."
+      }
+    },
+    {
+      value: "parent",
+      text: "Surviving parents",
+      hint: {
+        text: "Only include step-parents if they legally adopted the person who died."
+      }
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "none",
+      text: "None",
+      behaviour: "exclusive"
+    }
+  ]
+}) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
