@@ -13,8 +13,17 @@
 
 {% block content %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
+    <div class="govuk-grid-column-two-thirds-from-desktop"> 
+
+      {% if (data['ifm'] == "none") %}
+
       <form action="/v6/money/start" method="post" novalidate>
+
+      {% else %}
+
+      <form action="/v6/ifm/start" method="post" novalidate>
+
+      {% endif %}
 
         <h1 class="govuk-heading-l">Check your answers about the caller and the person who died</h1>
 
