@@ -601,4 +601,439 @@ router.post('/same-address-answer-v6', function(request, response) {
             }
           })
 
+        // IFM LOOP ROUTING BELOW
+
+        // PARENT ESTRANGEMENT
+
+        router.post('/relationshipbrokendown-answer', function(request, response) {
+
+            var relationshipbrokendown = request.session.data['relationshipbrokendown']
+            if (relationshipbrokendown == "yes"){
+              response.redirect("/v6/ifm/parent/add-another-parent")
+            } else {
+                response.redirect("/v6/ifm/parent/their-details")
+            }
+          })    
+
+          // PARENT ON QB
+
+          router.post('/parent-qb-answer', function(request, response) {
+
+            var parentonqb = request.session.data['parentonqb']
+            if (parentonqb == "Yes"){
+              response.redirect("/v6/ifm/parent/benefits")
+            } else if (parentonqb == "dontknow"){
+                  response.redirect("/v6/ifm/parent/add-another-parent")
+            } else {
+                response.redirect("/v6/ifm/parent/exemption-list")
+            }
+          })
+
+        // WHAT QB PARENT ON
+
+        router.post('/what-benefits-parent-answer', function(request, response) {
+
+            var whatbenefitsparent = request.session.data['whatbenefitsparent']
+            if (whatbenefitsparent == "no"){
+              response.redirect("/v6/ifm/parent/soft-stop")
+            } else {
+                response.redirect("/v6/ifm/parent/add-another-parent")
+            }
+          })
+
+        // CONTINUING THROUGH PARENT 
+
+        router.post('/addingparentsoftstop-answer', function(request, response) {
+
+            var addingparentsoftstop = request.session.data['addingparentsoftstop']
+            if (addingparentsoftstop == "yes"){
+              response.redirect("/v6/ifm/parent/add-another-parent")
+            } else {
+                response.redirect("/index")
+            }
+          })    
+
+        // PARENT EXEMPTION  LIST ANSWER
+
+        router.post('/parent-exemption-answer', function(request, response) {
+
+            var parentexemption = request.session.data['parentexemption']
+            if (parentexemption == "no"){
+              response.redirect("/v6/ifm/parent/soft-stop")
+            } else {
+                response.redirect("/v6/ifm/parent/add-another-parent")
+            }
+          })  
+
+          
+         // ADDING SECOND PARENT
+
+          router.post('/add-2nd-parent-answer', function(request, response) {
+
+            var parenttwo = request.session.data['parenttwo']
+            if (parenttwo == "no"){
+              response.redirect("/v6/ifm/child/about-a-child")
+            } else {
+                response.redirect("/v6/ifm/parent2/about-a-parent")
+            }
+          })  
+
+          // PARENT2 ROUTES BELOW 
+
+          // PARENT2 RELATIONSHIP BROKEN DOWN 
+          
+
+          router.post('/relationshipbrokendown-answer2', function(request, response) {
+
+            var relationshipbrokendown2 = request.session.data['relationshipbrokendown2']
+            if (relationshipbrokendown2 == "yes"){
+              response.redirect("/v6/ifm/parent2/add-another-parent")
+            } else {
+                response.redirect("/v6/ifm/parent2/their-details")
+            }
+          })    
+
+          // PARENT2 ON QB 
+
+          router.post('/parent-qb-answer2', function(request, response) {
+
+            var parentonqb2 = request.session.data['parentonqb2']
+            if (parentonqb2 == "Yes"){
+              response.redirect("/v6/ifm/parent2/benefits")
+            } else if (parentonqb2 == "dontknow"){
+                  response.redirect("/v6/ifm/parent2/add-another-parent")
+            } else {
+                response.redirect("/v6/ifm/parent2/exemption-list")
+            }
+          })
+
+          // WHAT QB PARENT2 ON
+
+        router.post('/what-benefits-parent-answer2', function(request, response) {
+
+            var whatbenefitsparent2 = request.session.data['whatbenefitsparent2']
+            if (whatbenefitsparent2 == "no"){
+              response.redirect("/v6/ifm/parent2/soft-stop")
+            } else {
+                response.redirect("/v6/ifm/parent2/add-another-parent")
+            }
+          })
+
+          // CONTINUING THROUGH PARENT2
+
+        router.post('/addingparentsoftstop-answer2', function(request, response) {
+
+            var addingparentsoftstop2 = request.session.data['addingparentsoftstop2']
+            if (addingparentsoftstop2 == "yes"){
+              response.redirect("/v6/ifm/parent2/add-another-parent")
+            } else {
+                response.redirect("/index")
+            }
+          })    
+
+          // PARENT2 EXEMPTION  LIST ANSWER
+
+        router.post('/parent-exemption-answer2', function(request, response) {
+
+            var parentexemption2 = request.session.data['parentexemption2']
+            if (parentexemption2 == "no"){
+              response.redirect("/v6/ifm/parent2/soft-stop")
+            } else {
+                response.redirect("/v6/ifm/parent2/add-another-parent")
+            }
+          })  
+
+        // START OF CHILD LOOP 
+
+        // CHILD ESTRANGEMENT
+
+        router.post('/relationshipbrokendownc1-answer', function(request, response) {
+
+            var relationshipbrokendownc1 = request.session.data['relationshipbrokendownc1']
+            if (relationshipbrokendownc1 == "yes"){
+              response.redirect("/v6/ifm/child/add-another-child")
+            } else {
+                response.redirect("/v6/ifm/child/their-details")
+            }
+          })    
+
+         // CHILD ON QB
+
+         router.post('/child-qb-answer', function(request, response) {
+
+            var childonqb = request.session.data['childonqb']
+            if (childonqb == "Yes"){
+              response.redirect("/v6/ifm/child/benefits")
+            } else if (childonqb == "dontknow"){
+                  response.redirect("/v6/ifm/child/add-another-child")
+            } else {
+                response.redirect("/v6/ifm/child/exemption-list")
+            }
+          }) 
+
+        // WHAT QB CHILD ON
+
+        router.post('/what-benefits-child-answer', function(request, response) {
+
+            var whatbenefitschild = request.session.data['whatbenefitschild']
+            if (whatbenefitschild == "no"){
+              response.redirect("/v6/ifm/child/soft-stop")
+            } else {
+                response.redirect("/v6/ifm/child/add-another-child")
+            }
+          })
+
+          // CONTINUING THROUGH CHILD
+
+        router.post('/addingchildsoftstop-answer', function(request, response) {
+
+            var addingchildsoftstop = request.session.data['addingchildsoftstop']
+            if (addingchildsoftstop == "yes"){
+              response.redirect("/v6/ifm/child/add-another-child")
+            } else {
+                response.redirect("/index")
+            }
+          })   
+
+        // CHILD EXEMPTION LIST ANSWER
+
+        router.post('/child-exemption-answer', function(request, response) {
+
+            var childexemption = request.session.data['childexemption']
+            if (childexemption == "no"){
+              response.redirect("/v6/ifm/child/soft-stop")
+            } else {
+                response.redirect("/v6/ifm/child/add-another-child")
+            }
+          })  
+
+          // NEXT CHILD LOOP
+
+          // ADDING SECOND CHILD
+
+          router.post('/add-2nd-child-answer', function(request, response) {
+
+            var childtwo = request.session.data['childtwo']
+            if (childtwo == "no"){
+              response.redirect("/v6/money/start")
+            } else {
+                response.redirect("/v6/ifm/child2/about-a-child")
+            }
+          })  
+
+        // CHILD2 ESTRANGEMENT
+
+        router.post('/relationshipbrokendownc2-answer', function(request, response) {
+
+            var relationshipbrokendownc2 = request.session.data['relationshipbrokendownc2']
+            if (relationshipbrokendownc2 == "yes"){
+              response.redirect("/v6/ifm/child2/add-another-child")
+            } else {
+                response.redirect("/v6/ifm/child2/their-details")
+            }
+          })    
+
+          // CHILD2 ON QB
+
+         router.post('/child2-qb-answer', function(request, response) {
+
+            var childonqb2 = request.session.data['childonqb2']
+            if (childonqb2 == "Yes"){
+              response.redirect("/v6/ifm/child2/benefits")
+            } else if (childonqb2 == "dontknow"){
+                  response.redirect("/v6/ifm/child2/add-another-child")
+            } else {
+                response.redirect("/v6/ifm/child2/exemption-list")
+            }
+          }) 
+
+          // WHAT QB CHILD2 ON
+
+        router.post('/what-benefits-child-answer2', function(request, response) {
+
+            var whatbenefitschild2 = request.session.data['whatbenefitschild2']
+            if (whatbenefitschild2 == "no"){
+              response.redirect("/v6/ifm/child2/soft-stop")
+            } else {
+                response.redirect("/v6/ifm/child2/add-another-child")
+            }
+          })
+
+        // CONTINUING THROUGH CHILD2
+
+        router.post('/addingchildsoftstop-answer2', function(request, response) {
+
+            var addingchildsoftstop2 = request.session.data['addingchildsoftstop2']
+            if (addingchildsoftstop2 == "yes"){
+              response.redirect("/v6/ifm/child2/add-another-child")
+            } else {
+                response.redirect("/index")
+            }
+          })   
+
+          // CHILD2 EXEMPTION LIST ANSWER
+
+        router.post('/child-exemption-answer2', function(request, response) {
+
+            var childexemption2 = request.session.data['childexemption2']
+            if (childexemption2 == "no"){
+              response.redirect("/v6/ifm/child2/soft-stop")
+            } else {
+                response.redirect("/v6/ifm/child2/add-another-child")
+            }
+          })  
+
+          // NEXT CHILD LOOP
+
+          // ADDING THIRD CHILD
+
+          router.post('/add-3rd-child-answer', function(request, response) {
+
+            var childthree = request.session.data['childthree']
+            if (childthree == "no"){
+              response.redirect("/v6/money/start")
+            } else {
+                response.redirect("/v6/ifm/child3/about-a-child")
+            }
+          })  
+
+        // CHILD3 ESTRANGEMENT
+
+        router.post('/relationshipbrokendownc3-answer', function(request, response) {
+
+            var relationshipbrokendownc3 = request.session.data['relationshipbrokendownc3']
+            if (relationshipbrokendownc3 == "yes"){
+              response.redirect("/v6/ifm/child3/add-another-child")
+            } else {
+                response.redirect("/v6/ifm/child3/their-details")
+            }
+          })    
+
+          // CHILD3 ON QB
+
+         router.post('/child3-qb-answer', function(request, response) {
+
+            var childonqb3 = request.session.data['childonqb3']
+            if (childonqb3 == "Yes"){
+              response.redirect("/v6/ifm/child3/benefits")
+            } else if (childonqb3 == "dontknow"){
+                  response.redirect("/v6/ifm/child3/add-another-child")
+            } else {
+                response.redirect("/v6/ifm/child3/exemption-list")
+            }
+          }) 
+
+          // WHAT QB CHILD3 ON
+
+        router.post('/what-benefits-child-answer3', function(request, response) {
+
+            var whatbenefitschild3 = request.session.data['whatbenefitschild3']
+            if (whatbenefitschild3 == "no"){
+              response.redirect("/v6/ifm/child3/soft-stop")
+            } else {
+                response.redirect("/v6/ifm/child3/add-another-child")
+            }
+          })
+
+        // CONTINUING THROUGH CHILD3
+
+        router.post('/addingchildsoftstop-answer3', function(request, response) {
+
+            var addingchildsoftstop3 = request.session.data['addingchildsoftstop3']
+            if (addingchildsoftstop3 == "yes"){
+              response.redirect("/v6/ifm/child3/add-another-child")
+            } else {
+                response.redirect("/index")
+            }
+          })   
+
+          // CHILD3 EXEMPTION LIST ANSWER
+
+        router.post('/child-exemption-answer3', function(request, response) {
+
+            var childexemption3 = request.session.data['childexemption3']
+            if (childexemption3 == "no"){
+              response.redirect("/v6/ifm/child3/soft-stop")
+            } else {
+                response.redirect("/v6/ifm/child3/add-another-child")
+            }
+          })  
+
+          // NEXT CHILD LOOP
+
+          // ADDING FOURTH CHILD
+
+          router.post('/add-4th-child-answer', function(request, response) {
+
+            var childfour = request.session.data['childfour']
+            if (childfour == "no"){
+              response.redirect("/v6/money/start")
+            } else {
+                response.redirect("/v6/ifm/child4/about-a-child")
+            }
+          })  
+
+        // CHILD4 ESTRANGEMENT
+
+        router.post('/relationshipbrokendownc4-answer', function(request, response) {
+
+            var relationshipbrokendownc4 = request.session.data['relationshipbrokendownc4']
+            if (relationshipbrokendownc4 == "yes"){
+              response.redirect("/v6/ifm/child4/add-another-child")
+            } else {
+                response.redirect("/v6/ifm/child4/their-details")
+            }
+          })    
+
+          // CHILD4 ON QB
+
+         router.post('/child4-qb-answer', function(request, response) {
+
+            var childonqb4 = request.session.data['childonqb4']
+            if (childonqb4 == "Yes"){
+              response.redirect("/v6/ifm/child4/benefits")
+            } else if (childonqb4 == "dontknow"){
+                  response.redirect("/v6/ifm/child4/add-another-child")
+            } else {
+                response.redirect("/v6/ifm/child4/exemption-list")
+            }
+          }) 
+
+          // WHAT QB CHILD4 ON
+
+        router.post('/what-benefits-child-answer4', function(request, response) {
+
+            var whatbenefitschild4 = request.session.data['whatbenefitschild4']
+            if (whatbenefitschild4 == "no"){
+              response.redirect("/v6/ifm/child4/soft-stop")
+            } else {
+                response.redirect("/v6/ifm/child4/add-another-child")
+            }
+          })
+
+        // CONTINUING THROUGH CHILD4
+
+        router.post('/addingchildsoftstop-answer4', function(request, response) {
+
+            var addingchildsoftstop4 = request.session.data['addingchildsoftstop4']
+            if (addingchildsoftstop4 == "yes"){
+              response.redirect("/v6/ifm/child4/add-another-child")
+            } else {
+                response.redirect("/index")
+            }
+          })   
+
+          // CHILD4 EXEMPTION LIST ANSWER
+
+        router.post('/child-exemption-answer4', function(request, response) {
+
+            var childexemption4 = request.session.data['childexemption4']
+            if (childexemption4 == "no"){
+              response.redirect("/v6/ifm/child4/soft-stop")
+            } else {
+                response.redirect("/v6/ifm/child4/add-another-child")
+            }
+          })  
+
+
 }
