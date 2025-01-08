@@ -1,0 +1,91 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Are they getting, or waiting to hear about, any of these benefits? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/what-benefits-child-answer2" method="post">
+
+          {{ govukCheckboxes({
+            name: "whatbenefitschild2",
+            values: data["whatbenefitschild2"],
+            fieldset: {
+              legend: {
+                text: "Are they getting, or waiting to hear about, any of these benefits?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              text: "Select all that apply."
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Universal Credit"
+              },
+              {
+                value: "yes",
+                text: "Income Support"
+              },
+              {
+                value: "yes",
+                text: "Income-based Jobseeker's Allowance"
+              },
+              {
+                value: "yes",
+                text: "Income-related Employment and Support Allowance"
+              },
+              {
+                value: "yes",
+                text: "Pension Credit"
+              },
+              {
+                value: "yes",
+                text: "Working Tax Credit including disability or severe disability element"
+              },
+              {
+                value: "yes",
+                text: "Child Tax Credit"
+              },
+              {
+                value: "yes",
+                text: "Housing Benefit"
+              },
+              {
+                value: "yes",
+                text: "Support for Mortgage Interest"
+              },
+              {
+                divider: "or"
+              },
+              {
+                value: "no",
+                text: "No",
+                behaviour: "exclusive"
+              }
+            ]
+          }) }}
+          
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+          
+          </form>
+
+    </div>
+  </div>
+
+{% endblock %}

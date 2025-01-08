@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Responsibility – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        We're now going to ask more details about any surviving adult children or parents 
+      </h1>
+
+      <form class="form" action="/v6/ifm/parent/about-a-parent" method="post">
+
+        <p class="govuk-body">For each relative we’ll ask:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>their name</li>
+          <li>if they get any benefits</li>
+          <li>about their relationship to the person who died</li>
+        </ul>
+        <p class="govuk-body">This is to check there is nobody else who can pay for the funeral.</p>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

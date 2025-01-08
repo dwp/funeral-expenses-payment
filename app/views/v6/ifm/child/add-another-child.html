@@ -1,0 +1,115 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Added parent – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/add-2nd-child-answer" method="post">
+        
+            <h1 class="govuk-heading-xl">You have added 1 adult child</h1> 
+
+            <div class="govuk-form-group">
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+       
+                <div class="govuk-summary-list__row">
+                     <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key" style="width: 20%;">
+                       {{ data['fullnamechild1'] }}
+                     </dt>
+       
+                 {% if (data['whatbenefitschild'] == "no") %}          
+                     
+                       <dd class="govuk-summary-list__value" style="width: 25%;">
+                         Not receiving qualifying benefit
+                       </dd>
+       
+                 {% elseif (data['whatbenefitschild'] == "yes") %}
+       
+                       <dd class="govuk-summary-list__value" style="width: 25%;">
+                         Qualifying benefit
+                       </dd>
+       
+                 {% elseif (data['childexemption'] == "no") %}
+       
+                       <dd class="govuk-summary-list__value" style="width: 25%;">
+                         Not receiving qualifying benefit
+                       </dd>
+       
+                 {% elseif (data['relationshipbrokendownc1'] == "yes") %}
+       
+                       <dd class="govuk-summary-list__value" style="width: 25%;">
+                         Relationship broken down
+                       </dd>
+                 
+                 {% elseif (data['childonqb'] == "dontknow") %}
+       
+                       <dd class="govuk-summary-list__value" style="width: 25%;">
+                         Don't know about benefits
+                       </dd>
+                       
+                 {% else %}
+       
+                       <dd class="govuk-summary-list__value" style="width: 25%;">
+                         {{ data['childexemption'] }}
+                       </dd>
+       
+                 {% endif %}
+       
+                 <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+                   <ul class="govuk-summary-list__actions-list">
+                     <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change Jeremy Winter</span></a></li>
+                     <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove Jeremy Winter from the list</span></a></li>
+                   </ul>
+                 </dd>
+                </div>
+              </dl>
+            </div>
+
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    
+          {{ govukRadios({
+            name: "childtwo",
+            values: data["childtwo"],
+            fieldset: {
+              legend: {
+                text: "Does the person who died have any other surviving adult children?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            hint: {
+              text: "This is anyone aged 20 or over, or anyone aged 16 to 19 that is not in approved education or training."
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no", 
+                text: "No"
+              }
+            ]
+          }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
