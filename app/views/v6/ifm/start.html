@@ -16,11 +16,19 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+    {% if (data['ifm'] == "child") %}
+ 
+    <form class="form" action="/v6/ifm/child/about-a-child" method="post">
+
+   {% else %}
+
+    <form class="form" action="/v6/ifm/parent/about-a-parent" method="post"> 
+
+   {% endif %}  
+
       <h1 class="govuk-heading-l">
         We're now going to ask more details about any surviving adult children or parents 
       </h1>
-
-      <form class="form" action="/v6/ifm/parent/about-a-parent" method="post">
 
         <p class="govuk-body">For each relative we’ll ask:</p>
         <ul class="govuk-list govuk-list--bullet">

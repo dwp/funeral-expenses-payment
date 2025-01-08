@@ -678,6 +678,18 @@ router.post('/same-address-answer-v6', function(request, response) {
             }
           })  
 
+          // ADDING SECOND PARENT (NO CHILDREN STRAIGHT TO MONEY)
+
+          router.post('/add-2nd-parent-no-child-answer', function(request, response) {
+
+            var parenttwo = request.session.data['parenttwo']
+            if (parenttwo == "no"){
+              response.redirect("/v6/money/start")
+            } else {
+                response.redirect("/v6/ifm/parent2/about-a-parent")
+            }
+          })  
+
           // PARENT2 ROUTES BELOW 
 
           // PARENT2 RELATIONSHIP BROKEN DOWN 
