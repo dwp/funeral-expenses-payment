@@ -16,9 +16,21 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      {% if (data['youhavepartner'] == "yes") %}
+
+      <h1 class="govuk-heading-l">
+        You or your partner must get a qualifying benefit to get a Funeral Expenses Payment
+      </h1>
+    
+      {% else %}
+
       <h1 class="govuk-heading-l">
         You must get a qualifying benefit to get a Funeral Expenses Payment
       </h1>
+
+      {% endif %}
+
+
       <p>
         If you’re not getting, or waiting to hear about, a qualifying benefit you cannot make a claim for Funeral Expenses Payment.
       </p>
