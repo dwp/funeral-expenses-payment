@@ -1,0 +1,41 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Are you the partner – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="" method="post">
+
+        <h1 class="govuk-heading-l">If you're a personal appointee</h1>
+
+        <p class="govuk-body">We may ask you to provide proof you can act for the person who wants help with the funeral costs.</p>
+
+        <p class="govuk-body">This could be a:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>letter from the Department for Work and Pensions (DWP) or Department for Communities (DfC) in Northern Ireland</li>
+          <li>court order appointing you as the claimant's Deputy or Guardian</li>
+          <li>lasting power of attorney (LPA) or power of attorney (PoA) in Scotland</li>
+        </ul>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
