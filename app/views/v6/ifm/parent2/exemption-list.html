@@ -18,7 +18,7 @@
 
       <form class="form" action="/parent-exemption-answer2" method="post">
 
-      <h1 class="govuk-heading-l">Do any of the following apply to {{ data['fullnameparent2'] }}:</h1>
+        <h1 class="govuk-heading-l">Do any of the following apply to {{ data['fullnameparent2'] }}?</h1>
 
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -32,23 +32,23 @@
         items: [
           {
             value: "Full-time education",
-            text: "They're in full-time education"
+            text: "In full-time education"
           },
           {
             value: "Outside UK",
-            text: "They're living outside the UK"
+            text: "Living outside the UK"
           },
           {
             value: "In hospital",
-            text: "They're staying in hospital"
+            text: "Staying in hospital"
           },
           {
             value: "In a care home",
-            text: "They're living in a care home that local government helps pay for"
+            text: "Living in a care home that local government helps pay for"
           },
           {
             value: "In prison",
-            text: "They're in prison or remand"
+            text: "In prison or remand"
           },
           {
             value: "Member of religious order",

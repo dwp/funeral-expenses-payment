@@ -24,7 +24,7 @@
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
-          <legend class="govuk-fieldset__legend">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
             Date of birth
           </legend>
           <div class="govuk-date-input" id="passport-issued">
@@ -63,7 +63,8 @@
         values: data["parentonqb"],
         fieldset: {
           legend: {
-            text: "Do you know what benefits they're getting or waiting to hear about?"
+            text: "Do you know what benefits they're getting or waiting to hear about?",
+            classes: "govuk-label--m"
           }
         },
         items: [
