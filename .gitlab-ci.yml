@@ -20,5 +20,5 @@ todo-check:
 heroku-site-publish:
   extends: .heroku-site-publish-template
   variables:
-    HEROKU_APP_NAME: funeral-expenses-payment-073fcccba32a
+    HEROKU_APP_NAME: funeral-expenses-payment
 
