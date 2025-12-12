@@ -16,13 +16,13 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/v7/contact/check-answers-bankandcontact" method="post">
+      <form class="form" action="/alternativeformat-answer-v1" method="post">
      
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
         {{ govukRadios({
           name: "alternative",
-          values: data[""],
+          values: data["alternative"],
           fieldset: {
             legend: {
               text: "Do you need us to use any different formats when we contact you by letter or phone?",

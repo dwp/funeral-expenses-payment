@@ -527,4 +527,16 @@ router.post('/documents-answer-v7', function(request, response) {
     }
 })
 
+// ALTERNATIVE FORMATS
+
+  router.post('/alternativeformat-answer-v1', function(request, response) {
+
+    var alternative = request.session.data['alternative']
+    if (alternative == "yes"){
+        response.redirect("/v7/contact/alternative-format-select")
+    } else {
+        response.redirect("/v7/contact/check-answers-bankandcontact")
+    }
+})
+
 }
