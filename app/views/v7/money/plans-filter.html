@@ -18,25 +18,21 @@
 
       <form class="form" action="/plansfilter-answer-v7" method="post">
 
-          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">Did they have any life insurance policies, pensions or other plans that might help pay for the funeral?</h1>
+          </legend>
+
+          <p class="govuk-hint">
+            We’ll ask about each of these to see what they had.
+          </p>
 
           {{ govukRadios({
             name: "plansfilter",
             values: data["plansfilter"],
-            fieldset: {
-              legend: {
-                text: "Did they have any life insurance policies, pensions or other plans that might help pay for the funeral?",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--l"
-              }
-            },
             items: [
               {
                 value: "yes",
-                text: "Yes",
-                hint: {
-                  text: "We’ll ask about each of these to see what they had."
-                }
+                text: "Yes"
               },
               {
                 value: "no",
@@ -47,7 +43,7 @@
               },
               {
                 value: "dontknow",
-                text: "Don't know"
+                text: "I don't know"
               }
             ]
           }) }}
