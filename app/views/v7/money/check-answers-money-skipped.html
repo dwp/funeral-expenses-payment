@@ -36,7 +36,7 @@
                     Full name
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    {{ data['fullNamePersonResponsible'] }}
+                    {{ data['fullNamePersonResponsible'] | capitalize }}
                   </dd>
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Address of {{ data['fullNamePersonResponsible'] }}
+                    Address of {{ data['fullNamePersonResponsible'] | capitalize }}
                   </dt>
                   <dd class="govuk-summary-list__value">
                     1 Kirk Street<br>Manchester<br>M1 3ET

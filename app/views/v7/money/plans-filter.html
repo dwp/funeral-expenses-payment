@@ -18,6 +18,8 @@
 
       <form class="form" action="/plansfilter-answer-v7" method="post">
 
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">Did they have any life insurance policies, pensions or other plans that might help pay for the funeral?</h1>
           </legend>
@@ -42,8 +44,8 @@
                 divider: "or"
               },
               {
-                value: "dontknow",
-                text: "I don't know"
+                value: "unsure",
+                text: "Don't know"
               }
             ]
           }) }}

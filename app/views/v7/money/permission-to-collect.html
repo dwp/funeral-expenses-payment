@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+  Has someone applied for probate, letters of administration or confirmation? – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -18,51 +18,43 @@
 
       <form class="form" action="/permission-to-collect-v7" method="post">
 
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <h1 class="govuk-fieldset__heading">
-              Has someone applied for probate, letters of administration or confirmation?
-            </h1>
-          </legend>
-          <!-- <div id="probate-hint" class="govuk-hint">
-              For example, 502135326
-            </div> -->
-          <details class="govuk-details">
-            <summary class="govuk-details__summary">
-              <span class="govuk-details__summary-text">
-                What is probate, letters of administration or confirmation
-              </span>
-            </summary>
-            <div class="govuk-details__text">
-              This is when someone applies to the courts to get the legal right to deal with the property, money and possessions of the person who died.
-            </div>
-          </details>
-          <div class="govuk-radios" data-module="govuk-radios">
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="permission" name="permission" type="radio" value="yes">
-              <label class="govuk-label govuk-radios__label" for="permission">
-                Yes
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="permission" name="permission" type="radio" value="no">
-              <label class="govuk-label govuk-radios__label" for="permission">
-                No
-              </label>
-            </div>
-            <div class="govuk-radios__divider">or</div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="permission" name="permission" type="radio" value="dont know">
-              <label class="govuk-label govuk-radios__label" for="permission">
-                Don't know
-              </label>
-            </div>
-          </div>
-        </fieldset>
-      </div>
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+          {% from "govuk/components/details/macro.njk" import govukDetails %}
 
-        {{ govukButton({
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+             <h1 class="govuk-fieldset__heading">
+              Has someone applied for probate, letters of administration or confirmation?
+             </h1>
+          </legend>
+
+          {{ govukDetails({
+            summaryText: "What is probate, letters of administration or confirmation",
+            text: "This is when someone applies to the courts to get the legal right to deal with the property, money and possessions of the person who died."
+          }) }}
+
+          {{ govukRadios({
+            name: "permisson",
+            values: data["permission"],
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              },
+              {
+                divider: "or"
+              },
+              {
+                value: "unsure",
+                text: "Don't know"
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
           text: "Continue"
         }) }}
 
