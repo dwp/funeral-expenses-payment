@@ -16,15 +16,14 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/v7/funeral/claim-travel" method="post">
+      <form class="form" action="/v7/funeral/other-costs-amount" method="post">
 
         {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
         {% set otherHtml %}
           {{ govukInput({
-          id: "other-cost",
-          name: "other-cost",
-          type: "other-cost",
+          id: "other-cost-description",
+          name: "other-cost-description",
           spellcheck: false,
           classes: "govuk-input--width-20",
           label: {
@@ -34,8 +33,8 @@
         {% endset -%}
 
         {{ govukCheckboxes({
-          name: "whopaidfuneraldirector",
-          values: data["whopaidfuneraldirector"],
+          name: "other-costs",
+          values: data["other-costs"],
           fieldset: {
             legend: {
               text: "What are the other costs you've had to pay?",

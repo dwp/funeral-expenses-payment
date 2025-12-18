@@ -427,6 +427,17 @@ router.post('/usedmoney-answer-v7', function(request, response) {
     }
 })
 
+// OTHER COSTS AMOUNT
+
+    router.post('/othercosts-answer-v7', function(request, response) {
+    var funeraltakenplace = request.session.data['othercosts']
+    if (funeraltakenplace == "yes"){
+        response.redirect("/v7/funeral/claim-travel-in-future") 
+    } else {
+        response.redirect("/v7/funeral/claim-travel")
+    }
+})
+
    // CLAIM TRAVEL ANSWER
 
    router.post('/claimtravel-answer-v7', function(request, response) {
