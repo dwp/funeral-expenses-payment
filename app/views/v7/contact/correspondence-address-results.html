@@ -16,12 +16,12 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/v7/contact/correspondence-address" method="post">
+      <form class="form" action="/v7/contact/alternative-format" method="post">
 
         {% from "govuk/components/button/macro.njk" import govukButton %}
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-        <h1 class="govuk-heading-l">Select home address</h1>
+        <h1 class="govuk-heading-l">Select the address we can send letters to</h1>
 
         <h2 class="govuk-heading-m">Postcode</h2>
 
@@ -107,7 +107,7 @@
         }) }}
 
         <p class="govuk-body">
-          <a href="/v7/contact/address-manually" class="govuk-link">Enter address manually</a>
+          <a href="/v7/contact/correspondence-address-manually" class="govuk-link">Enter address manually</a>
         </p>
 
       </form>

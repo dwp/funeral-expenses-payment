@@ -538,6 +538,18 @@ router.post('/documents-answer-v7', function(request, response) {
     }
 })
 
+// CORRESPONDENCE ADDRESS
+
+  router.post('/correspondenceaddress-answer-v1', function(request, response) {
+
+    var correspondenceAddress = request.session.data['correspondenceAddress']
+    if (correspondenceAddress == "yes"){
+        response.redirect("/v7/contact/alternative-format")
+    } else {
+        response.redirect("/v7/contact/correspondence-address-search")
+    }
+})
+
 // ALTERNATIVE FORMATS
 
   router.post('/alternativeformat-answer-v1', function(request, response) {

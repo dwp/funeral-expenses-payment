@@ -22,18 +22,20 @@
         Declaration
       </h1>
 
-      <p>
-        You agree the information you have given is correct and complete as far as you know.
-      </p>
-      <p>
-        You understand that if you knowingly give wrong information, you may be prosecuted or need to pay a financial penalty. 
+      <p class="govuk-body">
+        By sending the application you agree that the information you have given is complete and correct.
+        If you deliberately give the wrong or incomplete information, or you do not report any changes, you may:
       </p>
 
-        <div class="govuk-!-padding-bottom-4"></div>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>be prosecuted</li>
+        <li>need to pay a financial penalty</li>
+        <li>need to pay back any money you are overpaid if you are asked to</li>
+      </ul>
 
-        {{ govukButton({
-          text: "Submit"
-        }) }}
+      {{ govukButton({
+        text: "I agree - send my application"
+      }) }}
 
       </form>
 

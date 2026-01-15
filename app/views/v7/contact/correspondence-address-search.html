@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Address – {{ serviceName }} – GOV.UK Prototype Kit
+  Corresepondence address – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,12 +16,12 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/v7/contact/address-results" method="post">
+      <form class="form" action="/v7/contact/correspondence-address-results" method="post">
 
       {% from "govuk/components/button/macro.njk" import govukButton %}
       {% from "govuk/components/input/macro.njk" import govukInput %}
       <div class="govuk-width-container">
-      <h1 class="govuk-heading-l">What is your home address?</h1>
+      <h1 class="govuk-heading-l">What address can we send letters to?</h1>
       {{ govukInput({
       label: {
         text: "Postcode"
@@ -49,11 +49,11 @@
       {{ govukButton({
       text: "Find address"
       }) }}
-      
+
       <p class="govuk-body">
-        <a href="/v7/contact/address-manually" class="govuk-link">Enter address manually</a>
+        <a href="/v7/contact/correspondence-address-manually" class="govuk-link">Enter address manually</a>
       </p>
-      
+
       </div>
 
       </form>

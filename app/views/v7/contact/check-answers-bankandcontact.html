@@ -70,15 +70,41 @@
                 </div>
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Address
+                    Home address
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    4 Turnberry<br>Red House Farm<br>Whitley Bay<br>NE25 9NZ
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change</a>
+                  </dd>
+                </div>
+                 <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Is this the same address we can send letters to?
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['correspondenceAddress']
+                    | replace("yes", "Yes")
+                    | replace("no", "No") }}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change</a>
+                  </dd>
+                </div>
+                {% if (data['correspondenceAddress'] == "no") %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Correspondence address
                   </dt>
                   <dd class="govuk-summary-list__value">
                     1 Empire Street<br>Manchester<br>M1 6GJ
                   </dd>
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+                    <a class="govuk-link" href="#">Change</a>
                   </dd>
                 </div>
+                {% endif %}
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
                     Do you need us to use any different formats when we contact you by letter or phone?
