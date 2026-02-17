@@ -1,0 +1,163 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <form action="/v8/contact/declaration" method="post" novalidate>
+
+        <h1 class="govuk-heading-l">Check your answers about bank and contact details</h1>
+
+              <h2 class="govuk-heading-m">Bank details</h2>
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Name of the account holder
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Mr Tom Gordon
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> previous application number</span></a>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Sort code
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    80 80 62
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> previous application number</span></a>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Account number
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    13467353
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> previous application number</span></a>
+                  </dd>
+                </div>
+                </dl>
+
+                <h2 class="govuk-heading-m">Contact details</h2>
+                <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Telephone number
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['telephone-number'] }}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Home address
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    4 Turnberry<br>Red House Farm<br>Whitley Bay<br>NE25 9NZ
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change</a>
+                  </dd>
+                </div>
+                 <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Is this the same address we can send letters to?
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['correspondenceAddress']
+                    | replace("yes", "Yes")
+                    | replace("no", "No") }}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change</a>
+                  </dd>
+                </div>
+                
+                {% if (data['correspondenceAddress'] == "no") %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Correspondence address
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    1 Empire Street<br>Manchester<br>M1 6GJ
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change</a>
+                  </dd>
+                </div>
+                {% endif %}
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Do you need us to use any different formats when we contact you by letter or phone?
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['alternative']
+                    | replace("yes", "Yes")
+                    | replace("no", "No") }}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence type</span></a>
+                  </dd>
+                </div>
+
+                {% if data['alternative-formats'] %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    What different formats do we need to use when we contact you?
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    <ul class="govuk-list">
+                      {% for item in data['alternative-formats'] %}
+                        <li>
+                          {{ item
+                          | replace("braille", "Braille")
+                          | replace("large-print", "Large print")
+                          | replace("audio", "Audio")
+                          | replace("sign-language", "Sign language")
+                          | replace("induction-loop", "Induction loop")
+                          | replace("type-talk", "Type talk")
+                          | replace("textphone", "Textphone")
+                          | replace("none", "None") }}
+                        </li>
+                      {% endfor %}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence type</span></a>
+                  </dd>
+                </div>
+                {% endif %}
+
+              </dl>
+
+              {{ govukButton({
+                text: "Continue"
+              }) }}
+
+            </div>
+
+      </form>
+
+    </div>
+
+{% endblock %}

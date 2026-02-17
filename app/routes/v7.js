@@ -332,6 +332,18 @@ router.post('/whereyoulive-answer-v7', function(request, response) {
     }
 })
 
+  // ARRANGING FUNERAL
+
+  router.post('/arrangingfuneral-answer-v7', function(request, response) {
+
+    var arrangingfuneral = request.session.data['arrangingfuneral']
+    if (arrangingfuneral == "myself"){
+        response.redirect("/v7/funeral/have-you-used-money-from-deceased")
+    } else {
+        response.redirect("v7/funeral/provider-name")
+    }
+})
+
    // HAVE YOU USED MONEY FROM DECEASED TO PAY FUNERAL (asked if arranging yourself)
 
    router.post('/haveyouusedmoney-answer-v7', function(request, response) {
@@ -340,7 +352,7 @@ router.post('/whereyoulive-answer-v7', function(request, response) {
     if (haveyouusedmoney == "yes"){
         response.redirect("/v7/funeral/exact-amount-money-used")
     } else {
-        response.redirect("/v7/funeral/who-paid-money")
+        response.redirect("/v7/funeral/claim-travel")
     }
 })
 
@@ -540,7 +552,7 @@ router.post('/documents-answer-v7', function(request, response) {
 
 // CORRESPONDENCE ADDRESS
 
-  router.post('/correspondenceaddress-answer-v1', function(request, response) {
+  router.post('/correspondenceaddress-answer-v7', function(request, response) {
 
     var correspondenceAddress = request.session.data['correspondenceAddress']
     if (correspondenceAddress == "yes"){
@@ -552,7 +564,7 @@ router.post('/documents-answer-v7', function(request, response) {
 
 // ALTERNATIVE FORMATS
 
-  router.post('/alternativeformat-answer-v1', function(request, response) {
+  router.post('/alternativeformat-answer-v7', function(request, response) {
 
     var alternative = request.session.data['alternative']
     if (alternative == "yes"){

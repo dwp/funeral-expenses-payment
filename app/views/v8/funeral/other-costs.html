@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Other costs to pay – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/v8/funeral/other-costs-amount" method="post">
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+        {% set otherHtml %}
+          {{ govukInput({
+          id: "other-cost-description",
+          name: "other-cost-description",
+          spellcheck: false,
+          classes: "govuk-input--width-20",
+          label: {
+            text: "Enter description of other cost"
+          }
+          }) }}
+        {% endset -%}
+
+        {{ govukCheckboxes({
+          name: "other-costs",
+          values: data["other-costs"],
+          fieldset: {
+            legend: {
+              text: "What are the other costs you've had to pay?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select all that apply"
+          },
+          items: [
+            {
+              value: "flowers",
+              text: "Flowers or wreath"
+            },
+            {
+              value: "service-sheet",
+              text: "Service sheet"
+            },
+            {
+              value: "other",
+              text: "Other",
+              conditional: {
+                html: otherHtml
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

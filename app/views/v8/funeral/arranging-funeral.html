@@ -1,0 +1,104 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/arrangingfuneral-answer-v8" method="post">
+
+        {% if (data['funeraltakenplace'] == "yes") %}
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+          {{ govukRadios({
+            name: "arrangingfuneral",
+            values: data["arrangingfuneral"],
+            fieldset: {
+              legend: {
+                text: "How was the funeral arranged?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "director",
+                text: "I used a funeral director"
+              },
+              {
+                value: "organisation",
+                text: "An organisation or someone from the community",
+                hint: {
+                  text: "For example, someone from a place of worship"
+                }
+              },
+              {
+                value: "myself",
+                text: "I arranged the funeral myself",
+                hint: {
+                  text: "Without help from a funeral director, organisation or someone from the community"
+                }
+              }
+            ]
+          }) }}
+
+        {% else %}
+     
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+          {{ govukRadios({
+            name: "arrangingfuneral",
+            values: data["arrangingfuneral"],
+            fieldset: {
+              legend: {
+                text: "How will the funeral be arranged?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "director",
+                text: "I'm using a funeral director"
+              },
+              {
+                value: "organisation",
+                text: "An organisation or someone from the community",
+                hint: {
+                  text: "For example, someone from a place of worship"
+                }
+              },
+              {
+                value: "myself",
+                text: "I'm arranging the funeral myself",
+                hint: {
+                  text: "Without help from a funeral director, organisation or someone from the community"
+                }
+              }
+            ]
+          }) }}
+
+          {% endif %}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

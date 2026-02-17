@@ -1,0 +1,95 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Items not on bill – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if (data['documents'] == "bill" or data['funeraltakenplace'] == "yes") %}
+
+      <form class="form" action="/itemsnotonbill-answer-v8" method="post">
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+          {{ govukRadios({
+            name: "itemsnotonbill",
+            values: data["itemsnotonbill"],
+            fieldset: {
+              legend: {
+                text: "Excluding items listed in the funeral bill, are there other costs you've had to pay?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes",
+                hint: {
+                  text: "You'll need to send in receipts of the other costs you've had to pay"
+                }
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+  
+        </form>
+
+          {% else %}
+
+          <form class="form" action="/v8/funeral/claim-travel-in-future" method="post">
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+          {{ govukRadios({
+            name: "itemsnotonbill",
+            values: data["itemsnotonbill"],
+            fieldset: {
+              legend: {
+                text: "Excluding items listed in the signed contract, are there other costs you've had to pay?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+      {% endif %}
+
+    </div>
+  </div>
+
+{% endblock %}

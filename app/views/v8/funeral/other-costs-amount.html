@@ -1,0 +1,81 @@
+{% extends "layouts/main.html" %}
+ 
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+ 
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+ 
+{% block content %}
+ 
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+ 
+      <form class="form" action="/othercosts-answer-v8" method="post">
+ 
+        <h1 class="govuk-heading-l">
+          How much did you pay?
+        </h1>
+ 
+        {% if ((data['other-costs'] | string).includes("flowers")) %}
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="cost">
+            Flowers or wreath
+          </label>
+        <div class="govuk-input__wrapper">
+          <div class="govuk-input__prefix" aria-hidden="true">£</div>
+          <input class="govuk-input govuk-input--width-5" id="cost" name="cost" type="text" spellcheck="false">
+        </div>
+        </div>
+        {% endif %}
+
+        {% if ((data['other-costs'] | string).includes("service-sheet")) %}
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="cost">
+            Service sheet
+          </label>
+          <div class="govuk-input__wrapper">
+            <div class="govuk-input__prefix" aria-hidden="true">£</div>
+            <input class="govuk-input govuk-input--width-5" id="cost" name="cost" type="text" spellcheck="false">
+          </div>
+        </div>
+        {% endif %}
+
+        {% if ((data['other-costs'] | string).includes("other")) %}
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="cost">
+            Other - {{ data['other-cost-description'] }}
+          </label>
+        <div class="govuk-input__wrapper">
+          <div class="govuk-input__prefix" aria-hidden="true">£</div>
+          <input class="govuk-input govuk-input--width-5" id="cost" name="cost" type="text" spellcheck="false">
+        </div>
+        </div>
+        {% endif %}
+ 
+ 
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+        {% if (data['funeraltakenplace'] == "yes") %}
+        <p class="govuk-body">
+          <a href="/v8/funeral/claim-travel-in-future" class="govuk-link">Skip how much you had to pay</a>
+        </p>
+        {% else %}
+        <p class="govuk-body">
+          <a href="/v8/funeral/claim-travel" class="govuk-link">Skip how much you had to pay</a>
+        </p>
+        {% endif %}
+ 
+      </form>
+ 
+    </div>
+  </div>
+ 
+{% endblock %}
