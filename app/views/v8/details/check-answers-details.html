@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Check your answers eligibility – {{ serviceName }} – GOV.UK Prototype Kit
+  Check your answers the caller and the person who died – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -14,12 +14,16 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
+      
       <form action="/v8/money/start" method="post" novalidate>
 
         <h1 class="govuk-heading-l">Check your answers about the caller and the person who died</h1>
 
+            {% macro checkAnswersDetails(data) %}
+              
               <h2 class="govuk-heading-m">About the caller</h2>
               <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
                     Name
@@ -31,6 +35,7 @@
                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> previous application number</span></a>
                   </dd>
                 </div>
+                
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
                     Date of birth
@@ -42,6 +47,7 @@
                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
                   </dd>
                 </div>
+                
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
                     National Insurance number
@@ -54,9 +60,11 @@
                   </dd>
                 </div>
               </dl>
+              
 
               <h2 class="govuk-heading-m">About the person who died</h2>
               <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
                     Name
@@ -68,6 +76,7 @@
                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> previous application number</span></a>
                   </dd>
                 </div>
+                
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
                     Date of birth
@@ -79,6 +88,7 @@
                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
                   </dd>
                 </div>
+                
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
                     National Insurance number
@@ -90,6 +100,7 @@
                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence type</span></a>
                   </dd>
                 </div>
+                
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
                     Date of death
@@ -101,21 +112,17 @@
                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
                   </dd>
                 </div>
+              
               </dl>
-
+            
+            {% endmacro %}
 
               {{ govukButton({
                 text: "Continue"
               }) }}
 
-            </div>
-
-
-
-
-
-      </form>
-
+        </form>
     </div>
+  </div>
 
 {% endblock %}

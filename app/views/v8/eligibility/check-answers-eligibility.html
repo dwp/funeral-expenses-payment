@@ -19,6 +19,7 @@
 
         <h1 class="govuk-heading-l">Check your answers about eligibility</h1>
 
+        {% macro checkAnswersEligibility(data) %}
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           
           <div class="govuk-summary-list__row">
@@ -193,9 +194,9 @@
             </dd>
           </div>
           {% endif %}
-    
-        
+
         </dl>
+        {% endmacro %}
 
         {{ govukButton({
           text: "Continue"

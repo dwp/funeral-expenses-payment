@@ -498,7 +498,7 @@ router.post('/documents-answer-v8', function(request, response) {
     if (nopermission == "yes"){
         response.redirect("/v8/funeral/money-paid-off-bill")
     } else {
-        response.redirect("/index")
+        response.redirect("/v8/funeral/no-permission-check")
     }
 })
 
@@ -508,9 +508,9 @@ router.post('/documents-answer-v8', function(request, response) {
 
     var nopermissionother = request.session.data['nopermissionother']
     if (nopermissionother == "yes"){
-        response.redirect("/v8/funeral/claim-travel-in-future")
+        response.redirect("/v8/funeral/claim-travel")
     } else {
-        response.redirect("/index")
+        response.redirect("/v8/funeral/no-permission-check")
     }
 })
 
@@ -573,5 +573,14 @@ router.post('/documents-answer-v8', function(request, response) {
         response.redirect("/v8/contact/check-answers-bankandcontact")
     }
 })
+
+
+// CLEAR DATA
+
+router.post('/clear-data', (req, res) => {
+  req.session.destroy((err) => {
+    res.redirect('/') // will always fire after session is destroyed
+  });
+});
 
 }

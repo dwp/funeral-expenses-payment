@@ -146,17 +146,15 @@
         
         {% endcall %}
         
-
         {% endif %}
 
+        {{ govukButton({
+          text: "Continue"
+        }) }}
 
-
-
-
-
-{{ govukButton({
-  text: "Continue"
-}) }}
+        <p class="govuk-body">
+          <a href="/v8/funeral/contact-provider" class="govuk-link">Skip address</a>
+        </p>
 
       </form>
 
