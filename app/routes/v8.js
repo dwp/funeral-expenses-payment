@@ -338,9 +338,11 @@ router.post('/whereyoulive-answer-v8', function(request, response) {
 
     var arrangingfuneral = request.session.data['arrangingfuneral']
     if (arrangingfuneral == "myself"){
-        response.redirect("/v8/funeral/have-you-used-money-from-deceased")
+        response.redirect("/v8/funeral/claim-travel")
+    } else if (arrangingfuneral == "dontknow"){
+        response.redirect("v8/funeral/claim-travel")
     } else {
-        response.redirect("v8/funeral/provider-name")
+    response.redirect("v8/funeral/provider-name")
     }
 })
 
@@ -439,7 +441,8 @@ router.post('/usedmoney-answer-v8', function(request, response) {
     }
 })
 
-// OTHER COSTS AMOUNT
+
+    // OTHER COSTS AMOUNT
 
     router.post('/othercosts-answer-v8', function(request, response) {
     var funeraltakenplace = request.session.data['othercosts']

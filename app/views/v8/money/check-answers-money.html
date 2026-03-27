@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+  Check your answers about money – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -18,11 +18,12 @@
 
         <h1 class="govuk-heading-l">Check your answers about money</h1>
 
-              <h2 class="govuk-heading-m">Money from the person who died</h2>
+              {% macro checkAnswersMoney(data) %}
+              <h2 class="govuk-heading-m">Responsible for financial affairs</h2>
               <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Who is taking responsibility for the financial affairs of the person who died?
+                    Responsible for financial affairs
                   </dt>
                   <dd class="govuk-summary-list__value">
                     {{ data['financialaffairs']
@@ -72,16 +73,19 @@
                   </dd>
                 </div>
                 {% endif %}
+              </dl>
                 
+              <h2 class="govuk-heading-m">Bank accounts, ISAs and cash</h2>
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Did the person who died have any bank accounts?
+                    Bank accounts
                   </dt>
                   <dd class="govuk-summary-list__value">
                     {{ data['bankaccounts']
                     | replace("yes", "Yes")
                     | replace("no", "No")
-                    | replace("unsure", "I don't know") }}
+                    | replace("unsure", "Don't know") }}
                   </dd>
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="#">Change</a>
@@ -90,7 +94,7 @@
                 {% if data['bankaccounts'] == "yes" %}
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Do you know the exact amount of money they had in accounts on the day they died?
+                      Exact amount in bank accounts
                     </dt>
                     {% if data['bank-accounts-amount'] == "yes" %}
                     <dd class="govuk-summary-list__value">
@@ -107,23 +111,24 @@
                   </div>
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Was any of this money in a joint account?
+                     Any money in joint account
                     </dt>
                     <dd class="govuk-summary-list__value">
                       {{ data['jointaccount']
                       | replace("all", "Yes, all of the money")
                       | replace("some", "Yes, some of the money")
                       | replace("no", "No")
-                      | replace("unsure", "I don't know") }}
+                      | replace("unsure", "Don't know") }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                       <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence type</span></a>
                     </dd>
                   </div>
+                  
                   {% if data['jointaccount'] == "some" %}
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Do you know the exact amount of money they had in joint accounts?
+                      Exact amount in joint account
                     </dt>
                     {% if (data['joint-account-amount'] == "yes") %}
                     <dd class="govuk-summary-list__value">
@@ -142,7 +147,7 @@
                   {% if data['partnerjointaccount'] %}
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Are you the other joint account holder?
+                      Joint account holder
                     </dt>
                     <dd class="govuk-summary-list__value">
                       {{ data['partnerjointaccount']
@@ -158,13 +163,13 @@
 
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Did the person who died have any ISAs?
+                    ISAs
                   </dt>
                   <dd class="govuk-summary-list__value">
                     {{ data['isas']
                     | replace("yes", "Yes")
                     | replace("no", "No")
-                    | replace("unsure", "I don't know") }}
+                    | replace("unsure", "Don't know") }}
                   </dd>
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="#">Change</a>
@@ -173,7 +178,7 @@
                 {% if data['isas'] == "yes" %}
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Do you know the exact amount of money they had in ISAs?
+                    Exact amount in ISAs
                   </dt>
                   {% if data['isas-amount'] == "yes" %}
                   <dd class="govuk-summary-list__value">
@@ -192,13 +197,13 @@
 
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Did they have any cash in notes or coins?
+                    Cash in notes or coins
                   </dt>
                   <dd class="govuk-summary-list__value">
                     {{ data['cash']
                     | replace("yes", "Yes")
                     | replace("no", "No")
-                    | replace("unsure", "I don't know") }}
+                    | replace("unsure", "Don't know") }}
                   </dd>
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="#">Change</a>
@@ -207,7 +212,7 @@
                 {% if (data['cash'] == "yes") %}
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Do you know the exact amount of cash they had in notes or coins?
+                    Exact amount of cash
                   </dt>
                    {% if data['cash-amount'] == "yes" %}
                   <dd class="govuk-summary-list__value">
@@ -223,16 +228,19 @@
                   </dd>
                 </div>
                 {% endif %}
+              </dl>
 
+              <h2 class="govuk-heading-m">Policies, pensions or other plans</h2>
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Did they have any life insurance policies, pensions or other plans that might help pay for the funeral?
+                    Policies, pensions or other plans
                   </dt>
                   <dd class="govuk-summary-list__value">
                     {{ data['plansfilter']
                     | replace("yes", "Yes")
                     | replace("no", "No")
-                    | replace("unsure", "I don't know") }}
+                    | replace("unsure", "Don't know") }}
                   </dd>
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="#">Change</a>
@@ -242,13 +250,13 @@
                 {% if data['pension'] %}
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Were they part of a workplace pension scheme that gives a lump sum payment after death?
+                      Workplace pension scheme
                     </dt>
                     <dd class="govuk-summary-list__value">
                       {{ data['pension']
                       | replace("yes", "Yes")
                       | replace("no", "No")
-                      | replace("unsure", "I don't know") }}
+                      | replace("unsure", "Don't know") }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                       <a class="govuk-link" href="#">Change</a>
@@ -257,7 +265,7 @@
                   {% if data['pension-amount'] %}
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Do you know the exact value of the pension scheme lump sum payment?
+                      Exact value of the pension lump sum
                     </dt>
                     {% if data['pension-amount'] == "yes" %}
                     <dd class="govuk-summary-list__value">
@@ -273,16 +281,17 @@
                     </dd>
                   </div>
                   {% endif %}
+                {% endif %}
 
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Did they have any life insurance policies?
+                      Life insurance policies
                     </dt>
                     <dd class="govuk-summary-list__value">
                       {{ data['lifeinsurance']
                       | replace("yes", "Yes")
                       | replace("no", "No")
-                      | replace("unsure", "I don't know") }}
+                      | replace("unsure", "Don't know") }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                       <a class="govuk-link" href="#">Change</a>
@@ -291,7 +300,7 @@
                   {% if data['lifeinsurance-amount'] %}
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Do you know the exact value of any life insurance polices they were part of?
+                      Exact value of any life insurance polices
                     </dt>
                     {% if data['lifeinsurance-amount'] == "yes" %}
                     <dd class="govuk-summary-list__value">
@@ -310,13 +319,13 @@
 
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Did they have a pre-paid funeral plan?
+                     Pre-paid funeral plan
                     </dt>
                     <dd class="govuk-summary-list__value">
                       {{ data['funeralplan']
                       | replace("yes", "Yes")
                       | replace("no", "No")
-                      | replace("unsure", "I don't know") }}
+                      | replace("unsure", "Don't know") }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                       <a class="govuk-link" href="#">Change</a>
@@ -325,13 +334,13 @@
                   {% if data['funeralplan'] == "yes" %}
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Is the funeral plan paying for any of the funeral?
+                      Funeral plan paying for any of funeral
                     </dt>
                     <dd class="govuk-summary-list__value">
                       {{ data['funeralplancover']
                       | replace("yes", "Yes")
                       | replace("no", "No")
-                      | replace("unsure", "I don't know") }}
+                      | replace("unsure", "Don't know") }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                       <a class="govuk-link" href="#">Change</a>
@@ -341,13 +350,13 @@
                   {% if data['funeralplancover'] == "no" %}
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Is the funeral plan provider giving a refund?
+                      Funeral plan provider giving refund
                     </dt>
                     <dd class="govuk-summary-list__value">
                       {{ data['funeralplanrefund']
                       | replace("yes", "Yes")
                       | replace("no", "No")
-                      | replace("unsure", "I don't know") }}
+                      | replace("unsure", "Don't know") }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                       <a class="govuk-link" href="#">Change</a>
@@ -357,7 +366,7 @@
                   {% if data['funeralplanrefund'] == "yes" %}
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Do you know the exact amount of money being refunded?
+                      Exact amount being refunded
                     </dt>
                     {% if data['funeral-plan-refund-amount'] == "yes" %}
                     <dd class="govuk-summary-list__value">
@@ -373,30 +382,34 @@
                     </dd>
                   </div>
                   {% endif %}
+                </dl>
+
+              <h2 class="govuk-heading-m">Armed forces funeral grant</h2>
+                <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Did the person who died serve in the armed forces before 2006?
+                      Served in armed forces before 2006
                     </dt>
                     <dd class="govuk-summary-list__value">
                       {{ data['armedforces']
                       | replace("yes", "Yes")
                       | replace("no", "No")
-                      | replace("unsure", "I don't know") }}
+                      | replace("unsure", "Don't know") }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                       <a class="govuk-link" href="#">Change</a>
                     </dd>
                   </div>
-                  {% if (data['armedforces'] == "yes") %}
+                  {% if (data['warpension']) %}
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Are you claiming a War Pension Funeral Grant for the person who died?
+                      Claiming War Pension Funeral Grant
                     </dt>
                     <dd class="govuk-summary-list__value">
                       {{ data['warpension']
                       | replace("yes", "Yes")
                       | replace("no", "No")
-                      | replace("unsure", "I don't know") }}
+                      | replace("unsure", "Don't know") }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                       <a class="govuk-link" href="#">Change</a>
@@ -406,7 +419,7 @@
                   {% if data['warpension'] == "yes" %}
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Do you know the exact value of the War Pension Funeral Grant?
+                      Exact value of War Pension Funeral Grant
                     </dt>
                     {% if data['war-pension-amount'] == "yes" %}
                     <dd class="govuk-summary-list__value">
@@ -422,82 +435,88 @@
                     </dd>
                   </div>
                   {% endif %}
-                {% endif %}
-
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Were they part of a burial society or club?
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {{ data['burialclub']
-                  | replace("yes", "Yes")
-                  | replace("no", "No")
-                  | replace("unsure", "I don't know") }}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">Change</a>
-                </dd>
-              </div>
-              {% if (data['burialclub'] == "yes") %}
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Do you know the exact amount of money the burial society or club will pay?
-                </dt>
-                {% if data['burial-club-amount'] == "yes" %}
-                <dd class="govuk-summary-list__value">
-                  £{{ data['burial-club-amount-input'] }}
-                </dd>
-                {% else %}
-                <dd class="govuk-summary-list__value">
-                  No
-                </dd>
-                {% endif %}
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">Change</a>
-                </dd>
-              </div>
-              {% endif %}
+              </dl>
                 
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Did the person who died have any other money?
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {{ data['othermoney']
-                  | replace("yes", "Yes")
-                  | replace("no", "No")
-                  | replace("unsure", "I don't know") }}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">Change</a>
-                </dd>
-              </div>
-              {% if data['othermoney'] == "yes" %}
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Do you know the exact amount of any other money they had?
-                </dt>
-                {% if data['other-money-amount'] == "yes" %}
-                <dd class="govuk-summary-list__value">
-                  £{{ data['other-money-amount-input'] }}
-                </dd>
-                {% else %}
-                <dd class="govuk-summary-list__value">
-                  No
-                </dd>
+
+              <h2 class="govuk-heading-m">Burial club or society</h2>
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Burial society or club
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['burialclub']
+                    | replace("yes", "Yes")
+                    | replace("no", "No")
+                    | replace("unsure", "Don't know") }}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change</a>
+                  </dd>
+                </div>
+                {% if (data['burialclub'] == "yes") %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Exact amount burial society or club will pay
+                  </dt>
+                  {% if data['burial-club-amount'] == "yes" %}
+                  <dd class="govuk-summary-list__value">
+                    £{{ data['burial-club-amount-input'] }}
+                  </dd>
+                  {% else %}
+                  <dd class="govuk-summary-list__value">
+                    No
+                  </dd>
+                  {% endif %}
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change</a>
+                  </dd>
+                </div>
                 {% endif %}
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">Change</a>
-                </dd>
-              </div>
-              {% endif %}
+              </dl>
+                
+              <h2 class="govuk-heading-m">Any other money</h2>
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Any other money
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['othermoney']
+                    | replace("yes", "Yes")
+                    | replace("no", "No")
+                    | replace("unsure", "Don't know") }}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change</a>
+                  </dd>
+                </div>
+                {% if data['othermoney'] == "yes" %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Exact amount of other money
+                  </dt>
+                  {% if data['other-money-amount'] == "yes" %}
+                  <dd class="govuk-summary-list__value">
+                    £{{ data['other-money-amount-input'] }}
+                  </dd>
+                  {% else %}
+                  <dd class="govuk-summary-list__value">
+                    No
+                  </dd>
+                  {% endif %}
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change</a>
+                  </dd>
+                </div>
+                {% endif %}
               </dl>
 
               <h2 class="govuk-heading-m">Releasing money</h2>
               <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Did you need any extra death certificates to release money from the person who died?
+                    Additional death certificates
                   </dt>
                   {% if data['death-certificates'] == "yes" %}
                   <dd class="govuk-summary-list__value">
@@ -515,13 +534,13 @@
                 
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Has someone applied for probate, letters of administration or confirmation?
+                    Applied for probate, letters of administration or confirmation
                   </dt>
                   <dd class="govuk-summary-list__value">
                     {{ data['permisson']
                     | replace("yes", "Yes")
                     | replace("no", "No")
-                    | replace("unsure", "I don't know") }}
+                    | replace("unsure", "Don't know") }}
                   </dd>
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="#">Change</a>
@@ -530,13 +549,13 @@
                 {% if data['permisson'] == "no" or data['permisson'] == "unsure" %}
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Is someone going to apply for probate, letters of administration or confirmation?
+                    Going to apply for probate, letters of administration or confirmation
                   </dt>
                   <dd class="govuk-summary-list__value">
                     {{ data['permisson-future']
                     | replace("yes", "Yes")
                     | replace("no", "No")
-                    | replace("unsure", "I don't know") }}
+                    | replace("unsure", "Don't know") }}
                   </dd>
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="#">Change</a>
@@ -544,6 +563,10 @@
                 </div>
                 {% endif %}
               </dl>
+
+            {% endmacro %}
+
+            {{ checkAnswersMoney(data) }}
 
               {{ govukButton({
                 text: "Continue"

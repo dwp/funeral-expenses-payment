@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+  Check your answers about bank and contact details – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -18,48 +18,65 @@
 
         <h1 class="govuk-heading-l">Check your answers about bank and contact details</h1>
 
+              {% macro checkAnswersBankAndContact(data) %}
               <h2 class="govuk-heading-m">Bank details</h2>
               <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Name of the account holder
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    Mr Tom Gordon
-                  </dd>
-                  <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> previous application number</span></a>
-                  </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Sort code
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    80 80 62
-                  </dd>
-                  <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> previous application number</span></a>
-                  </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Account number
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    13467353
-                  </dd>
-                  <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> previous application number</span></a>
-                  </dd>
-                </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Name of the account holder
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['nameOnTheAccount'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> previous application number</span></a>
+                    </dd>
+                  </div>
+                  
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Sort code
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['sortCode'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> previous application number</span></a>
+                    </dd>
+                  </div>
+                  
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Account number
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['accountNumber'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> previous application number</span></a>
+                    </dd>
+                  </div>
+
+                  {% if data['rollNumber'] %}
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Building society roll number
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['rollNumber'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> previous application number</span></a>
+                    </dd>
+                  </div>
+                  {% endif %}
                 </dl>
 
                 <h2 class="govuk-heading-m">Contact details</h2>
                 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Telephone number
+                    Telephone
                   </dt>
                   <dd class="govuk-summary-list__value">
                     {{ data['telephone-number'] }}
@@ -81,7 +98,7 @@
                 </div>
                  <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Is this the same address we can send letters to?
+                    Send letters to home address
                   </dt>
                   <dd class="govuk-summary-list__value">
                     {{ data['correspondenceAddress']
@@ -96,7 +113,7 @@
                 {% if (data['correspondenceAddress'] == "no") %}
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Correspondence address
+                    Address to send letters to
                   </dt>
                   <dd class="govuk-summary-list__value">
                     1 Empire Street<br>Manchester<br>M1 6GJ
@@ -109,7 +126,7 @@
                 
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Do you need us to use any different formats when we contact you by letter or phone?
+                    Different formats for letter or phone contact
                   </dt>
                   <dd class="govuk-summary-list__value">
                     {{ data['alternative']
@@ -124,7 +141,7 @@
                 {% if data['alternative-formats'] %}
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    What different formats do we need to use when we contact you?
+                    Different formats required
                   </dt>
                   <dd class="govuk-summary-list__value">
                     <ul class="govuk-list">
@@ -148,7 +165,36 @@
                 </div>
                 {% endif %}
 
+                {% if data['written-comms'] %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Language for written communications
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['written-comms' | capitalize ] }}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence type</span></a>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Language to speak to you in
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['spoken-comms' | capitalize ] }}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence type</span></a>
+                  </dd>
+                </div>
+                {% endif %}
+
               </dl>
+
+              {% endmacro %}
+
+              {{ checkAnswersBankAndContact(data) }}
 
               {{ govukButton({
                 text: "Continue"

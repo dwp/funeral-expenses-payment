@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Check your answers - Funeral details – {{ serviceName }} – GOV.UK Prototype Kit
+  Check your answers about the funeral – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -14,28 +14,84 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
-      <form action="/v8/contact/start" method="post" novalidate>
+
+      <form class="form" action="/v8/contact/start" method="post">
 
         <h1 class="govuk-heading-l">Check your answers about the funeral</h1>
 
-              <h2 class="govuk-heading-m">Arranging funeral</h2>
+              {% macro checkAnswersFuneral(data) %}
 
+              {% if (data['arrangingfuneral'] == "myself") %}
+              <h2 class="govuk-heading-m">Arranging the funeral</h2>
               <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
                 <div class="govuk-summary-list__row">
+                  {% if (data['funeraltakenplace'] == "yes") %}
                   <dt class="govuk-summary-list__key">
-                    Who is arranging the funeral
+                    How will funeral be arranged
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    Funeral Director
+                    I arranged the funeral myself
                   </dd>
+                  {% else %}
+                  <dt class="govuk-summary-list__key">
+                    Who arranged the funeral
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    I'm arranging the funeral myself
+                  </dd>
+                  {% endif %}
                   <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> previous application number</span></a>
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
                   </dd>
                 </div>
+              </dl>
+
+              {% else %}
+              <h2 class="govuk-heading-m">Arranging the funeral</h2>
+
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
                 <div class="govuk-summary-list__row">
+                  {% if (data['funeraltakenplace'] == "yes") %}
+                  <dt class="govuk-summary-list__key">
+                    How will funeral be arranged
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['arrangingfuneral']
+                    | replace("director", "I used a funeral director")
+                    | replace("organisation", "An organisation or someone from the community")
+                    | replace("myself", "I arranged the funeral myself")
+                    | replace("unsure", "Don't know")
+                    }}
+                  </dd>
+                  {% else %}
+                  <dt class="govuk-summary-list__key">
+                    Who arranged the funeral
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['arrangingfuneral']
+                    | replace("director", "I'm using a funeral director")
+                    | replace("organisation", "An organisation or someone from the community")
+                    | replace("myself", "I'm arranging the funeral myself")
+                    }}
+                  </dd>
+                  {% endif %}
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  {% if (data['arrangingfuneral'] == "director") %}
                   <dt class="govuk-summary-list__key">
                     Name of funeral directors
                   </dt>
+                  {% else %}
+                  <dt class="govuk-summary-list__key">
+                    Name
+                  </dt>
+                  {% endif %}
                   <dd class="govuk-summary-list__value">
                     Duncan and Sons
                   </dd>
@@ -79,14 +135,70 @@
               </dl>
 
               <h2 class="govuk-heading-m">Funeral costs</h2>
-
               <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+              
                 <div class="govuk-summary-list__row">
+                  {% if (data['arrangingfuneral'] == "director") %}
                   <dt class="govuk-summary-list__key">
                     Document from funeral director
                   </dt>
+                  {% else %}
+                  <dt class="govuk-summary-list__key">
+                    Document from organisation or person arranging the funeral
+                  </dt>
+                  {% endif %}
                   <dd class="govuk-summary-list__value">
-                    Signed contract
+                    {{ data['documents']
+                    | replace("estimate", "Estimate of the funeral cost")
+                    | replace("contract", "Signed contract")
+                    | replace("bill", "Funeral bill")
+                    | replace("none", "None")
+                    }}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+                  </dd>
+                </div>
+
+                {% if data['documents'] == "contract" or data['documents'] == "bill" %}
+                <div class="govuk-summary-list__row">
+                  {% if (data['documents'] == "contact") %}
+                  <dt class="govuk-summary-list__key">
+                    Signed contract in claimant's name
+                  </dt>
+                  {% endif %}
+                  {% if (data['documents'] == "bill") %}
+                  <dt class="govuk-summary-list__key">
+                    Funeral bill in claimant's name
+                  </dt>
+                  {% endif %}
+                  <dd class="govuk-summary-list__value">
+                    {{ data['billinyourname'] | capitalize }}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+                  </dd>
+                </div>
+                {% if (data['arrangementsonyourbehalf']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Someone making funeral arrangements on claimant's behalf
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['arrangementsonyourbehalf'] | capitalize }}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+                  </dd>
+                </div>
+                {% endif %}
+              
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Any money paid to funeral director
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    No
                   </dd>
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
@@ -94,26 +206,59 @@
                 </div>
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Signed contract in your name
+                    Other costs not on funeral bill
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    Yes
+                    {{ data['itemsnotonbill'] | capitalize }}
                   </dd>
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
                   </dd>
                 </div>
+                {% if (data['itemsnotonbill'] == "yes") %}
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Any of the funeral bill paid
+                    Other costs had to pay
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    Yes
+                     Flowers or wreath - £50<br>
+                     Service sheet - £100<br>
+                     Other - description - £25
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+                  </dd>
+                </div>
+                {% endif %}
+                
+              {% else %}
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Will funeral bill be in claimant's name
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['willbillbeinyourname'] | capitalize }}
                   </dd>
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
                   </dd>
                 </div>
+                {% if (data['allowingonyourbehalf']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Allowing someone to make funeral arrangements on claimant's behalf
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['allowingonyourbehalf'] | capitalize }}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+                  </dd>
+                </div>
+                {% endif %}
+              {% endif %}
+              </dl>
+                
                 <!-- <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
                     Exact amount paid off funeral bill
@@ -147,69 +292,13 @@
                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
                   </dd>
                 </div> -->
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Any of this money from the person who died
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    No
-                  </dd>
-                  <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
-                  </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Who paid money to the funeral director
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    Claimant
-                  </dd>
-                  <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
-                  </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Are there other costs not on funeral bill
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    Yes
-                  </dd>
-                  <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
-                  </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Other costs
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    Flowers or wreath
-                  </dd>
-                  <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
-                  </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Flowers or wreath
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    £50
-                  </dd>
-                  <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
-                  </dd>
-                </div>
-                </dl>
 
                 <h2 class="govuk-heading-m">Travel costs</h2>
 
                 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Help to pay travel costs
+                    Help pay travel costs
                   </dt>
                   <dd class="govuk-summary-list__value">
                     Yes
@@ -218,8 +307,37 @@
                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
                   </dd>
                 </div>
+                {# <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Which journey
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['travelexpenses'] 
+                    | replace("arrange-funeral", "To arrange the funeral")
+                    | replace("go-to-funeral", "To go to the funeral")
+                    }}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Journey cost
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Bus £2.00<br>Taxi £5.60
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+                  </dd>
+                </div> #}
               </dl>
+              {% endif %}
 
+              {% endmacro %}
+
+              {{ checkAnswersFuneral(data) }}
 
               {{ govukButton({
                 text: "Continue"

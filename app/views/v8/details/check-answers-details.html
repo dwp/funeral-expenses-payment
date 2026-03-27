@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Check your answers the caller and the person who died – {{ serviceName }} – GOV.UK Prototype Kit
+  CCheck your answers about the caller and the person who died – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -116,6 +116,8 @@
               </dl>
             
             {% endmacro %}
+
+            {{ checkAnswersDetails(data) }}
 
               {{ govukButton({
                 text: "Continue"

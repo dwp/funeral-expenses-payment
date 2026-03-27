@@ -20,12 +20,20 @@
 
         {% from "/v8/eligibility/check-answers-eligibility" import checkAnswersEligibility %}
         {% from "/v8/details/check-answers-details" import checkAnswersDetails %}
+        {% from "/v8/money/check-answers-money" import checkAnswersMoney %}
+        {% from "/v8/funeral/check-answers-funeral" import checkAnswersFuneral %}
+        {% from "/v8/contact/check-answers-bankandcontact" import checkAnswersBankAndContact %}
 
         <h2 class="govuk-heading-m">Eligibility</h2>
         {{ checkAnswersEligibility(data) }}
 
         {{ checkAnswersDetails(data) }}
 
+        {{ checkAnswersMoney(data) }}
+
+        {{ checkAnswersFuneral(data) }}
+
+        {{ checkAnswersBankAndContact(data) }}
 
         {{ govukButton({
           text: "Continue"

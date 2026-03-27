@@ -25,7 +25,10 @@
           {{ govukInput({
             id: "death-certificates-number",
             name: "death-certificates-number",
-            classes: "govuk-input--width-2"
+            classes: "govuk-input--width-2",
+            label: {
+              text: "Number of additional certificates"
+            }
           }) }}
         {% endset -%}
 

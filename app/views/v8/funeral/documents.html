@@ -18,7 +18,7 @@ Did the funeral director give any of these documents – {{ serviceName }} – G
 
       <form class="form" action="/documents-answer-v8" method="post">
 
-        {% if (data['director'] == "no") %}
+        {% if (data['arrangingfuneral'] == "organisation") %}
 
         {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
@@ -33,7 +33,7 @@ Did the funeral director give any of these documents – {{ serviceName }} – G
     }
   },
   hint: {
-    text: "Select the most recent document from them"
+    text: "Select the most recent document from them."
   },
   items: [
     {
@@ -51,7 +51,7 @@ Did the funeral director give any of these documents – {{ serviceName }} – G
       value: "bill",
       text: "Funeral bill",
       hint: {
-        text: "This is a bill or invoice showing what the funeral cost"
+        text: "This is a bill or invoice showing what the funeral cost."
       }
     },
     {
@@ -61,7 +61,7 @@ Did the funeral director give any of these documents – {{ serviceName }} – G
       value: "none",
       text: "None of these",
       hint: {
-        text: "This could be because they have not provided documents yet, they have not been contacted, or someone else is dealing with them"
+        text: "This could be because they have not provided documents yet, they have not been contacted, or someone else is dealing with them."
       },
       behaviour: "exclusive"
     }
@@ -94,14 +94,14 @@ Did the funeral director give any of these documents – {{ serviceName }} – G
   value: "contract",
   text: "Signed contract",
   hint: {
-  text: "This is a signed contract or agreement showing what the funeral will cost"
+  text: "This is a signed contract or agreement showing what the funeral will cost."
   }
   },
   {
   value: "bill",
   text: "Funeral bill",
   hint: {
-  text: "This is a bill or invoice showing what the funeral cost"
+  text: "This is a bill or invoice showing what the funeral cost."
   }
   },
   {
@@ -111,7 +111,7 @@ Did the funeral director give any of these documents – {{ serviceName }} – G
   value: "none",
   text: "None of these",
   hint: {
-  text: "This could be because they have not provided documents yet, they have not been contacted, or someone else is dealing with them"
+  text: "This could be because they have not provided documents yet, they have not been contacted, or someone else is dealing with them."
   },
   behaviour: "exclusive"
   }

@@ -198,6 +198,8 @@
         </dl>
         {% endmacro %}
 
+        {{ checkAnswersEligibility(data) }}
+
         {{ govukButton({
           text: "Continue"
         }) }}
