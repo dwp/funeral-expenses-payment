@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  CCheck your answers about the caller and the person who died – {{ serviceName }} – GOV.UK Prototype Kit
+  Check your answers about the caller and the person who died – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -40,8 +40,8 @@
                   <dt class="govuk-summary-list__key">
                     Date of birth
                   </dt>
-                  <dd class="govuk-summary-list__value">
-                    {{ data['dob-day-claimant'] }} / {{ data['dob-month-claimant'] }} / {{ data['dob-year-claimant'] }}
+                  <dd class="govuk-summary-list__value"> 
+                    {{ data['dob-day-claimant'] }} {{ data['dob-month-claimant'] | monthName }} {{ data['dob-year-claimant'] }}
                   </dd>
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
@@ -82,7 +82,7 @@
                     Date of birth
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    {{ data['dob-day-partner'] }} / {{ data['dob-month-partner'] }} / {{ data['dob-year-partner'] }}
+                    {{ data['dob-day-partner'] }} {{ data['dob-month-partner'] | monthName }} {{ data['dob-year-partner'] }}
                   </dd>
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
@@ -106,7 +106,7 @@
                     Date of death
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    {{ data['dod-day-partner'] }} / {{ data['dod-month-partner'] }} / {{ data['dod-year-partner'] }}
+                    {{ data['dod-day-partner'] }} {{ data['dod-month-partner'] | monthName }} {{ data['dod-year-partner'] }}
                   </dd>
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
