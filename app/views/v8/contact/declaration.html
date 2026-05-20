@@ -18,18 +18,18 @@
 
       <form class="form" action="/v8/contact/application-complete" method="post">
 
-        {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+        {# {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
         {% set html %}
-            <p class="govuk-notification-banner__heading">
-              You can
-              <a class="govuk-notification-banner__link" href="check-answers-complete">check all of your answers again</a>.
-            </p>
-          {% endset %}
+          <p class="govuk-notification-banner__heading">
+            You can
+            <a class="govuk-notification-banner__link" href="check-answers-complete">check all of your answers again</a>.
+          </p>
+        {% endset %}
 
-          {{ govukNotificationBanner({
-            html: html
-          }) }}
+        {{ govukNotificationBanner({
+          html: html
+        }) }} #}
 
       <h1 class="govuk-heading-l">
         Declaration

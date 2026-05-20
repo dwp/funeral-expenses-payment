@@ -23,7 +23,7 @@
               <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Responsible for financial affairs
+                    Who is responsible for financial affairs
                   </dt>
                   <dd class="govuk-summary-list__value">
                     {{ data['financialaffairs']
@@ -102,7 +102,7 @@
                     </dd>
                     {% else %}
                     <dd class="govuk-summary-list__value">
-                      No
+                      Don't know
                     </dd>
                     {% endif %}
                     <dd class="govuk-summary-list__actions">
@@ -136,7 +136,7 @@
                     </dd>
                     {% else %}
                     <dd class="govuk-summary-list__value">
-                      No
+                      Don't know
                     </dd>
                     {% endif %}
                     <dd class="govuk-summary-list__actions">
@@ -186,7 +186,7 @@
                   </dd>
                   {% else %}
                   <dd class="govuk-summary-list__value">
-                    No
+                    Don't know
                   </dd>
                   {% endif %}
                   <dd class="govuk-summary-list__actions">
@@ -220,7 +220,7 @@
                   </dd>
                   {% else %}
                   <dd class="govuk-summary-list__value">
-                    No
+                    Don't know
                   </dd>
                   {% endif %}
                   <dd class="govuk-summary-list__actions">
@@ -273,7 +273,7 @@
                     </dd>
                     {% else %}
                     <dd class="govuk-summary-list__value">
-                      No
+                      Don't know
                     </dd>
                     {% endif %}
                     <dd class="govuk-summary-list__actions">
@@ -283,6 +283,7 @@
                   {% endif %}
                 {% endif %}
 
+                {% if data['lifeinsurance'] %}
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                       Life insurance policies
@@ -308,7 +309,7 @@
                     </dd>
                     {% else %}
                     <dd class="govuk-summary-list__value">
-                      No
+                      Don't know
                     </dd>
                     {% endif %}
                     <dd class="govuk-summary-list__actions">
@@ -316,7 +317,9 @@
                     </dd>
                   </div>
                   {% endif %}
+                {% endif %}
 
+                {% if data['funeralplan'] %}
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                      Pre-paid funeral plan
@@ -374,7 +377,7 @@
                     </dd>
                     {% else %}
                     <dd class="govuk-summary-list__value">
-                      No
+                      Don't know
                     </dd>
                     {% endif %}
                     <dd class="govuk-summary-list__actions">
@@ -382,6 +385,7 @@
                     </dd>
                   </div>
                   {% endif %}
+                {% endif %}
                 </dl>
 
               <h2 class="govuk-heading-m">Armed forces funeral grant</h2>
@@ -427,7 +431,7 @@
                     </dd>
                     {% else %}
                     <dd class="govuk-summary-list__value">
-                      No
+                      Don't know
                     </dd>
                     {% endif %}
                     <dd class="govuk-summary-list__actions">
@@ -465,7 +469,7 @@
                   </dd>
                   {% else %}
                   <dd class="govuk-summary-list__value">
-                    No
+                    Don't know
                   </dd>
                   {% endif %}
                   <dd class="govuk-summary-list__actions">
@@ -502,7 +506,7 @@
                   </dd>
                   {% else %}
                   <dd class="govuk-summary-list__value">
-                    No
+                    Don't know
                   </dd>
                   {% endif %}
                   <dd class="govuk-summary-list__actions">

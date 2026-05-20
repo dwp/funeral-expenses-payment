@@ -74,17 +74,35 @@
 
                 <h2 class="govuk-heading-m">Contact details</h2>
                 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                
+                {% if data['phone-number'] == "claimant" %}
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
                     Telephone
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    {{ data['telephone-number'] }}
+                    {{ data['claimant-phone-input'] }}
                   </dd>
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
                   </dd>
                 </div>
+                {% endif %}
+
+                {% if data['phone-number'] == "someone-else" %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Telephone
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['other-phone-input'] }}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+                  </dd>
+                </div>
+                {% endif %}
+
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
                     Home address
