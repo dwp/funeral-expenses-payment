@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  You must be responsible for paying the funeral bill – {{ serviceName }} – GOV.UK Prototype Kit
+  You are about to end your application – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -19,21 +19,18 @@
       <form class="form" action="/clear-data" method="post">
 
         <h1 class="govuk-heading-l">
-          Clear session data
+          You are about to end your application
         </h1>
 
-        {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+        <p>
+          This means no data will be saved and your application will not be submitted.
+        </p>
 
-        {{ govukWarningText({
-          text: "This will clear all of the data entered in this session.",
-          iconFallbackText: "Warning"
-        }) }}
-        
+        <p class="govuk-body">
+          <a href="/index" class="govuk-link govuk-link--no-visited-state">Clear data and start again</a>
+        </p>
 
-        {{ govukButton({
-          text: "Clear the data",
-          classes: "govuk-button--warning"
-        }) }}  
+
 
       </form>
 
