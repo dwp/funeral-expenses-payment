@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Bank account details – {{ serviceName }} – GOV.UK Prototype Kit
+  Your bank or building society account – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -33,6 +33,9 @@
         <label class="govuk-label" for="name-on-the-account">
           Name of the account holder
         </label>
+        <div id="sort-code-hint" class="govuk-hint">
+          You can only use letters a to z, numbers, ampersands, hyphens, forward slashes, spaces and full stops.
+        </div>
         <input class="govuk-input" id="name-on-the-account" name="nameOnTheAccount" type="text" spellcheck="false" autocomplete="name">
       </div>
       <div class="govuk-form-group">
