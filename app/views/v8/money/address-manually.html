@@ -16,7 +16,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/v8/funeral/contact-provider" method="post">
+      <form class="form" action="/v8/money/check-answers-money-skipped" method="post">
         
         {% from "govuk/components/input/macro.njk" import govukInput %}
 
@@ -76,6 +76,10 @@
           {{ govukButton({
             text: "Continue"
           }) }}
+
+          <p class="govuk-body">
+            <a href="/v8/money/check-answers-money-skipped" class="govuk-link">Skip address</a>
+          </p>
 
       </form>
 

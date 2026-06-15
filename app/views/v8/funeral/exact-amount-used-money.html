@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Money in accounts – {{ serviceName }} – GOV.UK Prototype Kit
+  Do you know the exact amount of money that was from the person who died? – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -18,70 +18,46 @@
 
       <form class="form" action="/v8/funeral/who-paid-money" method="post">
 
-      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/input/macro.njk" import govukInput %}
 
-      {% from "govuk/components/input/macro.njk" import govukInput %}
+        {% set amountHtml %}
+          {{ govukInput({
+            id: "money-from-deceased-amount-input",
+            name: "money-from-deceased-amount-input",
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-input--width-5",
+            label: {
+              text: "Exact amount, pounds and pence"
+            }
+          }) }}
+        {% endset -%}
 
-{% set emailHtml %}
-{{ govukInput({
-  id: "contact-by-email",
-  name: "contactByEmail",
-  type: "tel",
-  autocomplete: "tel",
-  spellcheck: false,
-  prefix: {
-    text: "£"
-  },
-  classes: "govuk-input--width-5",
-  label: {
-    text: ""
-  }
-}) }}
-{% endset -%}
-
-{% set yes1Html %}
-{{ govukInput({
-  id: "contact-by-email",
-  name: "yes",
-  type: "yes",
-  autocomplete: "email",
-  spellcheck: false,
-  prefix: {
-    text: "£"
-  },
-  classes: "govuk-input--width-5",
-  label: {
-    text: ""
-  }
-}) }}
-{% endset -%}
-
-{{ govukRadios({
-  name: "contact",
-  fieldset: {
-    legend: {
-      text: "Do you know the exact amount of money that was from the person who died?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-    }
-  },
-  items: [
-    {
-      value: "email",
-      text: "Yes",
-      conditional: {
-        html: emailHtml
-      }
-    },
-    {
-      value: "phone",
-      text: "No",
-      conditional: {
-        html: phoneHtml
-      }
-    }
-  ]
-}) }}
+        {{ govukRadios({
+          name: "money-from-deceased-amount",
+          fieldset: {
+            legend: {
+              text: "Do you know the exact amount of money that was from the person who died?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              conditional: {
+                html: amountHtml
+              }
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
 
         {{ govukButton({
           text: "Continue"

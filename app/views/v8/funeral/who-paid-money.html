@@ -18,7 +18,7 @@
 
       <form class="form" action="/whopaidmoney-answer-v8" method="post">
 
-        {% if (data['director'] == "yes") %}
+        {% if (data['arrangingfuneral'] == "director") %}
 
         {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
@@ -33,7 +33,7 @@
             }
           },
           hint: {
-            text: "Select all that apply"
+            text: "Select all that apply."
           },
           items: [
             {
@@ -48,7 +48,7 @@
               value: "charity-crowdfund",
               text: "Charity or crowdfund",
               hint: {
-                text: "Sent directly to funeral director"
+                text: "Sent directly to funeral director."
               }
             }
           ]
@@ -59,8 +59,8 @@
         {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
         {{ govukCheckboxes({
-          name: "whopaidsomeoneelse",
-          values: data["whopaidsomeoneelse"],
+          name: "whopaidorganisation",
+          values: data["whopaidorganisation"],
           fieldset: {
             legend: {
               text: "Who paid this money to the organisation or person arranging the funeral?",
@@ -69,7 +69,7 @@
             }
           },
           hint: {
-            text: "Select all that apply"
+            text: "Select all that apply."
           },
           items: [
             {
@@ -84,7 +84,7 @@
               value: "charity-crowdfund",
               text: "Charity or crowdfund",
               hint: {
-                text: "Sent directly to organisation or person arranging the funeral"
+                text: "Sent directly to organisation or person arranging the funeral."
               }
             }
           ]
