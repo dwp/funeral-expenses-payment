@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Declaration – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/v9/contact/application-complete" method="post">
+
+        {# {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+        {% set html %}
+          <p class="govuk-notification-banner__heading">
+            You can
+            <a class="govuk-notification-banner__link" href="check-answers-complete">check all of your answers again</a>.
+          </p>
+        {% endset %}
+
+        {{ govukNotificationBanner({
+          html: html
+        }) }} #}
+
+      <h1 class="govuk-heading-l">
+        Declaration
+      </h1>
+
+      <p class="govuk-body">
+        By sending the application you agree that the information you have given is complete and correct.
+        If you deliberately give the wrong or incomplete information, or you do not report any changes, you may:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>be prosecuted</li>
+        <li>need to pay a financial penalty</li>
+        <li>need to pay back any money you are overpaid if you are asked to</li>
+      </ul>
+
+      {{ govukButton({
+        text: "I agree - send my application"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Address finder is unavailable – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/v9/contact/correspondence-address" method="post">
+
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+
+        <h1 class="govuk-heading-l">Sorry, the address finder is unavailable</h1>
+
+        <p class="govuk-body">
+          You can enter the address manually or skip adding the address.
+        </p>
+
+        <p class="govuk-body">
+          <a href="/v9/contact/address-manually" class="govuk-link">Enter address manually</a>
+        </p>
+
+        <p class="govuk-body">
+          <a href="/v9/funeral/contact-provider" class="govuk-link">Skip address</a>
+        </p>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <form action="/v9/contact/declaration" method="post" novalidate>
+
+        <h1 class="govuk-heading-l">Check your answers before submitting</h1>
+
+        {% from "/v9/eligibility/check-answers-eligibility" import checkAnswersEligibility %}
+        {% from "/v9/details/check-answers-details" import checkAnswersDetails %}
+        {% from "/v9/money/check-answers-money" import checkAnswersMoney %}
+        {% from "/v9/funeral/check-answers-funeral" import checkAnswersFuneral %}
+        {% from "/v9/contact/check-answers-bankandcontact" import checkAnswersBankAndContact %}
+
+        <h2 class="govuk-heading-m">Eligibility</h2>
+        {{ checkAnswersEligibility(data) }}
+
+        {{ checkAnswersDetails(data) }}
+
+        {{ checkAnswersMoney(data) }}
+
+        {{ checkAnswersFuneral(data) }}
+
+        {{ checkAnswersBankAndContact(data) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      
+
+      </form>
+    </div>
+
+  </div>
+
+{% endblock %}

@@ -1,0 +1,211 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers eligibility – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      
+      <form action="/v9/details/about-the-claimant" method="post" novalidate>
+
+        <h1 class="govuk-heading-l">Check your answers about eligibility</h1>
+
+        {% macro checkAnswersEligibility(data) %}
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Partner of the person who died
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Yes
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Living together
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Yes
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Responsible for the funeral
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Yes
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Where you live
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['whereyoulive'] | capitalize}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Qualifying benefit
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <ul class="govuk-list">
+                {% for item in data['benefits'] %}
+                  <li>
+                    {{ item
+                    | replace("universal-credit", "Universal Credit")
+                    | replace("income-support", "Income Support")
+                    | replace("income-based-jsa", "Income-based Jobseeker's Allowance")
+                    | replace("income-related-esa", "Income-related Employment and Support Allowance")
+                    | replace("pension-credit", "Pension Credit")
+                    | replace("housing-benefit", "Housing Benefit")
+                    | replace("support-mortgage-interest", "Support for Mortgage Interest")
+                    | replace("no", "No") }}
+                  </li>
+                {% endfor %}
+              </ul>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Person who died usually live in UK
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">Yes</p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Funeral taken place
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['funeraltakenplace'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+
+          {% if (data['funeral-date-question'] == "yes") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Funeral date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['funeral-day'] }} 
+              {{ data['funeral-month']
+              | replace("11", "November")
+              | replace("12", "December")
+              | replace("01", "January")
+              | replace("02", "February")
+              | replace("03", "March")
+              | replace("04", "April")
+              | replace("05", "May")
+              | replace("06", "June")
+              | replace("07", "July")
+              | replace("08", "August")
+              | replace("09", "September")
+              | replace("10", "October")
+              | replace("1", "January")
+              | replace("2", "February")
+              | replace("3", "March")
+              | replace("4", "April")
+              | replace("5", "May")
+              | replace("6", "June")
+              | replace("7", "July")
+              | replace("8", "August")
+              | replace("9", "September") }}
+              {{ data['funeral-year'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+          {% else %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Funeral date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Not known
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+          {% endif %}
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Funeral in UK
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['funeralinuk'] | capitalize}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+
+          {% if (data['funeralinuk'] == "no") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Funeral in EEA or Switzerland
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Yes
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+          {% endif %}
+
+        </dl>
+        {% endmacro %}
+
+        {{ checkAnswersEligibility(data) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

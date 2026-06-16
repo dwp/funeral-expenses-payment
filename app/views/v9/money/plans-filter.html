@@ -1,0 +1,62 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Plans to help pay – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/plansfilter-answer-v9" method="post">
+
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">Did they have any life insurance policies, pensions or other plans that might help pay for the funeral?</h1>
+          </legend>
+
+          <p class="govuk-hint">
+            We will contact you if we need more information.
+          </p>
+
+          {{ govukRadios({
+            name: "plansfilter",
+            values: data["plansfilter"],
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              },
+              {
+                divider: "or"
+              },
+              {
+                value: "unsure",
+                text: "Don't know"
+              }
+            ]
+          }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

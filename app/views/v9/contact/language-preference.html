@@ -1,0 +1,86 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Welsh language preferences – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/v9/contact/check-answers-bankandcontact" method="post">
+     
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            Your language preferences
+          </h1>
+        </legend>
+
+        <p class="govuk-body">
+          If you live in Wales you can choose to communicate with us in Welsh.
+        </p>
+
+        {{ govukRadios({
+          name: "written-comms",
+          values: data["written-comms"],
+          fieldset: {
+            legend: {
+              text: "What language do you want us to use for written communications?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m govuk-!-padding-top-5"
+            }
+          },
+          items: [
+            {
+              value: "english",
+              text: "English"
+            },
+            {
+              value: "welsh",
+              text: "Welsh"
+            }
+          ]
+        }) }}
+
+        {{ govukRadios({
+          name: "spoken-comms",
+          values: data["spoken-comms"],
+          fieldset: {
+            legend: {
+              text: "What language do you want us to speak to you in?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m govuk-!-padding-top-3"
+            }
+          },
+          items: [
+            {
+              value: "english",
+              text: "English"
+            },
+            {
+              value: "welsh",
+              text: "Welsh"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

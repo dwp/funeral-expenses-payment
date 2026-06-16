@@ -1,0 +1,85 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Different formats – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/v9/contact/check-answers-bankandcontact" method="post">
+     
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+        {{ govukCheckboxes({
+          name: "alternative-formats",
+          values: data["alternative-formats"],
+          fieldset: {
+            legend: {
+              text: "What different formats do we need to use when we contact you?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+            {
+              value: "braille",
+              text: "Braille"
+            },
+            {
+              value: "large-print",
+              text: "Large print"
+            },
+            {
+              value: "audio",
+              text: "Audio"
+            },
+            {
+              value: "sign-language",
+              text: "Sign language"
+            },
+            {
+              value: "induction-loop",
+              text: "Induction loop"
+            },
+            {
+              value: "type-talk",
+              text: "Type talk"
+            },
+            {
+              value: "textphone",
+              text: "Textphone"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "none",
+              text: "None of these",
+              behaviour: "exclusive"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

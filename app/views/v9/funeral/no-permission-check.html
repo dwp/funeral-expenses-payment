@@ -1,0 +1,40 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  You are about to end your application – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/clear-data" method="post">
+
+        <h1 class="govuk-heading-l">
+          You are about to end your application
+        </h1>
+
+        <p>
+          This means no data will be saved and your application will not be submitted.
+        </p>
+
+        <p class="govuk-body">
+          <a href="/index" class="govuk-link govuk-link--no-visited-state">Clear data and start again</a>
+        </p>
+
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

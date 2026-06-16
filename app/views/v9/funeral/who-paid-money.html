@@ -1,0 +1,104 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Who paid money – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/whopaidmoney-answer-v9" method="post">
+
+        {% if (data['arrangingfuneral'] == "director") %}
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+        {{ govukCheckboxes({
+          name: "whopaidfuneraldirector",
+          values: data["whopaidfuneraldirector"],
+          fieldset: {
+            legend: {
+              text: "Who paid this money to the funeral director?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+            {
+              value: "applicant",
+              text: "Me"
+            },
+            {
+              value: "friend-family",
+              text: "Friend or family member"
+            },
+            {
+              value: "charity-crowdfund",
+              text: "Charity or crowdfund",
+              hint: {
+                text: "Sent directly to funeral director."
+              }
+            }
+          ]
+        }) }}
+
+        {% else %}
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+        {{ govukCheckboxes({
+          name: "whopaidorganisation",
+          values: data["whopaidorganisation"],
+          fieldset: {
+            legend: {
+              text: "Who paid this money to the organisation or person arranging the funeral?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+            {
+              value: "applicant",
+              text: "Me"
+            },
+            {
+              value: "friend-family",
+              text: "Friend or family member"
+            },
+            {
+              value: "charity-crowdfund",
+              text: "Charity or crowdfund",
+              hint: {
+                text: "Sent directly to organisation or person arranging the funeral."
+              }
+            }
+          ]
+        }) }}
+
+        {% endif %}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  If we need to contact you, which phone number should we use? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/v9/contact/address" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        {% set claimantPhoneHtml %}
+          {{ govukInput({
+            id: "claimant-phone-input",
+            name: "claimant-phone-input",
+            classes: "govuk-input--width-10",
+            label: {
+              text: "UK phone number"
+            }
+          }) }}
+        {% endset -%}
+
+        {% set someoneElsePhoneHtml %}
+          {{ govukInput({
+            id: "other-phone-input",
+            name: "other-phone-input",
+            classes: "govuk-input--width-10",
+            label: {
+              text: "UK phone number"
+            }
+          }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          name: "phone-number",
+          fieldset: {
+            legend: {
+              text: "If we need to contact you, which phone number should we use?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "This can be your number or someone elses, for example if you're not staying at home."
+          },
+          items: [
+            {
+              value: "claimant",
+              text: "My phone number",
+              conditional: {
+                html: claimantPhoneHtml
+              }
+            },
+            {
+              value: "someone-else",
+              text: "Someone else's number",
+              conditional: {
+                html: someoneElsePhoneHtml
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
