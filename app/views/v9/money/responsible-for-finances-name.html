@@ -18,9 +18,15 @@
 
       <form class="form" action="/v9/money/responsible-for-finances-address" method="post">
         
-        <h1 class="govuk-heading-l">
-          Details of the person responsible for the financial affairs
-        </h1>
+        {% if (data['financialaffairs'] == "solicitor") %}
+          <h1 class="govuk-heading-l">
+            Details of the solictor
+          </h1>
+        {% else %}
+          <h1 class="govuk-heading-l">
+            Details of the person responsible for the financial affairs
+          </h1>
+        {% endif %}
   
         <div class="govuk-form-group">
           <label class="govuk-label" for="full-name">

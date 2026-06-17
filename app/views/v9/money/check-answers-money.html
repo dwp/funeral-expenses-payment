@@ -39,7 +39,7 @@
                 {% if data['financialaffairs'] == "solicitor" or data['financialaffairs'] == "someone-else" %}
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Full name
+                    Name
                   </dt>
                   <dd class="govuk-summary-list__value">
                     {{ data['fullNamePersonResponsible'] | capitalize }}
@@ -50,7 +50,7 @@
                 </div>
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Telephone number
+                    Phone number
                   </dt>
                   <dd class="govuk-summary-list__value">
                     0712345678
@@ -75,6 +75,8 @@
                 {% endif %}
               </dl>
                 
+              {% if data['financialaffairs'] == "solicitor" or data['financialaffairs'] == "someone-else" %}
+              {% else %}
               <h2 class="govuk-heading-m">Bank accounts, ISAs and cash</h2>
               <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                 <div class="govuk-summary-list__row">
@@ -265,7 +267,7 @@
                   {% if data['pension-amount'] %}
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Exact value of the pension lump sum
+                      Exact value of pension lump sum
                     </dt>
                     {% if data['pension-amount'] == "yes" %}
                     <dd class="govuk-summary-list__value">
@@ -407,7 +409,7 @@
                   {% if (data['warpension']) %}
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Claiming War Pension Funeral Grant
+                      War Pension Funeral Grant
                     </dt>
                     <dd class="govuk-summary-list__value">
                       {{ data['warpension']
@@ -567,6 +569,7 @@
                 </div>
                 {% endif %}
               </dl>
+            {% endif %}
 
             {% endmacro %}
 
