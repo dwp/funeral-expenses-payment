@@ -32,6 +32,7 @@
           }) }}
         {% endset -%}
 
+        {% if (data['funeraltakenplace'] == "yes") %}
 
         {{ govukCheckboxes({
           name: "transporttype",
@@ -72,6 +73,59 @@
             }
           ]
         }) }}
+
+        {% else %}
+
+        {{ govukCheckboxes({
+          name: "transporttype",
+          values: data["transporttype"],
+          fieldset: {
+            legend: {
+              text: "How will you travel?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l" 
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+            {
+              value: "train",
+              text: "Train"
+            },
+            {
+              value: "bus",
+              text: "Bus"
+            },
+            {
+              value: "taxi",
+              text: "Taxi"
+            },
+            {
+              value: "car",
+              text: "Car"
+            },
+            {
+              value: "other",
+              text: "Other",
+              conditional: {
+                html: otherHtml
+              }
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "dontknow",
+              text: "Don't know",
+              behaviour: "exclusive"
+            }
+          ]
+        }) }}
+
+        {% endif %}
+
 
         {{ govukButton({
           text: "Continue"

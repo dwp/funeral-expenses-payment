@@ -17,66 +17,72 @@
     <div class="govuk-grid-column-two-thirds">
  
       <form class="form" action="/v9/funeral/check-answers-funeral" method="post">
- 
-      <h1 class="govuk-heading-l">
-        How much did the journey cost?
-      </h1>
- 
-      {% if ((data['transporttype'] | string).includes("train")) %}
+
+        {% if (data['funeraltakenplace'] == "yes") %}
+        <h1 class="govuk-heading-l">
+          How much did the travel cost?
+        </h1>
+        {% else %}
+        <h1 class="govuk-heading-l">
+          Do you know how much it will cost?
+        </h1>
+        {% endif %}
+    
+        {% if ((data['transporttype'] | string).includes("train")) %}
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="cost">
+              Train (optional)
+            </label>
+          <div class="govuk-input__wrapper">
+            <div class="govuk-input__prefix" aria-hidden="true">£</div>
+            <input class="govuk-input govuk-input--width-5" id="cost" name="cost" type="text" spellcheck="false">
+          </div>
+        </div>
+        {% endif %}
+      
+        {% if ((data['transporttype'] | string).includes("bus")) %}
+        <div class="govuk-form-group">
+            <label class="govuk-label" for="cost">
+              Bus (optional)
+            </label>
+          <div class="govuk-input__wrapper">
+            <div class="govuk-input__prefix" aria-hidden="true">£</div>
+            <input class="govuk-input govuk-input--width-5" id="cost" name="cost" type="text" spellcheck="false">
+          </div>
+        </div>
+        {% endif %}
+      
+        {% if ((data['transporttype'] | string).includes("taxi")) %}
+        <div class="govuk-form-group">
+            <label class="govuk-label" for="cost">
+              Taxi (optional)
+            </label>
+          <div class="govuk-input__wrapper">
+            <div class="govuk-input__prefix" aria-hidden="true">£</div>
+            <input class="govuk-input govuk-input--width-5" id="cost" name="cost" type="text" spellcheck="false">
+          </div>
+        </div>
+        {% endif %}
+      
+        {% if ((data['transporttype'] | string).includes("other")) %}
         <div class="govuk-form-group">
           <label class="govuk-label" for="cost">
-            Train (optional)
+            Other - {{ data['other-travel-description'] }} (optional)
           </label>
         <div class="govuk-input__wrapper">
           <div class="govuk-input__prefix" aria-hidden="true">£</div>
-          <input class="govuk-input govuk-input--width-5" id="cost" name="cost" type="text" spellcheck="false">
+            <input class="govuk-input govuk-input--width-5" id="cost" name="cost" type="text" spellcheck="false">
+          </div>
         </div>
-      </div>
-      {% endif %}
-  
-      {% if ((data['transporttype'] | string).includes("bus")) %}
-      <div class="govuk-form-group">
-          <label class="govuk-label" for="cost">
-            Bus (optional)
-          </label>
-        <div class="govuk-input__wrapper">
-          <div class="govuk-input__prefix" aria-hidden="true">£</div>
-          <input class="govuk-input govuk-input--width-5" id="cost" name="cost" type="text" spellcheck="false">
-        </div>
-      </div>
-      {% endif %}
-  
-      {% if ((data['transporttype'] | string).includes("taxi")) %}
-      <div class="govuk-form-group">
-          <label class="govuk-label" for="cost">
-            Taxi (optional)
-          </label>
-        <div class="govuk-input__wrapper">
-          <div class="govuk-input__prefix" aria-hidden="true">£</div>
-          <input class="govuk-input govuk-input--width-5" id="cost" name="cost" type="text" spellcheck="false">
-        </div>
-      </div>
-      {% endif %}
-  
-      {% if ((data['transporttype'] | string).includes("other")) %}
-      <div class="govuk-form-group">
-        <label class="govuk-label" for="cost">
-          Other - {{ data['other-travel-description'] }} (optional)
-        </label>
-      <div class="govuk-input__wrapper">
-        <div class="govuk-input__prefix" aria-hidden="true">£</div>
-        <input class="govuk-input govuk-input--width-5" id="cost" name="cost" type="text" spellcheck="false">
-      </div>
-    </div>
-    {% endif %}
- 
- 
+        {% endif %}
+    
+    
         {{ govukButton({
           text: "Continue"
         }) }}
- 
+
       </form>
- 
+
     </div>
   </div>
  

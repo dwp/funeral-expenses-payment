@@ -47,7 +47,7 @@
                   </div>
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Used any money from the person who died to help pay for the funeral
+                      Used any money from the person who died
                     </dt>
                     <dd class="govuk-summary-list__value">
                       Yes
@@ -217,9 +217,15 @@
                   {% endif %}
                 
                   <div class="govuk-summary-list__row">
+                    {% if (data['arrangingfuneral'] == "director") %}
                     <dt class="govuk-summary-list__key">
                       Any money paid to funeral director
                     </dt>
+                    {% else %}
+                    <dt class="govuk-summary-list__key">
+                      Any money paid to organisation or person arranging funeral
+                    </dt>
+                    {% endif %}
                     <dd class="govuk-summary-list__value">
                       {{ data['moneyoffbill']
                       | replace("yes", "Yes")
@@ -286,10 +292,16 @@
                     </div>
                     {% endif %}
 
-                    <div class="govuk-summary-list__row">
+                  <div class="govuk-summary-list__row">
+                    {% if (data['arrangingfuneral'] == "director") %}
                     <dt class="govuk-summary-list__key">
-                      Who paid the funeral director
+                      Who paid funeral director
                     </dt>
+                    {% else %}
+                    <dt class="govuk-summary-list__key">
+                      Who paid organisation or person arranging funeral
+                    </dt>
+                    {% endif %}
                     <dd class="govuk-summary-list__value">
                       Me<br>
                       Friend or family member<br>
@@ -301,7 +313,7 @@
                   </div>
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Do you need to pay this money back?
+                      Need to pay money back
                     </dt>
                     <dd class="govuk-summary-list__value">
                       {{ data['paymoneyback']
@@ -335,7 +347,7 @@
                     </dt>
                     <dd class="govuk-summary-list__value">
                       Flowers or wreath - £50<br>
-                      Service sheet - £100<br>
+                      Service sheet - cost not known<br>
                       Other - description - £25
                     <dd class="govuk-summary-list__actions">
                       <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> </span></a>
@@ -395,7 +407,7 @@
                 {% if (data['claimtravel'] == "yes" ) %}
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    What travel costs
+                    Which journey
                   </dt>
                   <dd class="govuk-summary-list__value">
                     {{ data['travelexpenses'] 
@@ -413,8 +425,10 @@
                     Journey cost
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    Bus - £2.00<br>
-                    Taxi - £5.60
+                    Train - £30<br>
+                    Bus - cost not known<br>
+                    Car - cost not applicable<br>
+                    Other - horse and cart - £10
                   </dd>
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> </span></a>

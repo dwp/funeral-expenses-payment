@@ -61,7 +61,7 @@
                 </div>
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Address of {{ data['fullNamePersonResponsible'] | capitalize }}
+                    Address
                   </dt>
                   <dd class="govuk-summary-list__value">
                     1 Kirk Street<br>
@@ -267,7 +267,7 @@
                   {% if data['pension-amount'] %}
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Exact value of pension lump sum
+                      Exact value of pension scheme
                     </dt>
                     {% if data['pension-amount'] == "yes" %}
                     <dd class="govuk-summary-list__value">
@@ -303,7 +303,7 @@
                   {% if data['lifeinsurance-amount'] %}
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Exact value of any life insurance polices
+                      Exact value of life insurance
                     </dt>
                     {% if data['lifeinsurance-amount'] == "yes" %}
                     <dd class="govuk-summary-list__value">
@@ -409,7 +409,7 @@
                   {% if (data['warpension']) %}
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      War Pension Funeral Grant
+                      Claiming War Pension Funeral Grant
                     </dt>
                     <dd class="govuk-summary-list__value">
                       {{ data['warpension']
