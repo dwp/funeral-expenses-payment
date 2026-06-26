@@ -212,17 +212,29 @@ router.post('/whereyoulive-answer-v9', function(request, response) {
     }
 })
 
-  // FUNERAL PLAN
+ // FUNERAL PLAN
 
   router.post('/funeralplan-answer-v9', function(request, response) {
 
     var funeralplan = request.session.data['funeralplan']
     if (funeralplan == "yes"){
-        response.redirect("/v9/money/funeral-plan-cover-costs")
+        response.redirect("/v9/money/contact-plan-provider")
     } else {
         response.redirect("/v9/money/armed-forces")
     }
 })
+
+//   // FUNERAL PLAN
+
+//   router.post('/funeralplan-answer-v9', function(request, response) {
+
+//     var funeralplan = request.session.data['funeralplan']
+//     if (funeralplan == "yes"){
+//         response.redirect("/v9/money/funeral-plan-cover-costs")
+//     } else {
+//         response.redirect("/v9/money/armed-forces")
+//     }
+// })
 
   // FUNERAL PLAN COVER ANY OF THE FUNERAL COSTS
 

@@ -16,7 +16,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/funeralplan-answer-v9" method="post">
+      <form class="form" action="/v9/money/armed-forces" method="post">
 
           {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -33,7 +33,10 @@
             items: [
               {
                 value: "yes",
-                text: "Yes"
+                text: "Yes",
+                hint: {
+                    text: "You'll need to send in a copy of the plan showing what it covers."
+                  }
               },
               {
                 value: "no",

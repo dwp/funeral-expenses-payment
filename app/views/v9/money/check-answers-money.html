@@ -336,7 +336,26 @@
                       <a class="govuk-link" href="#">Change</a>
                     </dd>
                   </div>
+                  {% endif %}
+                  
+                  {# CONTACT PLAN PROVIDER
                   {% if data['funeralplan'] == "yes" %}
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Can we contact funeral plan provider
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['contactplanprovider']
+                      | replace("yes", "Yes")
+                      | replace("no", "No") }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">Change</a>
+                    </dd>
+                  </div>
+                {% endif %} #}
+
+                 {# FUNERAL PLAN DETAILS
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                       Funeral plan paying for any of funeral
@@ -353,7 +372,7 @@
                   </div>
                   {% endif %}
                   {% if data['funeralplancover'] == "no" %}
-                  <div class="govuk-summary-list__row">
+                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                       Funeral plan refund
                     </dt>
@@ -387,7 +406,7 @@
                     </dd>
                   </div>
                   {% endif %}
-                {% endif %}
+                {% endif %} #}
                 </dl>
 
               <h2 class="govuk-heading-m">Armed forces funeral grant</h2>

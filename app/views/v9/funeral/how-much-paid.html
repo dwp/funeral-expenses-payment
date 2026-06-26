@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
  
 {% block pageTitle %}
-  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+  Travel cost – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
  
 {% block beforeContent %}
@@ -18,15 +18,9 @@
  
       <form class="form" action="/v9/funeral/check-answers-funeral" method="post">
 
-        {% if (data['funeraltakenplace'] == "yes") %}
         <h1 class="govuk-heading-l">
-          How much did the travel cost?
+          Travel cost
         </h1>
-        {% else %}
-        <h1 class="govuk-heading-l">
-          Do you know how much it will cost?
-        </h1>
-        {% endif %}
     
         {% if ((data['transporttype'] | string).includes("train")) %}
           <div class="govuk-form-group">
