@@ -8,7 +8,7 @@
   "dependencies": {
     "@dwp/dwp-frontend": "^3.4.0",
     "@govuk-prototype-kit/common-templates": "1.2.2",
-    "@govuk-prototype-kit/step-by-step": "2.2.2",
+    "@govuk-prototype-kit/step-by-step": "2.2.4",
     "@x-govuk/govuk-prototype-components": "^2.1.0",
     "@x-govuk/govuk-prototype-filters": "^2.1.0",
     "govuk-frontend": "4.8.0",
