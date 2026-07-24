@@ -21,6 +21,8 @@
         <h1 class="govuk-heading-l">
           How much did you pay?
         </h1>
+
+        <p class="govuk-hint">Enter the exact amount in pounds and pence. For example, £110.50 or £90.</p>
  
         {% if ((data['other-costs'] | string).includes("flowers")) %}
         <div class="govuk-form-group">
