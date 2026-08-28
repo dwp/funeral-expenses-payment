@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block beforeContent %}
+  {% include "app/views/includes/phase-banner.html" %}
+  
   {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"
@@ -41,14 +43,14 @@
                 value: "organisation",
                 text: "An organisation or someone from the community",
                 hint: {
-                  text: "For example, someone from a place of worship"
+                  text: "For example, someone from a place of worship."
                 }
               },
               {
                 value: "myself",
                 text: "I arranged the funeral myself",
                 hint: {
-                  text: "Without help from a funeral director, organisation or someone from the community"
+                  text: "Without help from a funeral director, organisation or someone from the community."
                 }
               }
             ]

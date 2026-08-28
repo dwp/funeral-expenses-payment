@@ -1,0 +1,40 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Sorry, the service is unavailable  – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form">
+
+        <h1 class="govuk-heading-l">
+          Sorry, the service is unavailable
+        </h1>
+
+        <p class="govuk-body">
+          You will be able to use the service later.
+        </p>
+
+        <p class="govuk-body">
+          You will need to start the claim <a href="#">using the Funeral Expenses Payment form - SF200 (opens in new tab)</a>
+          for other work while the Funeral Expenses Payment service is unavailable.
+        </p>
+
+        <p class="govuk-body">
+          You can raise an incident in DWP Place.
+        </p> 
+
+        <p class="govuk-body">
+          You can close this tab and continue working in Seachlight.
+        </p>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

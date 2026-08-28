@@ -1,0 +1,35 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Sorry, there is a problem with the service – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form">
+
+        <h1 class="govuk-heading-l">
+          Sorry, there is a problem with the service
+        </h1>
+
+        <p class="govuk-body">
+          Try again later.
+        </p>
+
+        <p class="govuk-body">
+          We have not saved your answers. You will need to start the claim again <a href="#">using the Funeral Expenses Payment form - SF200 (opens in new tab)</a>.
+        </p>
+
+        <p class="govuk-body">
+          You should raise an incident in DWP Place.
+        </p>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -5,6 +5,8 @@ Are you using an organisation or someone from the community to arrange the funer
 {% endblock %}
 
 {% block beforeContent %}
+  {% include "app/views/includes/phase-banner.html" %}
+  
   {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"

@@ -6,6 +6,8 @@ Do you know the exact amount of money that was from the person who died? – {{ 
 {% endblock %}
 
 {% block beforeContent %}
+  {% include "app/views/includes/phase-banner.html" %}
+  
   {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"

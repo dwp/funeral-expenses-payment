@@ -66,6 +66,18 @@ router.post('/whereyoulive-answer-v9', function(request, response) {
     }
 })
 
+  // BENEFITS SOFT STOP
+
+  router.post('/qb-kickout-answer-v9', function(request, response) {
+
+    var nobenefit = request.session.data['nobenefit']
+    if (nobenefit == "no"){
+        response.redirect("/v9/eligibility/end-application")
+    } else {
+        response.redirect("/v9/eligibility/usually-live-in-uk")
+    }
+})
+
   // DID THE DECEASED LIKE IN THE UK
 
   router.post('/deceaseduk-answer-v9', function(request, response) {
@@ -182,7 +194,7 @@ router.post('/whereyoulive-answer-v9', function(request, response) {
 
     var plansfilter = request.session.data['plansfilter']
     if (plansfilter == "no"){
-        response.redirect("/v9/money/burial-club")
+        response.redirect("/v9/money/armed-forces")
     } else {
         response.redirect("/v9/money/workplace-pension")
     }
@@ -584,6 +596,18 @@ router.post('/documents-answer-v9', function(request, response) {
     var alternative = request.session.data['alternative']
     if (alternative == "yes"){
         response.redirect("/v9/contact/alternative-format-select")
+    } else {
+        response.redirect("/v9/contact/check-answers-bankandcontact")
+    }
+})
+
+// EMAIL CONFIRMATION
+
+  router.post('/emailconfirmation-answer-v9', function(request, response) {
+
+    var emailConfirmation = request.session.data['emailConfirmation']
+    if (emailConfirmation == "yes"){
+        response.redirect("/v9/contact/email-address")
     } else {
         response.redirect("/v9/contact/check-answers-bankandcontact")
     }

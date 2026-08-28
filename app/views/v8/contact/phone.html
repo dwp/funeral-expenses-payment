@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block beforeContent %}
+  {% include "app/views/includes/phase-banner.html" %}
+  
   {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"
@@ -27,8 +29,11 @@
             name: "claimant-phone-input",
             classes: "govuk-input--width-10",
             label: {
-              text: "UK phone number"
-            }
+              text: "What is your phone number?"
+            },
+            hint: {
+            text: "This must be a UK phone number."
+          }
           }) }}
         {% endset -%}
 
@@ -38,8 +43,11 @@
             name: "other-phone-input",
             classes: "govuk-input--width-10",
             label: {
-              text: "UK phone number"
-            }
+              text: "What is their phone number?"
+            },
+            hint: {
+            text: "This must be a UK phone number."
+          }
           }) }}
         {% endset -%}
 

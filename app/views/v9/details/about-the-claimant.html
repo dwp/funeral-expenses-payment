@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block beforeContent %}
+  {% include "app/views/includes/phase-banner.html" %}
+  
   {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"
@@ -37,7 +39,7 @@
           <div id="hint" class="govuk-hint">
             For example, 27 3 1981.
           </div>
-          <div class="govuk-date-input" id="dob-claimamnt">
+          <div class="govuk-date-input" id="dob-claimant">
             <div class="govuk-date-input__item">
               <div class="govuk-form-group">
                 <label class="govuk-label govuk-date-input__label" for="dob-day-claimant">

@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block beforeContent %}
+  {% include "app/views/includes/phase-banner.html" %}
+  
   {{ govukBackLink({
     text: "Back",
     href: "javascript:window.history.back()"
@@ -15,7 +17,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <form class="form" action="/v8/contact/start" method="post">
+      <form class="form" action="/v9/contact/start" method="post">
 
         <h1 class="govuk-heading-l">Check your answers about the funeral</h1>
 

@@ -1,10 +1,12 @@
 {% extends "layouts/main.html" %}
  
 {% block pageTitle %}
-  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+  How much did you pay? – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
  
 {% block beforeContent %}
+  {% include "app/views/includes/phase-banner.html" %}
+  
   {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"
@@ -21,14 +23,13 @@
         <h1 class="govuk-heading-l">
           How much did you pay?
         </h1>
-
-        <p class="govuk-hint">Enter the exact amount in pounds and pence. For example, £110.50 or £90.</p>
  
         {% if ((data['other-costs'] | string).includes("flowers")) %}
         <div class="govuk-form-group">
           <label class="govuk-label" for="cost">
-            Flowers or wreath (optional)
+            Flowers or wreath amount (optional)
           </label>
+          <span class="govuk-visually-hidden"><p class="govuk-hint">Enter in pounds and pence.</p></span>
         <div class="govuk-input__wrapper">
           <div class="govuk-input__prefix" aria-hidden="true">£</div>
           <input class="govuk-input govuk-input--width-5" id="cost" name="cost" type="text" spellcheck="false">
@@ -39,8 +40,9 @@
         {% if ((data['other-costs'] | string).includes("service-sheet")) %}
         <div class="govuk-form-group">
           <label class="govuk-label" for="cost">
-            Service sheet (optional)
+            Service sheet amount (optional)
           </label>
+          <span class="govuk-visually-hidden"><p class="govuk-hint">Enter in pounds and pence.</p></span>
           <div class="govuk-input__wrapper">
             <div class="govuk-input__prefix" aria-hidden="true">£</div>
             <input class="govuk-input govuk-input--width-5" id="cost" name="cost" type="text" spellcheck="false">
@@ -51,8 +53,9 @@
         {% if ((data['other-costs'] | string).includes("other")) %}
         <div class="govuk-form-group">
           <label class="govuk-label" for="cost">
-            Other - {{ data['other-cost-description'] }} (optional)
+            Other - {{ data['other-cost-description'] }} amount (optional)
           </label>
+          <span class="govuk-visually-hidden"><p class="govuk-hint">Enter in pounds and pence.</p></span>
         <div class="govuk-input__wrapper">
           <div class="govuk-input__prefix" aria-hidden="true">£</div>
           <input class="govuk-input govuk-input--width-5" id="cost" name="cost" type="text" spellcheck="false">

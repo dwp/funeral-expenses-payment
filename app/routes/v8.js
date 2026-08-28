@@ -66,6 +66,18 @@ router.post('/whereyoulive-answer-v8', function(request, response) {
     }
 })
 
+// BENEFITS SOFT STOP
+
+  router.post('/qb-kickout-answer-v8', function(request, response) {
+
+    var nobenefitcontinue = request.session.data['nobenefitcontinue']
+    if (nobenefitcontinue == "no"){
+        response.redirect("/v8/eligibility/end-application")
+    } else {
+        response.redirect("/v8/eligibility/usually-live-in-uk")
+    }
+})
+
   // DID THE DECEASED LIKE IN THE UK
 
   router.post('/deceaseduk-answer-v8', function(request, response) {

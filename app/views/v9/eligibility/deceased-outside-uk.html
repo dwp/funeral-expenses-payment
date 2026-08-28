@@ -5,6 +5,8 @@ You cannot get a Funeral Expenses Payment – {{ serviceName }} – GOV.UK Proto
 {% endblock %}
 
 {% block beforeContent %}
+  {% include "app/views/includes/phase-banner.html" %}
+  
   {{ govukBackLink({
     text: "Back",
     href: "javascript:window.history.back()"

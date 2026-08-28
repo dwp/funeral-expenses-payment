@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block beforeContent %}
+  {% include "app/views/includes/phase-banner.html" %}
+  
   {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"
@@ -27,7 +29,7 @@
             name: "death-certificates-number",
             classes: "govuk-input--width-2",
             label: {
-              text: "Number of additional certificates"
+              text: "Number of extra certificates"
             }
           }) }}
         {% endset -%}

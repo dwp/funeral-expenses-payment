@@ -5,6 +5,8 @@ Did the funeral director give any of these documents – {{ serviceName }} – G
 {% endblock %}
 
 {% block beforeContent %}
+  {% include "app/views/includes/phase-banner.html" %}
+  
   {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"

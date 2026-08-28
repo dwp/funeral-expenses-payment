@@ -1,10 +1,12 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  You cannot get a Funeral Expenses Payment – {{ serviceName }} – GOV.UK Prototype Kit
+  You must get a qualifying benefit to get a Funeral Expenses Payment – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
+  {% include "app/views/includes/phase-banner.html" %}
+  
   {{ govukBackLink({
     text: "Back",
     href: "javascript:window.history.back()"
@@ -13,42 +15,77 @@
 
 {% block content %}
 
+  <form class="form" action="/qb-kickout-answer-v9" method="post">
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        You must get a qualifying benefit to get a Funeral Expenses Payment
+       You must get a qualifying benefit to get a Funeral Expenses Payment
       </h1>
-      <p>
-        If you’re not getting, or waiting to hear about, a qualifying benefit you cannot make a claim for Funeral Expenses Payment.
+
+      {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+      {% call govukDetails({
+        summaryText: "What is a qualifying benefit?"
+      }) %}
+        <p class="govuk-body">
+          You must be getting, or waiting to hear about one the following:
+        </p>
+
+        <ul class="govuk-list govuk-list--bullet">
+        <li>Universal Credit</li>
+        <li>Income Support</li>
+        <li>Income-based Jobseeker's Allowance</li>
+        <li>Income-related Employment and Support Allowance</li>
+        <li>Pension Credit</li>
+        <li>Housing Benefit</li>
+        <li>Support for Mortgage Interest</li>
+        </ul>
+      {% endcall %}
+
+      <p class="govuk-body">
+        You can still make a claim if you think you're eligible for a benefit but have not applied yet.
       </p>
 
-      <h2 class="govuk-heading-m">
-        If you’re eligible for a qualifying benefit
-      </h2>
-      <p>
-        You’ll need to make your claim after you apply for a qualifying benefit and within 6 months of the funeral.
+      <p class="govuk-body">
+        We cannot process your application until your benefit claim is complete. 
       </p>
-      <p>
+
+      <p class="govuk-body">
         You can find out what benefits you may be entitled to by going to GOV.UK and searching for ‘benefits calculator’.
       </p>
       
-      <p class="govuk-body">
-        <a href="/index" class="govuk-link govuk-link--no-visited-state">Clear data and start again</a>
-      </p>
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+  
+      {{ govukRadios({
+        name: "nobenefitcontinue",
+        values: data["nobenefitcontinue"],
+        fieldset: {
+          legend: {
+            text: "Do you want to continue your application?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no", 
+            text: "No"
+          }
+        ]
+      }) }}
 
-      <br>
+      {{ govukButton({
+        text: "Continue"
+      }) }}  
 
-      <details class="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            If a formal decision is needed
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          <p>To get a formal decision you’ll need to complete a claim form and send it by post. You can get a claim form by going to GOV.UK and searching for ‘funeral costs’.</p>
-        </div>
-      </details>
+      </form>
+
 
     </div>
   </div>

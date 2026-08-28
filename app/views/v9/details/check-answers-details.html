@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block beforeContent %}
+  {% include "app/views/includes/phase-banner.html" %}
+  
   {{ govukBackLink({
     text: "Back",
     href: "javascript:window.history.back()"
@@ -41,7 +43,12 @@
                     Date of birth
                   </dt>
                   <dd class="govuk-summary-list__value"> 
-                    {{ data['dob-day-claimant'] }} {{ data['dob-month-claimant'] | monthName }} {{ data['dob-year-claimant'] }}
+                    {% if data['dob-day-claimant'] and data['dob-month-claimant'] and data['dob-year-claimant'] %}
+                      {{ data['dob-day-claimant'] }}
+                      {{ data['dob-month-claimant'] | monthName }}
+                      {{ data['dob-year-claimant'] }}
+                    {% else %}
+                    {% endif %}
                   </dd>
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
@@ -82,13 +89,19 @@
                     Date of birth
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    {{ data['dob-day-partner'] }} {{ data['dob-month-partner'] | monthName }} {{ data['dob-year-partner'] }}
+                    {% if data['dod-day-partner'] and data['dod-month-partner'] and data['dod-year-partner'] %}
+                      {{ data['dob-day-partner'] }}
+                      {{ data['dob-month-partner'] | monthName }}
+                      {{ data['dob-year-partner'] }}
+                    {% else %}
+                    {% endif %}
                   </dd>
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
                   </dd>
                 </div>
                 
+                {% if (data['nationalinsurancenumber-partner']) %}
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
                     National Insurance number
@@ -100,7 +113,21 @@
                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence type</span></a>
                   </dd>
                 </div>
-                
+                {% else %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    National Insurance number
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Not known
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> licence type</span></a>
+                  </dd>
+                </div>
+                {% endif %}
+
+                {% if (data['dod-day-partner']) %}
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
                     Date of death
@@ -112,6 +139,19 @@
                     <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
                   </dd>
                 </div>
+                {% else %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Date of death
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Not known
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+                  </dd>
+                </div>
+                {% endif %}
               
               </dl>
             

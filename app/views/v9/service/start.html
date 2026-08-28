@@ -1,0 +1,39 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Take a Funeral Expenses Payment claim – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "app/views/includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Take a Funeral Expenses Payment claim
+      </h1>
+        
+      <p>
+        A caller can apply for Funeral Expenses Payment (FEP) if they are responsible for paying for a funeral in the UK.
+      </p>
+
+      <p>
+        Only use this form if the caller is the partner of the person who died.
+      </p>
+
+      <div class="govuk-!-padding-bottom-4"></div>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "/v9/eligibility/essential-statement",
+        isStartButton: true
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  What is your email address? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "app/views/includes/phase-banner.html" %}
+  
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/v9/contact/check-answers-bankandcontact" method="post">
+     
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">What is your email address?</h1>
+        </legend>
+        
+        {{ govukInput({
+          id: "email-address",
+          name: "email-address",
+          value: data['email-address'],
+          autocomplete: "yes",
+          spellcheck: false,
+          classes: "govuk-input",
+          label: {
+            text: "Email address"
+          }
+        }) }}
+
+        {{ govukInput({
+          id: "email-address-confirm",
+          name: "email-address-confirm",
+          value: data['email-address-confirm'],
+          autocomplete: "yes",
+          spellcheck: false,
+          classes: "govuk-input",
+          label: {
+            text: "Email address confirm"
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

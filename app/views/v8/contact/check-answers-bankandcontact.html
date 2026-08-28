@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block beforeContent %}
+  {% include "app/views/includes/phase-banner.html" %}
+  
   {{ govukBackLink({
     text: "Back",
     href: "javascript:window.history.back()"
@@ -26,7 +28,11 @@
                       Name of the account holder
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['nameOnTheAccount'] }}
+                      {% if data['nameOnTheAccount'] %}
+                        {{ data['nameOnTheAccount'] }}
+                      {% else %}
+                        Not provided
+                      {% endif %}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                       <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> previous application number</span></a>
@@ -38,7 +44,11 @@
                       Sort code
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['sortCode'] }}
+                      {% if data['sortCode'] %}
+                        {{ data['sortCode'] }}
+                      {% else %}
+                        Not provided
+                      {% endif %}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                       <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> previous application number</span></a>
@@ -50,7 +60,11 @@
                       Account number
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['accountNumber'] }}
+                      {% if data['accountNumber'] %}
+                        {{ data['accountNumber'] }}
+                      {% else %}
+                        Not provided
+                      {% endif %}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                       <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> previous application number</span></a>
