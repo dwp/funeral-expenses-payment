@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+  Provider details – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -18,7 +18,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/v9/funeral/provider-details" method="post">
+      <form class="form" action="/provideraddress-answer-v9" method="post">
      
         {% if (data['arrangingfuneral'] == "director") %}
         
@@ -56,6 +56,33 @@
         </label>
         <input class="govuk-input govuk-input--width-20" id="telephone-number" name="telephoneNumber" type="tel" autocomplete="tel">
       </div>
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    
+              {{ govukRadios({
+                name: "provideraddress",
+                values: data["provideraddress"],
+                fieldset: {
+                  legend: {
+                    text: "Do you know their address?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                 hint: {
+                  text: "This can be some or all of the address. For example, postcode or city."
+                },
+                items: [
+                  {
+                    value: "yes",
+                    text: "Yes"
+                  },
+                  {
+                    value: "no", 
+                    text: "No"
+                  }
+                ]
+              }) }}
 
       {{ govukButton({
         text: "Continue"

@@ -19,10 +19,20 @@
     <div class="govuk-grid-column-two-thirds">
 
       <form class="form" action="/v8/money/address-results" method="post">
-        
-        <h1 class="govuk-heading-l">
-          Address of {{ data['fullNamePersonResponsible'] }}
-        </h1>
+
+        {% if (data['fullNamePersonResponsible']) %}
+          <h1 class="govuk-heading-l">
+            Address of {{ data['fullNamePersonResponsible'] }}
+          </h1>
+       {% elif (data['financialaffairs'] == "solicitor") %}
+          <h1 class="govuk-heading-l">
+            Address of the solictor
+          </h1>
+        {% elif (data['financialaffairs'] == "someone-else") %}
+          <h1 class="govuk-heading-l">
+            Address ofde the person responsible for the financial affairs
+          </h1>
+        {% endif %}
 
         {% from "govuk/components/button/macro.njk" import govukButton %}
         {% from "govuk/components/input/macro.njk" import govukInput %}

@@ -126,6 +126,18 @@ router.post('/whereyoulive-answer-v9', function(request, response) {
     }
 })
 
+ // PERSON RESPONSIBLE DETAILS
+
+  router.post('/responsibleaddress-answer-v9', function(request, response) {
+
+    var responsibleaddress = request.session.data['responsibleaddress']
+    if (responsibleaddress == "yes"){
+        response.redirect("/v9/money/responsible-for-finances-address")
+    } else {
+        response.redirect("/v9/money/check-answers-money-skipped")
+    }
+})
+
   // MONEY IN BANK ACCOUNTS
 
   router.post('/bankaccounts-answer-v9', function(request, response) {
@@ -367,6 +379,18 @@ router.post('/whereyoulive-answer-v9', function(request, response) {
         response.redirect("v9/funeral/claim-travel")
     } else {
     response.redirect("v9/funeral/provider-name")
+    }
+})
+
+  // PROVIDER DETAILS
+
+  router.post('/provideraddress-answer-v9', function(request, response) {
+
+    var provideraddress = request.session.data['provideraddress']
+    if (provideraddress == "yes"){
+        response.redirect("/v9/funeral/provider-details")
+    } else {
+        response.redirect("/v9/funeral/contact-provider")
     }
 })
 
